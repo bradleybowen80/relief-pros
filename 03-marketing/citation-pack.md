@@ -60,6 +60,18 @@ Behind on your books? Our flat-price QuickBooks cleanup gets you current, quoted
 Bookkeeping only. No tax prep, no payroll, no moving your money, so your books arrive tax-ready for your CPA.
 ```
 
+## The Google review link
+
+```
+[PASTE HERE once the profile is verified]
+```
+
+Pull it from the Google Business Profile dashboard after video verification
+clears. It is the same link for every client and it belongs in exactly one
+place, which is this block. The
+[review request template](../04-clients/review-request-template.md) reads from
+here, so a wrong or retyped link breaks every ask at once.
+
 ## Services list, reuse everywhere
 
 ```

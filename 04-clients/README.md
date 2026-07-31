@@ -30,6 +30,8 @@ folder holds the blank forms, not the filled ones.
 |---|---|
 | [engagement-letter-template.md](engagement-letter-template.md) | draft, needs attorney review |
 | [ach-debit-authorization.md](ach-debit-authorization.md) | draft, needs attorney review |
+| [welcome-email-template.md](welcome-email-template.md) | active. Sent at SOP-002 step 8. Carries the client's private upload link, which the website promises |
+| [review-request-template.md](review-request-template.md) | active. Fires at SOP-001 step 12. Blocked on the Google review link until profile verification clears |
 
 ## Related
 
