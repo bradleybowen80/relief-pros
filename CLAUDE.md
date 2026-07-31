@@ -16,6 +16,14 @@ Brad Bowen builds everything non-financial: systems, SOPs, websites, copy, tooli
    technical facts (Node path, no gh CLI, Drive upload method, git remote) so
    they never get re-derived.
 
+## Start of every session: back-up reminder (do this first)
+
+At the start of every session, before other work, remind Brad in one short line:
+"To back up your work, double-click **sync.bat** in the relief-pros folder. It
+saves everything to GitHub." When a session changes anything in the repo, tell
+Brad to run sync.bat (or offer to prepare the commit) before the session ends.
+Nothing about the business should sit only on the hard drive un-backed-up.
+
 ## Hard rules (never violate, never re-litigate)
 
 - **Texas naming rule (legal gate):** non-CPAs may not use "accountant,"

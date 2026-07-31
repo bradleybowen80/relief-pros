@@ -19,7 +19,9 @@ sequences, and channel experiments.
 
 ## Index
 
-- (nothing yet)
+| Document | Status |
+|---|---|
+| [local-seo-and-market-strategy.md](local-seo-and-market-strategy.md) | draft, awaiting Brad and Sarah's decision on geography and vertical |
 
 ## Related
 
