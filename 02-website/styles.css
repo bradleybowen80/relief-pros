@@ -114,8 +114,8 @@
 
   .why{background:var(--soft)}
   .whygrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 34px;margin-top:24px}
-  .why li{list-style:none;padding-left:30px;position:relative;margin:10px 0;font-size:16px}
-  .why li:before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:800}
+  .why li,ul.why-ul li{list-style:none;padding-left:30px;position:relative;margin:10px 0;font-size:16px}
+  .why li:before,ul.why-ul li:before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:800}
   ul.why-ul{padding:0;margin:0}
   @media(max-width:700px){.whygrid{grid-template-columns:1fr}}
 
