@@ -2,7 +2,7 @@
 
 **Status:** active
 **Owner:** Brad (Sarah never chases documents)
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
 
 ## Purpose
 
@@ -29,7 +29,7 @@ The 1st of each month, when the portal begins auto-requesting the prior month's 
 ### 3. Hand off to the close
 
 1. By the close start (target the 10th), hand the close the complete document set per client, plus a list of anything still missing.
-2. Missing items are parked in a labeled holding account and disclosed in the summary note (SOP-001 steps 9 and 10). The close proceeds on time regardless.
+2. Missing items are parked in a labeled holding account and disclosed in the parked-items schedule (SOP-001 steps 9 and 10). The close proceeds on time regardless.
 
 ### 4. Flag chronic offenders
 

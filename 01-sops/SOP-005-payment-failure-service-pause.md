@@ -2,11 +2,11 @@
 
 **Status:** active
 **Owner:** Brad (payment mechanics), Sarah (any client-relationship decision)
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
 
 ## Purpose
 
-Handle a failed ACH autodraft on a fixed, automatic schedule so the firm never carries a receivable and never chases an invoice. Payment terms are firm policy, stated in the engagement letter and the ACH authorization, not a negotiation.
+Handle a failed ACH autodraft on a fixed, automatic schedule so the firm never carries a receivable and never chases an invoice. Payment terms are firm policy, stated in the engagement letter, not a negotiation. Drafts run through QuickBooks Payments recurring payments; the client's acceptance record lives in QuickBooks.
 
 ## Trigger
 
@@ -47,11 +47,11 @@ An ACH autodraft fails. Monthly retainers draft on the 1st in advance. Cleanup d
 ## If something goes wrong
 
 - **A client asks to be invoiced instead of autodrafted:** decline. ACH autodraft is the only payment model. There is no invoicing flow to offer. (Settled decision 7, CLAUDE.md.)
-- **A client disputes a draft:** route the relationship question to Sarah; Brad confirms only the mechanical facts (date, amount, authorization on file).
+- **A client disputes a draft:** route the relationship question to Sarah; Brad confirms only the mechanical facts (date, amount, the client's QuickBooks Payments enrollment record).
 - **A draft fails firm-side (processor issue), not client-side:** do not pause the client. Fix the processor issue and re-run. Confirm before notifying anyone of a failure.
 
 ## References
 
 - Payment model and terms: master handoff Sections 6 and 9, [CLAUDE.md](../CLAUDE.md)
-- ACH authorization terms: [ach-debit-authorization.md](../04-clients/ach-debit-authorization.md)
+- Payment rail: QuickBooks Payments recurring payments (standalone ACH form retired 2026-08-01; see [ach-debit-authorization.md](../04-clients/ach-debit-authorization.md) retirement note)
 - Renewal screening: [SOP-010](SOP-010-client-screening-scorecard.md)

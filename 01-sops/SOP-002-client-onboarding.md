@@ -2,7 +2,7 @@
 
 **Status:** active
 **Owner:** Sarah
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
 
 ## Purpose
 
@@ -20,17 +20,18 @@ A prospect has passed the screening scorecard (SOP-010) and the engagement pre-f
 
 ## Steps
 
-### 1. Execute the engagement letter and ACH authorization
+### 1. Execute the engagement letter
 
-1. Send the engagement letter ([04-clients/engagement-letter-template.md](../04-clients/engagement-letter-template.md)) and the ACH debit authorization ([04-clients/ach-debit-authorization.md](../04-clients/ach-debit-authorization.md)) for signature.
+1. Send the engagement letter ([04-clients/engagement-letter-template.md](../04-clients/engagement-letter-template.md)) for signature. (The standalone ACH debit authorization form was retired 2026-08-01; the debit authorization is captured by the QuickBooks Payments enrollment in step 2, and autodraft terms live in the letter.)
 2. Confirm the letter scopes services to bookkeeping only and explicitly excludes tax preparation, payroll, AP, AR, and payment authority over the client's accounts. (Guardrails 1, 11; settled decisions.)
-3. Do not begin any bookkeeping work until both documents are signed and returned. Signed copies go to the encrypted archive (backup layer 3), never to git, Drive, or the Project.
+3. Do not begin any bookkeeping work until the letter is signed and returned. The signed copy goes to the encrypted archive (backup layer 3), never to git, Drive, or the Project.
 
-### 2. Set up payment
+### 2. Set up payment (QuickBooks Payments recurring)
 
-1. Enroll the client in ACH autodraft. First draft runs on the 1st, in advance. There is no invoicing and no receivable. (Settled decision 7.)
-2. For a cleanup engagement, schedule the 50% deposit draft at signing and the balance on delivery.
-3. Confirm the receipt-email automation is armed so a receipt sends automatically after every draft.
+1. Send the recurring payment enrollment from the firm's QuickBooks (QuickBooks Payments). The client receives an email from Intuit, enters their bank details directly with Intuit, and formally accepts the recurring ACH draft. The firm never sees, collects, or stores the client's bank numbers.
+2. First draft runs on the 1st, in advance. There is no invoicing and no receivable. (Settled decision 7.)
+3. For a cleanup engagement, schedule the 50% deposit draft at signing and the balance on delivery.
+4. Confirm the client has completed the Intuit acceptance before the first draft date, and confirm QuickBooks' automatic receipt email is on.
 
 ### 3. Request access, least privilege
 
@@ -73,13 +74,13 @@ A prospect has passed the screening scorecard (SOP-010) and the engagement pre-f
 
 ### 10. Confirm first-close readiness
 
-1. Confirm: signed letter and ACH authorization, active insurance, QBO access with MFA, clean chart of accounts, verified opening balances at zero OBE, bank rules built, W-9s collected, portal live, document automation armed.
+1. Confirm: signed letter, accepted QuickBooks Payments enrollment, active insurance, QBO access with MFA, clean chart of accounts, verified opening balances at zero OBE, bank rules built, W-9s collected, portal live, document automation armed.
 2. Add the client to the KPI dashboard (SOP-008) and to the monthly close roster.
 
 ## Done when
 
-- Engagement letter and ACH authorization are signed and archived (encrypted, not in the repo).
-- ACH autodraft is enrolled and the receipt automation is armed.
+- Engagement letter is signed and archived (encrypted, not in the repo).
+- QuickBooks Payments recurring draft is enrolled, accepted by the client through Intuit's email, and the automatic receipt is on.
 - The firm has least-privilege QBO access with MFA, and no payment authority over client accounts.
 - The chart of accounts is clean and opening balances tie out with Opening Balance Equity at zero.
 - Bank rules are built, W-9s are collected, and the portal is live with document reminders armed.
@@ -97,7 +98,7 @@ A prospect has passed the screening scorecard (SOP-010) and the engagement pre-f
 
 - Screening before onboarding: [SOP-010](SOP-010-client-screening-scorecard.md)
 - Pre-flight guardrail gate: [SOP-009](SOP-009-engagement-preflight-checklist.md)
-- Templates executed here: [engagement-letter-template.md](../04-clients/engagement-letter-template.md), [ach-debit-authorization.md](../04-clients/ach-debit-authorization.md)
+- Template executed here: [engagement-letter-template.md](../04-clients/engagement-letter-template.md) (the ACH form is retired; see [ach-debit-authorization.md](../04-clients/ach-debit-authorization.md) for the retirement note)
 - Cleanup path: [SOP-003](SOP-003-cleanup-12-step.md)
 - Document automation: [SOP-004](SOP-004-document-chase.md)
 - Security and retention: [SOP-006](SOP-006-security-wisp.md), [SOP-007](SOP-007-records-retention.md)

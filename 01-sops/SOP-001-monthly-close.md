@@ -2,11 +2,11 @@
 
 **Status:** active
 **Owner:** Sarah
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
 
 ## Purpose
 
-Close one client's books for one month so that every balance is provable to an outside document, the period is locked, and the client receives a P&L, a balance sheet, and a plain-English summary. This is the single most important artifact in the business. It is what makes the practice trainable, hireable, and salable. Run it identically for every client, every month.
+Close one client's books for one month so that every balance is provable to an outside document, the period is locked, and the client receives a P&L and a balance sheet. This is the single most important artifact in the business. It is what makes the practice trainable, hireable, and salable. Run it identically for every client, every month.
 
 ## Trigger
 
@@ -82,19 +82,19 @@ Work this order and stop at the step that explains the difference:
 ### 9. Handle missing documents
 
 1. For any amount you could not prove because a document never arrived, move it to the client's **Ask My Client** account (SOP-011, Part 2). Never to Uncategorized Asset, which is a QBO system account that must stay at zero so it keeps its diagnostic value.
-2. List every parked item in the summary note by name and amount. The close proceeds on time. This is firm policy stated in the engagement letter, not a negotiation.
+2. List every parked item, by name and amount, in a clearly labeled **parked-items schedule** delivered with the statements. The close proceeds on time. This is firm policy stated in the engagement letter, not a negotiation.
 3. Flag chronic offenders for the renewal scorecard (SOP-010).
 
 ### 10. Produce the deliverables
 
 1. Generate the **Profit & Loss** and **Balance Sheet** for the close month (and month-over-month or budget-vs-actual per the client's tier).
-2. Write the **plain-English summary note**: what the numbers say in one screen, any parked items from step 9, and anything the client must act on. No accounting jargon. No em dashes.
+2. If any items were parked in step 9, produce the **parked-items schedule**: each item by name and amount, plain words, no jargon. (The monthly plain-English summary note was cut 2026-08-01: delivery is reports-only, and the paid Owner's Briefing call is the narrative channel.)
 3. Complex tier: schedule or hold the monthly review call.
 
 ### 10a. The gap: do not deliver the same day you finish
 
 1. Stop. The close is finished, not delivered.
-2. Re-open the P&L, balance sheet, and summary note **the next morning** and read
+2. Re-open the P&L, balance sheet, and any parked-items schedule **the next morning** and read
    them once with fresh eyes before locking and delivering.
 3. With one bookkeeper this is a required review control, not a courtesy. It is
    one of the few genuine second looks the firm has (SOP-011, Part 2).
@@ -108,7 +108,7 @@ Work this order and stop at the step that explains the difference:
 
 ### 12. Deliver and archive
 
-1. Deliver the P&L, balance sheet, and summary note through the **portal only**. Never by email. (Data-security rule.)
+1. Deliver the P&L, balance sheet, and any parked-items schedule through the **portal only**. Never by email. (Data-security rule.)
 2. Brad exports the month's **trial balance, P&L, balance sheet, and general ledger** to the encrypted client archive (backup layer 2). This proves the firm's work independently of continued QBO access or the client relationship.
 3. Trigger the review request only after a clean close (SOP for review requests; see automation scheme).
 4. Update the client's KPI line (SOP-008): close completed, date closed, hours spent, any parked items.
@@ -119,7 +119,7 @@ Work this order and stop at the step that explains the difference:
 - Opening Balance Equity is zero and Undeposited Funds is swept.
 - The balance sheet has no line that cannot be tied to an external document.
 - The period is locked with a closing-date password.
-- P&L, balance sheet, and a plain-English summary are delivered through the portal.
+- P&L and balance sheet (plus any parked-items schedule) are delivered through the portal.
 - The month's reports are exported to the encrypted archive.
 - The completed close was reviewed on a later day than it was finished.
 - The close was delivered on or before the 15th.
@@ -129,7 +129,7 @@ Work this order and stop at the step that explains the difference:
 - **A reconciliation will not tie:** run step 6 in order. Escalate to Sarah with the discrepancy report. Never plug.
 - **A prior period no longer matches:** stop the current close. A closed period was reopened or edited. Diagnose via the audit log before building this month on it.
 - **A closed period must be reopened:** document the reason, who authorized it, and what changed, before removing the closing-date password. Re-lock immediately after. An undocumented reopen is a control failure.
-- **A document never arrived:** park it (step 9), disclose it in the summary note, proceed on time. Do not delay the close waiting on a client.
+- **A document never arrived:** park it (step 9), disclose it in the parked-items schedule, proceed on time. Do not delay the close waiting on a client.
 - **A transaction needs a judgment call Brad cannot make:** it goes to Sarah's queue. It does not get guessed to keep the queue clean.
 
 ## References

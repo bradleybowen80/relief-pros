@@ -2,7 +2,7 @@
 
 **Status:** draft template
 **Owner:** Sarah
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
 
 > **ATTORNEY REVIEW REQUIRED BEFORE FIRST USE.** This is a drafting template, not legal advice and not a final contract. A Texas attorney reviews it once (roughly $0 to $250) before it is sent to any client. Do not send an unreviewed version.
 >
@@ -35,7 +35,7 @@ The Firm will provide the following bookkeeping services, each as a separately s
 - Transaction categorization in QuickBooks Online.
 - Bank and credit card reconciliation for up to [N] accounts.
 - Monthly financial statements: Profit & Loss and Balance Sheet.
-- [Tier add-ons as applicable: loan tie-outs; AR/AP aging review (review and reporting only, not accounts-payable or accounts-receivable processing); plain-English monthly summary note; job costing or POS reconciliation; class tracking; subcontractor 1099 tracking; monthly review call.]
+- [Tier add-ons as applicable: loan tie-outs; class tracking; subcontractor W-9 and 1099 tracking; monthly Owner's Briefing call.]
 
 Each service above is provided and priced as a separate line item.
 
@@ -53,11 +53,11 @@ The Firm never holds signature or payment authority over the Client's accounts. 
 
 ### 3. Fees and payment
 
-- Monthly bookkeeping fee: **$[AMOUNT] per month**, drafted in advance on the 1st of each month by ACH autodraft under the separate ACH Debit Authorization the Client signs with this letter.
+- Monthly bookkeeping fee: **$[AMOUNT] per month**, drafted in advance on the 1st of each month by ACH autodraft through QuickBooks Payments, under the recurring-payment enrollment the Client accepts through Intuit's secure email before the first draft.
 - [Cleanup / catch-up, if applicable: **$[AMOUNT]**, with 50% drafted at signing and the balance drafted on delivery.]
 - [1099 preparation, if applicable: **$[AMOUNT] per form**, drafted in January.]
 
-Payment is by ACH autodraft only. The Firm does not invoice and does not extend credit. A receipt is emailed automatically after each successful draft.
+Payment is by ACH autodraft only. The Firm does not invoice and does not extend credit. A receipt is emailed automatically after each successful draft. The Client enters bank details directly with Intuit (QuickBooks Payments); the Firm does not collect or store the Client's bank account numbers. The Client may revoke the recurring enrollment in writing with at least [10] days' notice before the next scheduled draft; revocation does not waive fees already earned.
 
 **Failed drafts.** A failed draft retries on day 3. If it remains unresolved on day 10, service pauses automatically and the Client is notified. Service resumes when payment clears.
 
@@ -69,11 +69,11 @@ Payment is by ACH autodraft only. The Firm does not invoice and does not extend 
 
 ### 5. What happens when documents do not arrive
 
-If documents for a period do not arrive by the deadline, the Firm completes the close on schedule using what is available, parks any unprovable amounts in a clearly labeled holding account, and lists them in the monthly summary note. The Firm does not delay a close waiting on documents. Chronic lateness is addressed at renewal.
+If documents for a period do not arrive by the deadline, the Firm completes the close on schedule using what is available, parks any unprovable amounts in a clearly labeled holding account, and lists them in a clearly labeled schedule delivered with the monthly statements. The Firm does not delay a close waiting on documents. Chronic lateness is addressed at renewal.
 
 ### 6. Deliverables and timing
 
-Each month the Firm delivers, through the portal, a Profit & Loss statement, a Balance Sheet, and a plain-English summary note, on or before the 15th, and locks the period with a closing-date password.
+Each month the Firm delivers, through the portal, a Profit & Loss statement and a Balance Sheet, on or before the 15th, and locks the period with a closing-date password.
 
 ### 7. Out-of-scope items and referrals
 
@@ -104,7 +104,7 @@ The Relief Pros, LLC: __________________________ Date: __________
 ### Drafting notes (delete before sending)
 
 - Confirm every [BRACKET] is filled.
-- Confirm the ACH Debit Authorization is attached and signed with this letter.
+- Confirm the Client completed the QuickBooks Payments recurring-payment enrollment (Intuit's acceptance email) before the first draft date. There is no separate ACH form to attach; ask the attorney to confirm this letter plus Intuit's enrollment flow suffices (retired form kept at ach-debit-authorization.md for reference).
 - Confirm no restricted term appears anywhere (accountant, accounting, accounting services, auditor, audit expertise).
 - Confirm services are separately line-itemed, not lumped.
 - Signed originals go to the encrypted archive only, never to git, Drive, or the Project.
@@ -112,6 +112,6 @@ The Relief Pros, LLC: __________________________ Date: __________
 ## References
 
 - Pre-flight guardrail gate: [../01-sops/SOP-009-engagement-preflight-checklist.md](../01-sops/SOP-009-engagement-preflight-checklist.md)
-- ACH terms: [ach-debit-authorization.md](ach-debit-authorization.md)
+- Payment rail decision and retired ACH form: [ach-debit-authorization.md](ach-debit-authorization.md)
 - Onboarding that executes this: [../01-sops/SOP-002-client-onboarding.md](../01-sops/SOP-002-client-onboarding.md)
 - Hard rules: [../CLAUDE.md](../CLAUDE.md)

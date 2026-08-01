@@ -11,15 +11,16 @@ folder holds the blank forms, not the filled ones.
 
 - Onboarding checklist and welcome packet templates
 - Engagement letter template
-- ACH autodraft authorization template
+- ACH autodraft authorization template (RETIRED 2026-08-01, kept for reference)
 - Offboarding is a procedure, not a template: see [SOP-016](../01-sops/client-lifecycle/SOP-016-offboarding.md)
 
 ## Rules that apply here
 
 - Engagement letters must scope services to bookkeeping only and explicitly
   exclude tax preparation, payroll, and AP/AR (see [CLAUDE.md](../CLAUDE.md)).
-- Payment terms in every template: ACH autodraft on the 1st. No invoicing
-  language anywhere.
+- Payment terms in every template: ACH autodraft on the 1st through QuickBooks
+  Payments recurring enrollment (the client enters bank details directly with
+  Intuit). No invoicing language anywhere.
 - Every template says "bookkeeping," never "accounting" (Texas naming gate).
 - Templates are drafts until a Texas attorney reviews them once. Filled-in
   copies contain client data and go to the encrypted archive only.
@@ -29,7 +30,7 @@ folder holds the blank forms, not the filled ones.
 | Document | Status |
 |---|---|
 | [engagement-letter-template.md](engagement-letter-template.md) | draft, needs attorney review |
-| [ach-debit-authorization.md](ach-debit-authorization.md) | draft, needs attorney review |
+| [ach-debit-authorization.md](ach-debit-authorization.md) | RETIRED 2026-08-01. Intuit's QuickBooks Payments enrollment captures the debit authorization; autodraft terms live in the engagement letter. Kept for attorney reference |
 | [welcome-email-template.md](welcome-email-template.md) | active. Sent at SOP-002 step 8. Carries the client's private upload link, which the website promises |
 | [review-request-template.md](review-request-template.md) | active. Fires at SOP-001 step 12. Blocked on the Google review link until profile verification clears |
 

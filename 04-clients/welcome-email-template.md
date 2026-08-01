@@ -2,7 +2,7 @@
 
 **Status:** active
 **Owner:** Sarah
-**Last reviewed:** 2026-07-31
+**Last reviewed:** 2026-08-01
 
 ## Purpose
 
@@ -27,7 +27,8 @@ than no welcome email.
 
 ## Before sending, these must be true
 
-- Engagement letter and ACH authorization are signed and archived.
+- Engagement letter is signed and archived, and the client has accepted the
+  QuickBooks Payments recurring-payment enrollment from Intuit's email.
 - The client's private upload link is created and tested by uploading a test
   file and deleting it.
 - The client's folder tree exists.
@@ -43,7 +44,7 @@ than no welcome email.
 | `[MONTHLY PRICE]` | The flat monthly figure from the engagement letter |
 | `[FIRST CLOSE MONTH]` | The first month we will close, e.g. "August 2026" |
 | `[FIRST DELIVERY DATE]` | The 15th following that month, adjusted for weekends |
-| `[FIRST DRAFT DATE]` | The date of the first ACH draft |
+| `[FIRST DRAFT DATE]` | The date of the first ACH draft (QuickBooks Payments recurring) |
 | `[UPLOAD LINK]` | This client's private upload link. Never a shared or public link |
 | `[ACCOUNT LIST]` | The specific accounts we reconcile, named, e.g. "Chase business checking, Chase Ink card" |
 
@@ -101,7 +102,8 @@ You will get an automatic reminder on the 1st, the 3rd, and the 5th. Ignore
 them once everything is in.
 
 If something is missing, we do not stop and wait. We close on time, park the
-affected item, and tell you plainly in your summary what was parked and why.
+affected item, and send a short list with your reports of what was parked and
+why.
 
 **What you get back**
 
@@ -110,8 +112,6 @@ month after that:
 
 - Profit and loss statement
 - Balance sheet
-- A short summary in plain words: what the numbers say, anything that changed,
-  and anything you need to act on
 
 Every account is reconciled to the actual statement, to the penny, before
 anything is delivered. If a number does not tie to a real document, it does not
@@ -120,6 +120,9 @@ go out.
 **Your plan and billing**
 
 - Plan: [PLAN], $[MONTHLY PRICE] per month, flat
+- Payment setup arrives in a separate email from Intuit (QuickBooks). You
+  enter your bank details directly with Intuit and accept the draft there. We
+  never see or store your bank numbers.
 - First draft: [FIRST DRAFT DATE], then the 1st of each month
 - A receipt is emailed automatically after every draft
 - Month to month. Thirty days' notice, no penalty, and we send you your files

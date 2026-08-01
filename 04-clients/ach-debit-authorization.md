@@ -1,8 +1,12 @@
 # ACH Debit Authorization Template
 
-**Status:** draft template
+**Status:** RETIRED 2026-08-01, kept for reference only
 **Owner:** Sarah
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-08-01
+
+> **RETIRED. Do not send this form to clients.** The firm settled on QuickBooks Payments recurring payments as the rail (2026-08-01). Intuit captures the debit authorization electronically: the client receives an enrollment email, enters bank details directly with Intuit, and accepts the recurring draft. The firm never collects bank numbers, which also removes the encrypted-archive handling this form required. Autodraft terms (drafted the 1st, notice periods, failed-payment handling) live in the engagement letter. This file stays in the repo so the attorney can confirm during the engagement-letter review that no standalone form is needed, and as a fallback if the rail ever changes.
+>
+> Original template follows, unchanged.
 
 > **ATTORNEY REVIEW REQUIRED BEFORE FIRST USE.** This template is signed alongside the engagement letter. It authorizes the Firm to pull the agreed fee. It grants the Firm no authority to move money out of the Client's accounts for any other purpose. A Texas attorney reviews it once before first use.
 >

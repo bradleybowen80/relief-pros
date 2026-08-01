@@ -35,7 +35,7 @@ Nothing about the business should sit only on the hard drive un-backed-up.
   ever holds payment authority over a client's payroll, tax, or withholding
   accounts. The IRS holds "responsible persons" personally liable for unpaid
   withheld taxes under IRC 6672; the exposure is unlimited and not
-  dischargeable. Every engagement letter and ACH authorization excludes payment
+  dischargeable. Every engagement letter excludes payment
   authority explicitly. This is one of the two reasons payroll is excluded.
 - **Sarah owns 100%.** Women-owned path only. The SDVOSB/VetHUB restructure was
   researched and deliberately declined. Do not re-propose it.
@@ -46,6 +46,11 @@ Nothing about the business should sit only on the hard drive un-backed-up.
   personal Trust Fund Recovery Penalty exposure.
 - **ACH autodraft on the 1st** is the only payment model. Zero receivables,
   no invoicing, no chasing. Do not design any flow that creates a receivable.
+  Settled 2026-08-01: the rail is **QuickBooks Payments recurring payments**.
+  The client accepts Intuit's enrollment email and enters bank details
+  directly with Intuit, so the firm never collects or stores bank numbers.
+  The standalone ACH debit authorization form is retired; autodraft terms
+  live in the engagement letter.
 - **White-label subcontracting is rejected.** Do not resurrect it as a fallback.
 - **Brad stays low-profile:** no face, no personal brand, no speaking. The
   business is the brand.
