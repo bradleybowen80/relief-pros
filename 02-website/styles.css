@@ -53,10 +53,19 @@
   .compare td.us{background:#f0faf6;font-weight:600;color:var(--navy)}
   .compare .rowlabel{font-weight:700;color:var(--navy);white-space:nowrap}
   @media(max-width:700px){
-    .compare table{min-width:0}
-    .compare th:nth-child(2),.compare td:nth-child(2){display:none}
-    .compare th,.compare td{padding:12px 10px;font-size:13.5px}
-    .compare .rowlabel{white-space:normal}
+    .compare table{min-width:0;display:block}
+    .compare thead{display:none}
+    .compare tbody,.compare tr,.compare td{display:block;width:100%}
+    .compare tr{border-bottom:1px solid var(--line)}
+    .compare tr:last-child{border-bottom:none}
+    .compare td{border-bottom:none;padding:7px 18px;font-size:14.5px}
+    .compare td:last-child{padding-bottom:16px}
+    .compare .rowlabel{white-space:normal;background:var(--navy);color:#fff;padding:10px 18px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+    .compare td:nth-child(2):before,.compare td:nth-child(3):before,.compare td.us:before{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .compare td:nth-child(2):before{content:"Do it yourself"}
+    .compare td:nth-child(3):before{content:"Hire in-house"}
+    .compare td.us:before{content:"The Relief Pros";color:var(--teal-dk)}
+    .compare td.us{background:#f0faf6}
   }
 
   .price{text-align:center}
