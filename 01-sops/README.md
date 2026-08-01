@@ -28,6 +28,21 @@ anyone anything.
 | [SOP-008](SOP-008-kpi-dashboard.md) | KPI dashboard, reviewed monthly | active |
 | [SOP-009](SOP-009-engagement-preflight-checklist.md) | Engagement pre-flight checklist (guardrails) | active |
 | [SOP-010](SOP-010-client-screening-scorecard.md) | Client screening scorecard | active |
+| [SOP-011](SOP-011-error-prevention-protocol.md) | Error prevention protocol | active |
+
+### Client lifecycle set
+
+Five checklists covering one client from signature to the day the engagement ends. They live
+together in [client-lifecycle/](client-lifecycle/README.md) because they are one
+arc, and they are numbered as SOPs like everything else.
+
+| SOP | Title | Status |
+|---|---|---|
+| [SOP-012](client-lifecycle/SOP-012-day-one.md) | Day one, the first 24 hours after signature | active |
+| [SOP-013](client-lifecycle/SOP-013-first-30-days.md) | The first 30 days | active |
+| [SOP-014](client-lifecycle/SOP-014-first-quarter.md) | The first quarter | active |
+| [SOP-015](client-lifecycle/SOP-015-weekly-hour.md) | The weekly hour, steady state | active |
+| [SOP-016](client-lifecycle/SOP-016-offboarding.md) | Offboarding | active |
 
 ## Related
 

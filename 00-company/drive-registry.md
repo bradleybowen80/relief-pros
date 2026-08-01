@@ -34,6 +34,21 @@ changes meaningfully, refresh its Doc here.
 | SOP-008 KPI Dashboard | Doc | [01-sops/SOP-008](../01-sops/SOP-008-kpi-dashboard.md) | |
 | SOP-009 Engagement Pre-Flight Checklist | Doc | [01-sops/SOP-009](../01-sops/SOP-009-engagement-preflight-checklist.md) | Run before every engagement |
 | SOP-010 Client Screening Scorecard | Doc | [01-sops/SOP-010](../01-sops/SOP-010-client-screening-scorecard.md) | |
+| [QuickBooks Learning Guide](https://docs.google.com/document/d/1VwPo2_gswfSaFv7f4hfBEls5KKGMvpnzLv-jQA3xZz0/edit) | Doc | [06-training](../06-training/quickbooks-learning-guide.md) | First-time QBO user cheat sheet. Verified against Intuit help Aug 2026. Also exists as a styled HTML in the repo and as a desktop artifact |
+| [SOP-011 Error Prevention Protocol](https://docs.google.com/document/d/1d9Eh26dshyrgS75EiGQXdRlVmEbXzuiqhQ5O2AoLdbU/edit) | Doc | [01-sops/SOP-011](../01-sops/SOP-011-error-prevention-protocol.md) | The seven rules, the 14-check month-end sweep, the trap list, the escalation ladder. Read once end to end before the first client |
+
+### client-lifecycle subfolder
+
+Drive folder: https://drive.google.com/drive/folders/1fas_y7u7DeU3HqXeeahhm8ihmrrOfAK9
+
+| Document | Type | Repo source | Notes |
+|---|---|---|---|
+| [Client Lifecycle - READ ME FIRST](https://docs.google.com/document/d/1I3qt-30vkVsLOLJYIQAiNW6kClNlzoiit8747joZUmg/edit) | Doc | [client-lifecycle/README](../01-sops/client-lifecycle/README.md) | The arc, the monthly calendar, the hours budget |
+| [SOP-012 Day One](https://docs.google.com/document/d/1gdgXIHut7JSdD5cHoavoXgf0-CVEqMy7nwlPQvXlWwg/edit) | Doc | [SOP-012](../01-sops/client-lifecycle/SOP-012-day-one.md) | First 24 hours after signature. Access, control, baseline, damage assessment |
+| [SOP-013 The First 30 Days](https://docs.google.com/document/d/1MYbR7OzOUk3yWeAFnLcgn8l33mAzXoPpd5hMIt_D15E/edit) | Doc | [SOP-013](../01-sops/client-lifecycle/SOP-013-first-30-days.md) | Foundation, first close |
+| [SOP-014 The First Quarter](https://docs.google.com/document/d/1OFfvKD2dgsnb7-rOqbkSFh5xzk8dvzIhPHkMO4BHvPE/edit) | Doc | [SOP-014](../01-sops/client-lifecycle/SOP-014-first-quarter.md) | Three closes, file health audit, tier and pricing review |
+| [SOP-015 The Weekly Hour](https://docs.google.com/document/d/1j-9Kv2IZQ_l752oDWW-SO-w3Or0UB1jA4F6_A-VddP0/edit) | Doc | [SOP-015](../01-sops/client-lifecycle/SOP-015-weekly-hour.md) | Steady state. Carries the canonical hours budget |
+| [SOP-016 Offboarding](https://docs.google.com/document/d/1hDk_2h4Ihzw8xnbztoQMy_G3anesDHiPyFt8K8IXEQg/edit) | Doc | [SOP-016](../01-sops/client-lifecycle/SOP-016-offboarding.md) | Ending an engagement, including for cause |
 | Engagement Letter Template (DRAFT) | Doc | [04-clients](../04-clients/engagement-letter-template.md) | Needs attorney review before first use |
 | ACH Debit Authorization (DRAFT) | Doc | [04-clients](../04-clients/ach-debit-authorization.md) | Needs attorney review before first use |
 | Compliance Calendar | Doc | [00-company](compliance-calendar.md) | |

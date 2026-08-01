@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QuickBooks Learning Guide | The Relief Pros</title>
+<style>
+:root{--ink:#12233a;--muted:#5b6b7f;--line:#dfe6ee;--soft:#f6f9fc;--teal:#0f7d6e;--navy:#12233a;--warn:#b4531a;--warnbg:#fff6ee}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+.wrap{max-width:940px;margin:0 auto;padding:34px 22px 90px}
+h1{font-size:34px;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:24px;margin:46px 0 12px;padding-top:22px;border-top:2px solid var(--line);letter-spacing:-.01em}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:18px;margin:28px 0 8px;color:var(--navy)}
+p{margin:12px 0}
+hr{display:none}
+strong{color:var(--navy)}
+code{background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font:600 13.5px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap;color:var(--navy)}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14.5px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:13.5px}
+tbody tr:nth-child(even){background:var(--soft)}
+td code{font-size:13px}
+ul,ol{margin:12px 0;padding-left:22px}
+li{margin:6px 0}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--soft);border-left:4px solid var(--teal)}
+a{color:var(--teal)}
+.meta{color:var(--muted);font-size:14px;margin-bottom:26px}
+.meta strong{color:var(--muted);font-weight:600}
+@media print{
+  body{font-size:11pt}
+  .wrap{max-width:none;padding:0}
+  h2{page-break-after:avoid;break-after:avoid;font-size:16pt}
+  h3{page-break-after:avoid;break-after:avoid}
+  table{page-break-inside:auto;font-size:9.5pt;display:table}
+  tr{page-break-inside:avoid}
+  th{background:#12233a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  tbody tr:nth-child(even){background:#f6f9fc!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media(max-width:640px){.wrap{padding:20px 14px 60px}h1{font-size:27px}h2{font-size:20px}table{font-size:13.5px}}
+</style>
+</head><body><div class="wrap">
+<h1 id="quickbooks-learning-guide">QuickBooks Learning Guide</h1>
+<p><strong>For:</strong> a first-time QuickBooks Online user
+<strong>Status:</strong> active
+<strong>Last reviewed:</strong> 2026-08-01
+<strong>Verified against:</strong> Intuit official help articles, August 2026</p>
+<hr />
+<h2 id="read-this-part-first">Read this part first</h2>
+<p><strong>The interface changed in May 2026 and most tutorials online are now wrong.</strong></p>
+<p>Intuit made the "modern experience" the default on <strong>May 8, 2026</strong>, and retired
+the classic report views a few weeks later. There is no way back. Any guide,
+YouTube video, or course that shows a left sidebar reading <em>Dashboard, Sales,
+Expenses, Reports</em> is describing software that no longer exists.</p>
+<p>This matters more than it sounds. A beginner following an outdated tutorial
+concludes they are stupid when they are actually just looking at a different
+program. <strong>You are not lost. The menu moved.</strong></p>
+<p><strong>The three-second test for what you are looking at:</strong></p>
+<table>
+<thead>
+<tr>
+<th>You see</th>
+<th>You are in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A slim <strong>icon rail</strong> on the far left with Create, Bookmarks, Home, Feed, Reports, All apps</td>
+<td><strong>Modern.</strong> This is current. Everything in this guide assumes it.</td>
+</tr>
+<tr>
+<td>A <strong>text list</strong>: Dashboard, Transactions, Sales, Expenses, Reports</td>
+<td><strong>Classic.</strong> Retired mid-2026. If you see this, you are in an old screenshot.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Everything is behind one of three controls.</strong> Learn these and you can find
+anything:</p>
+<ol>
+<li><strong>Create</strong> (the <code>+</code>) — the only correct way to start a new transaction</li>
+<li><strong>All apps</strong> — hover it, get a flyout with everything grouped</li>
+<li><strong>The gear icon, top right</strong> — company-level settings, the audit log, lists</li>
+</ol>
+<hr />
+<h2 id="part-1-the-mental-model">Part 1: The mental model</h2>
+<p>Before any buttons. Six ideas, and everything else is detail.</p>
+<p><strong>1. QuickBooks is a filing system, not a calculator.</strong> Its whole job is to put
+every dollar in the right bucket. The buckets are the <strong>Chart of Accounts</strong>. When
+QuickBooks says "Category," it means "which account." Same thing, two words, and
+the inconsistency confuses everybody at first.</p>
+<p><strong>2. Every transaction hits two places.</strong> Money left checking and became a fuel
+expense. Cash goes down, expense goes up. You will almost never type debits and
+credits, because the forms do it for you. That is the entire point of the forms.</p>
+<p><strong>3. The bank feed is not your books.</strong> It is a pile of stuff the bank sent over,
+sitting outside your books until a human decides what it is. Nothing in
+<strong>Pending</strong> affects a single report.</p>
+<p><strong>4. There are two ways a transaction gets into the books, and confusing them is
+the most expensive beginner error.</strong> Either you make a new one (<strong>Post</strong>, formerly
+"Add") or you connect the bank line to something already there (<strong>Match</strong>). If
+you Post something that was already in the books, it now exists twice.</p>
+<p><strong>5. Forms exist so the subledgers stay intact.</strong> Behind Accounts Receivable and
+Accounts Payable are detailed lists of who owes what. Using an Invoice keeps that
+list right. Using a journal entry to move A/R breaks it permanently. Use the form
+that matches what happened.</p>
+<p><strong>6. Reconciling is the proof.</strong> Everything above is bookkeeping's version of
+showing your work. Reconciling is checking the answer against reality: the bank
+statement. Until an account is reconciled to zero difference, the number is a
+claim, not a fact.</p>
+<hr />
+<h2 id="part-2-where-everything-is">Part 2: Where everything is</h2>
+<p>Modern navigation. The classic path is shown only where you might meet it in old
+material.</p>
+<table>
+<thead>
+<tr>
+<th>What you want</th>
+<th>Where it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chart of Accounts</strong></td>
+<td>All apps → Accounting → Chart of accounts</td>
+</tr>
+<tr>
+<td><strong>Bank transactions</strong> (the feed)</td>
+<td>All apps → Accounting → Bank transactions</td>
+</tr>
+<tr>
+<td><strong>Reconcile</strong></td>
+<td>All apps → Accounting → Reconcile</td>
+</tr>
+<tr>
+<td><strong>Bank rules</strong></td>
+<td>All apps → Accounting → Rules</td>
+</tr>
+<tr>
+<td><strong>Recurring transactions</strong></td>
+<td>All apps → Accounting → Recurring transactions</td>
+</tr>
+<tr>
+<td><strong>Products &amp; Services</strong> (items)</td>
+<td>All apps → Sales &amp; Get Paid → Products &amp; services</td>
+</tr>
+<tr>
+<td><strong>Customers / Invoices</strong></td>
+<td>All apps → Sales &amp; Get Paid</td>
+</tr>
+<tr>
+<td><strong>Vendors / Bills</strong></td>
+<td>All apps → Expenses &amp; Bills</td>
+</tr>
+<tr>
+<td><strong>Reports</strong></td>
+<td>The Reports icon on the left rail</td>
+</tr>
+<tr>
+<td><strong>Audit log</strong></td>
+<td>Gear → Audit log</td>
+</tr>
+<tr>
+<td><strong>Settings</strong></td>
+<td>Gear → Account and settings</td>
+</tr>
+<tr>
+<td><strong>Close the books</strong></td>
+<td>Gear → Account and settings → Advanced → Accounting → Edit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Create (the +)</strong> groups every transaction into four columns:</p>
+<ul>
+<li><strong>Customers</strong> — Invoice, Receive payment, Estimate, Credit memo, Sales receipt, Refund receipt</li>
+<li><strong>Vendors</strong> — Expense, Check, Bill, Pay bills, Purchase order, Vendor credit</li>
+<li><strong>Employees</strong> — Payroll, time activity, timesheets <em>(not used at this firm)</em></li>
+<li><strong>Other</strong> — Bank deposit, Transfer, Journal entry, Statement, Inventory adjustment</li>
+</ul>
+<p><strong>Bookmarks</strong> sit at the top of the rail. Pin the four or five pages you use
+daily and stop navigating. The flyout also has <strong>Open Link in New Tab</strong>, which is
+how you get a report open beside a transaction.</p>
+<p><strong>Search</strong> (the magnifier, or <code>Ctrl+Alt+F</code>) is far better than beginners expect.
+It searches amount, reference number, memo, description, contact, class, and
+location, and it accepts plain English like <em>"invoice over $100 from April Banks
+this year."</em> <strong>Advanced Search</strong> reaches transactions older than two years.
+Searching an exact dollar amount is the fastest way to find a duplicate.</p>
+<hr />
+<h2 id="part-3-the-vocabulary-in-plain-words">Part 3: The vocabulary, in plain words</h2>
+<p>The words that trip up every beginner, defined the way QuickBooks actually uses
+them.</p>
+<h3 id="the-bank-feed">The bank feed</h3>
+<p>The banking page was rewritten in May 2026 and <strong>the tab names changed.</strong> Older
+material uses the old names, so both are given here.</p>
+<table>
+<thead>
+<tr>
+<th>Now</th>
+<th>Formerly</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pending</strong></td>
+<td>For review</td>
+<td>Downloaded from the bank. Not in your books. Affects nothing.</td>
+</tr>
+<tr>
+<td><strong>Posted</strong></td>
+<td>Categorized</td>
+<td>Accepted into the books. It is now real.</td>
+</tr>
+<tr>
+<td><strong>Excluded</strong></td>
+<td>Excluded</td>
+<td>Deliberately ignored. Never hits the books.</td>
+</tr>
+<tr>
+<td><strong>Post</strong></td>
+<td>Add</td>
+<td>Creates a <strong>brand new</strong> transaction from the bank line.</td>
+</tr>
+<tr>
+<td><strong>Match</strong></td>
+<td>Match</td>
+<td>Links the bank line to something <strong>already in QuickBooks</strong>. Creates nothing.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Match</strong> means "I already entered this, connect them."</li>
+<li><strong>Post/Add</strong> means "this doesn't exist yet, make it."</li>
+<li><strong>Record as transfer</strong> means money moved between two accounts you own. Not
+  income, not expense. If both accounts are connected, the same movement
+  downloads twice and you match the second to the first.</li>
+<li><strong>Split</strong> divides one bank line across several categories until the difference
+  reads $0.00.</li>
+</ul>
+<h3 id="the-structure">The structure</h3>
+<ul>
+<li><strong>Chart of Accounts</strong> — the master list of buckets. Everything lands in one.</li>
+<li><strong>Category</strong> — QuickBooks' word for "which account." Same thing.</li>
+<li><strong>Account Type vs Detail Type</strong> — <strong>Account Type</strong> is structural (Bank,
+  Expense, Fixed Asset, Income, and so on) and decides which statement the account
+  appears on and where. <strong>Detail Type</strong> is a sub-label mostly used for tax mapping.
+  <strong>Get Account Type right. Do not agonize over Detail Type.</strong></li>
+<li><strong>Item / Product &amp; Service</strong> — the line you put on a sales form. It points at
+  an income account behind the scenes. Four kinds: Inventory, Non-inventory,
+  Service, Bundle.</li>
+<li><strong>Customer</strong> = who paid. <strong>Project</strong> = which job. <strong>Class</strong> = which part of the
+  business. <strong>Location</strong> = which site. You will use Customer and possibly Project.
+  Do not turn on all four.</li>
+</ul>
+<h3 id="money-out-three-forms-one-difference">Money out: three forms, one difference</h3>
+<p>Intuit's own framing: the only real difference is <strong>the timing of the payment.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Use when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bill</strong></td>
+<td>You owe it and will pay later. Creates Accounts Payable.</td>
+</tr>
+<tr>
+<td><strong>Check</strong></td>
+<td>Paid now, and you intend to print a physical check.</td>
+</tr>
+<tr>
+<td><strong>Expense</strong></td>
+<td>Paid now by card, ACH, debit, or auto-draft.</td>
+</tr>
+<tr>
+<td><strong>Pay bills</strong></td>
+<td>The <strong>only</strong> correct way to settle a Bill you already entered.</td>
+</tr>
+</tbody>
+</table>
+<p>Intuit states it flatly: <strong>do not use a Check or Expense to pay an existing
+bill.</strong> Doing so records the expense twice and leaves the bill open forever.</p>
+<h3 id="money-in">Money in</h3>
+<ul>
+<li><strong>Invoice</strong> — customer will pay later. Creates Accounts Receivable.</li>
+<li><strong>Sales Receipt</strong> — sale and payment at the same moment. No A/R.</li>
+<li><strong>Receive Payment</strong> — applies a payment <strong>against an existing invoice</strong>.
+  Skip it and the invoice stays open forever even though the money is in the bank.</li>
+<li><strong>Bank Deposit</strong> — groups several received payments into the one lump sum the
+  bank actually shows.</li>
+<li><strong>Undeposited Funds</strong> (also labeled <strong>"Payments to deposit"</strong>) — Intuit's own
+  metaphor is a temporary lockbox holding payments until you record a formal
+  deposit. The flow is: Receive payment → Undeposited Funds → Bank deposit →
+  match the feed. If payments hit the bank individually, you do not need it.</li>
+</ul>
+<h3 id="the-controls">The controls</h3>
+<ul>
+<li><strong>Journal Entry</strong> — raw debits and credits with no form behind it. <strong>A last
+  resort, not a default.</strong> It bypasses the A/R and A/P subledgers, cannot carry
+  items, and cannot be matched in the bank feed.</li>
+<li><strong>Reconcile</strong> — tick your records against the statement until <strong>Difference =
+  $0.00</strong>. Produces a permanent Reconciliation Report at Reconcile → History by
+  account.</li>
+<li><strong>Closing date</strong> — a lock date with two levels: warning only, or warning plus
+  password. Use the password.</li>
+<li><strong>Audit log</strong> — who did what. Sign-ins, settings changes, deleted transactions.
+  <strong>Two years of retention</strong>, 150 rows at a time, cannot be turned off.</li>
+<li><strong>Bank rule</strong> — an if/then that pre-fills a bank line. Up to 5 conditions,
+  drag to set priority, highest priority wins. Rules act on Pending only; they
+  are <strong>not</strong> retroactive.</li>
+<li><strong>Recurring transaction</strong> — a saved template. Three types: <strong>Scheduled</strong>
+  (creates itself), <strong>Reminder</strong> (nudges you), <strong>Unscheduled</strong> (a stored skeleton
+  you invoke manually). The unscheduled one is underrated.</li>
+<li><strong>Accrual vs Cash</strong> — accrual records income when you send the invoice; cash
+  records it when the money moves. Any report can be flipped with the
+  <strong>Accounting method</strong> toggle, which is why you check it before believing a
+  number.</li>
+</ul>
+<h3 id="if-you-learned-quickbooks-desktop">If you learned QuickBooks Desktop</h3>
+<table>
+<thead>
+<tr>
+<th>Desktop</th>
+<th>Online</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memorized transaction</td>
+<td><strong>Recurring transaction</strong></td>
+</tr>
+<tr>
+<td>Memorized report</td>
+<td><strong>Custom report</strong> (Save as)</td>
+</tr>
+<tr>
+<td>Write Checks</td>
+<td><strong>Check</strong></td>
+</tr>
+<tr>
+<td>Enter Bills / Pay Bills</td>
+<td><strong>Bill</strong> / <strong>Pay bills</strong></td>
+</tr>
+<tr>
+<td>Items list</td>
+<td><strong>Products and services</strong></td>
+</tr>
+<tr>
+<td>Renaming rules</td>
+<td><strong>Bank rules</strong></td>
+</tr>
+<tr>
+<td>Edit → Preferences</td>
+<td><strong>Gear → Account and settings</strong></td>
+</tr>
+<tr>
+<td>Accountant's Copy</td>
+<td><strong>Does not exist.</strong> Live accountant access instead.</td>
+</tr>
+<tr>
+<td>Voided/Deleted Transactions report</td>
+<td><strong>Does not exist.</strong> Use the Audit log filtered to Deleted/Voided.</td>
+</tr>
+<tr>
+<td>Undo Last Reconciliation</td>
+<td><strong>Not available to regular users.</strong> Only QuickBooks Online Accountant can reset one.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-4-keyboard-shortcuts">Part 4: Keyboard shortcuts</h2>
+<p>Verified against Intuit's own documentation. <strong>The modifier is <code>Ctrl+Alt</code></strong> on
+Windows and <code>Ctrl+Option</code> on Mac. It is not Ctrl+Shift, which is what most people
+guess.</p>
+<p>One rule covers the platform difference: <strong>wherever Windows says Alt, Mac says
+Option.</strong></p>
+<h3 id="open-the-shortcut-list">Open the shortcut list</h3>
+<p><code>Ctrl+Alt+/</code> (add Shift if nothing happens; Intuit's own pages disagree on
+whether it is <code>/</code> or <code>?</code>). The panel also shows your Company ID, which support
+will ask for.</p>
+<h3 id="from-any-main-page">From any main page</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Alt+A</code></td>
+<td>Chart of Accounts</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+F</code></td>
+<td>Search</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+C</code></td>
+<td>Customers</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+V</code></td>
+<td>Vendors</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+L</code></td>
+<td>Lists</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+I</code></td>
+<td>New Invoice</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+X</code></td>
+<td>New Expense</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+W</code></td>
+<td>New Check</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+E</code></td>
+<td>New Estimate</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+R</code></td>
+<td>Receive Payment</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+H</code></td>
+<td>Help</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inside-an-open-transaction">Inside an open transaction</h3>
+<p><strong>Careful: the same key can mean something different here.</strong> <code>Ctrl+Alt+X</code> opens a
+new expense from a main page and <em>exits the transaction</em> from inside one.</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Alt+S</code></td>
+<td>Save and New</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+M</code></td>
+<td>Save and Send</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+X</code></td>
+<td>Exit transaction</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+C</code></td>
+<td>Cancel</td>
+</tr>
+<tr>
+<td><code>Alt+S</code></td>
+<td>Save (use <code>Alt+Shift+S</code> in Chrome and Firefox)</td>
+</tr>
+<tr>
+<td><code>Alt+E</code></td>
+<td>Edit a saved transaction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="moving-around-a-form">Moving around a form</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tab</code> / <code>Shift+Tab</code></td>
+<td>Next / previous field</td>
+</tr>
+<tr>
+<td><code>Space</code></td>
+<td>Toggle a checkbox</td>
+</tr>
+<tr>
+<td><code>Alt + ↓</code></td>
+<td>Open a dropdown or the calendar</td>
+</tr>
+<tr>
+<td>Type letters in a dropdown</td>
+<td>Filters the list. Then <code>Tab</code> to accept.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="date-fields-the-single-biggest-time-save">Date fields, the single biggest time save</h3>
+<p>Put the cursor in any date field and press one letter. Identical to Desktop.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Jumps to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code></td>
+<td><strong>T</strong>oday</td>
+</tr>
+<tr>
+<td><code>+</code> / <code>-</code></td>
+<td>Next / previous day. Press repeatedly to step.</td>
+</tr>
+<tr>
+<td><code>W</code></td>
+<td>First day of the <strong>w</strong>eek</td>
+</tr>
+<tr>
+<td><code>K</code></td>
+<td>Last day of the wee<strong>k</strong></td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>First day of the <strong>m</strong>onth</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Last day of the mont<strong>h</strong></td>
+</tr>
+<tr>
+<td><code>Y</code></td>
+<td>First day of the <strong>y</strong>ear</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>Last day of the yea<strong>r</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The mnemonic: the <strong>outer letters</strong> of wee<strong>K</strong>, mont<strong>H</strong>, yea<strong>R</strong> are the
+"last day" keys.</p>
+<p>You can also skip the slashes when typing: <code>101526</code> becomes 10/15/2026, and
+<code>1015</code> becomes Oct 15 of the current year.</p>
+<h3 id="the-calculator-nobody-knows-about">The calculator nobody knows about</h3>
+<p><strong>Quantity, Rate, and Amount fields are calculators.</strong> Type <code>+ - * /</code> and
+parentheses, then press <code>Tab</code> to evaluate.</p>
+<ul>
+<li><code>1256.94+356.50</code></li>
+<li><code>108*1.085</code></li>
+<li><code>13.95+(25.95*.75)</code></li>
+</ul>
+<p><strong>Do not type a leading <code>=</code>.</strong> This is not Excel. Also note the formula is not
+stored, only the answer.</p>
+<h3 id="reference-number-field">Reference number field</h3>
+<p><code>+</code> and <code>-</code> step the number up and down. Typing <code>T</code> enters "To Print."</p>
+<hr />
+<h2 id="part-5-the-reports-that-matter">Part 5: The reports that matter</h2>
+<p>All under the <strong>Reports</strong> icon. Click any number in any report to drill into the
+transactions behind it. That single habit teaches you more about a file than
+anything else.</p>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>What it is actually for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Profit and Loss</strong></td>
+<td>Income minus expenses over a period. What clients ask about.</td>
+</tr>
+<tr>
+<td><strong>Balance Sheet</strong></td>
+<td>Assets, liabilities, equity at a moment. Where junk balances show up.</td>
+</tr>
+<tr>
+<td><strong>Trial Balance</strong></td>
+<td>Every account with its balance. The fastest full scan, and the handoff to the CPA.</td>
+</tr>
+<tr>
+<td><strong>General Ledger</strong></td>
+<td>Every transaction by account, with running balances. Where you go when the balance sheet is wrong.</td>
+</tr>
+<tr>
+<td><strong>Transaction Detail by Account</strong></td>
+<td>Same data, easier to read and export. The workhorse for finding duplicates.</td>
+</tr>
+<tr>
+<td><strong>Transaction List by Date</strong></td>
+<td>Everything chronologically. Best for "what happened around this date."</td>
+</tr>
+<tr>
+<td><strong>Reconciliation Report</strong></td>
+<td>Proof a month tied. Auto-saved at Reconcile → History by account. Save a PDF every month.</td>
+</tr>
+<tr>
+<td><strong>A/R Aging</strong></td>
+<td>Who owes you. Fake balances mean payments were not applied with Receive Payment.</td>
+</tr>
+<tr>
+<td><strong>A/P Aging</strong></td>
+<td>What you owe. Fake balances mean bills were paid with a Check or Expense instead of Pay bills.</td>
+</tr>
+<tr>
+<td><strong>Profit and Loss by Customer</strong></td>
+<td>Profit per customer or job. Only meaningful if costs are tagged.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two habits worth building on day one:</strong></p>
+<ol>
+<li><strong>Check the Accounting method toggle and the date range before you believe any
+   number.</strong> A cash-basis P&amp;L shown to a client on accrual books is a wrong answer
+   delivered confidently.</li>
+<li><strong>Save the reports you run repeatedly.</strong> Customize → Save as → name it. They
+   land on the Custom reports tab. One gotcha: sharing a saved report only reaches
+   users who exist at the time you share, so re-share after adding staff.</li>
+</ol>
+<hr />
+<h2 id="part-6-tricks-worth-learning-early">Part 6: Tricks worth learning early</h2>
+<table>
+<thead>
+<tr>
+<th>Trick</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Date-field letters</strong> (<code>T</code>, <code>M</code>, <code>H</code>, <code>Y</code>, <code>R</code>)</td>
+<td>Saves a few seconds per transaction, thousands of times a year.</td>
+</tr>
+<tr>
+<td><strong>Calculator in amount fields</strong></td>
+<td>Stop alt-tabbing to a calculator.</td>
+</tr>
+<tr>
+<td><strong>Split a bank line</strong></td>
+<td>One Home Depot charge across three jobs, in one screen.</td>
+</tr>
+<tr>
+<td><strong>Find match</strong></td>
+<td>QuickBooks can suggest <strong>partial and combined</strong> matches, so one $2,400 deposit can match three invoices. Most beginners never open this screen.</td>
+</tr>
+<tr>
+<td><strong>Create a rule from a bank line</strong></td>
+<td>The rule window opens pre-filled from the transaction you are looking at.</td>
+</tr>
+<tr>
+<td><strong>Undo a posted transaction</strong></td>
+<td>Posted tab → click the blue link in the "Added or Matched" column → Undo. It goes back to Pending. <strong>Check first whether it was reconciled</strong>, because undoing a reconciled item breaks the reconciliation.</td>
+</tr>
+<tr>
+<td><strong>Search by exact amount</strong></td>
+<td>The single fastest way to find a duplicate.</td>
+</tr>
+<tr>
+<td><strong>Unscheduled recurring templates</strong></td>
+<td>A stored skeleton for anything you enter often but not on a schedule.</td>
+</tr>
+<tr>
+<td><strong>Drill into any number</strong></td>
+<td>Click it. Modern reports keep your customizations when you come back.</td>
+</tr>
+<tr>
+<td><strong>Bookmarks → Open Link in New Tab</strong></td>
+<td>Report open beside the transaction you are fixing.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accountant-only-tools-free-with-quickbooks-online-accountant">Accountant-only tools, free with QuickBooks Online Accountant</h3>
+<p>These do not exist for regular users and are a large part of why a bookkeeper
+works from a QBOA login.</p>
+<ul>
+<li><strong>Reclassify transactions</strong> — bulk-change account, class, or location across
+  many transactions at once. Real limits: it cannot change the bank or credit card
+  account on expenses, cannot touch inventory adjustments, cannot change payroll,
+  and on transactions using products or services it can only change the class.</li>
+<li><strong>Write off invoices</strong> — the correct way to clear a bad invoice. Not deletion.</li>
+<li><strong>Books review</strong> — a five-stage month-end walkthrough (Setup/Cleanup,
+  Transaction review, Account reconciliation, Final review, Wrap-up) that flags
+  uncategorized transactions, missing payees, and unapplied payments.</li>
+<li><strong>Reconcile → reset</strong> — the only way to undo a full reconciliation. A regular
+  user simply cannot do this.</li>
+<li><strong>Prep for taxes</strong> — year-end trial balance review with adjusting entries.</li>
+</ul>
+<hr />
+<h2 id="part-7-the-traps">Part 7: The traps</h2>
+<p>The specific things a new user does in month one that cause real damage.</p>
+<table>
+<thead>
+<tr>
+<th>The trap</th>
+<th>What breaks</th>
+<th>Do this instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clicking Post/Add on a payment for an invoice you already entered</strong></td>
+<td>Income doubles, invoice stays open forever, A/R becomes fiction</td>
+<td>Look for <strong>Match</strong> first, every time</td>
+</tr>
+<tr>
+<td><strong>Paying a bill with Check or Expense</strong></td>
+<td>Expense counted twice, A/P never clears</td>
+<td><strong>Create → Pay bills</strong>. Always.</td>
+</tr>
+<tr>
+<td><strong>Deleting a transaction to fix it</strong></td>
+<td>It is gone from reports but permanent in the audit log, and if it was reconciled the reconciliation breaks</td>
+<td>Edit it, or void it. Never delete a reconciled transaction.</td>
+</tr>
+<tr>
+<td><strong>Deleting or renaming accounts to tidy up</strong></td>
+<td>Historical transactions get remapped and prior-period reports change. Deactivating an account that still holds a balance makes QuickBooks dump that balance into Opening Balance Equity.</td>
+<td>Make it <strong>inactive</strong>, and only after its balance is zero</td>
+</tr>
+<tr>
+<td><strong>Ignoring Undeposited Funds</strong></td>
+<td>The balance grows forever, deposits stop matching, the balance sheet inflates</td>
+<td>Check it monthly. It should be near zero.</td>
+</tr>
+<tr>
+<td><strong>Batch-accepting the AI suggestions</strong></td>
+<td>Months of misclassified expenses, and the AI learns your errors and repeats them</td>
+<td>Use the review signals: green check means strong history, orange means thin data. Only batch the greens, and only after you have hand-categorized a full month.</td>
+</tr>
+<tr>
+<td><strong>Turning on auto-post bank rules on day one</strong></td>
+<td>Rules fire silently on sign-in and on upload. A bad rule is hundreds of bad entries before anyone looks.</td>
+<td>Leave auto-post off until a rule has proven itself over a full month</td>
+</tr>
+<tr>
+<td><strong>Turning on Classes, Locations, and Projects at once</strong></td>
+<td>Half-tagged data is worse than untagged data</td>
+<td>Turn on <strong>one</strong>, and only when there is a question it answers</td>
+</tr>
+<tr>
+<td><strong>Never setting a closing date</strong></td>
+<td>Last year's P&amp;L quietly changes after the return was filed</td>
+<td>Set it with a password as soon as a month is reconciled and delivered</td>
+</tr>
+<tr>
+<td><strong>Forcing a reconciliation to zero</strong></td>
+<td>QuickBooks posts the plug to <strong>Reconciliation Discrepancies</strong> and the real error is buried forever</td>
+<td>Find the difference. Never accept the auto-adjustment.</td>
+</tr>
+<tr>
+<td><strong>Uploading a CSV while the live feed is on</strong></td>
+<td>Every transaction imports twice</td>
+<td>One channel per account</td>
+</tr>
+<tr>
+<td><strong>Journal entries to fix A/R or A/P</strong></td>
+<td>The aging report and the balance sheet disagree permanently</td>
+<td>Fix with the real forms</td>
+</tr>
+<tr>
+<td><strong>Not attaching source documents</strong></td>
+<td>Every question becomes a client email, and there is nothing to defend later</td>
+<td>Attach as you go. Receipt capture is built in.</td>
+</tr>
+<tr>
+<td><strong>Practicing on a live client file</strong></td>
+<td>Real damage to a real business</td>
+<td>Use the test drive. See below.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-8-where-to-practice-free">Part 8: Where to practice, free</h2>
+<h3 id="the-sample-company">The sample company</h3>
+<p><strong><code>qbo.intuit.com/redir/testdrive</code></strong> — no account, no login, no credit card.</p>
+<p>It opens <strong>Craig's Design and Landscaping Services</strong>, a fictional business
+pre-loaded with customers, vendors, items, invoices, bills, and history, running
+at the <strong>Plus</strong> level so Classes, Locations, Projects, and Inventory are all
+available to explore.</p>
+<p>There is an Advanced version at <code>qbo.intuit.com/redir/testdrive_us_advanced</code>.</p>
+<p><strong>What does not work, and this matters:</strong></p>
+<ul>
+<li><strong>No bank connection.</strong> You cannot practice connecting a live feed. The
+  pre-loaded queue does let you practice categorizing and matching, which is the
+  part that matters most.</li>
+<li><strong>Nothing saves.</strong> Intuit's words: the demo does not save changes, so
+  experiment freely. It resets when you leave.</li>
+<li>No real payments, payroll, or app integrations.</li>
+</ul>
+<p>Because nothing persists, it is perfect for drilling menus, shortcuts, and
+reports, and useless for a multi-day exercise.</p>
+<p>There is one gate: the test drive sits behind a security verification screen you
+have to click through yourself.</p>
+<h3 id="quickbooks-online-accountant-free">QuickBooks Online Accountant, free</h3>
+<p>Free to create, and it comes with free ProAdvisor Program membership.</p>
+<ul>
+<li><strong>"Your Books"</strong> — the firm's own file, with all the features of QuickBooks
+  Online <strong>Advanced</strong> at no cost</li>
+<li>The <strong>accountant toolset</strong> above, at every level</li>
+<li><strong>Free training and certification</strong> through ProAdvisor Academy</li>
+<li>Discounted client subscriptions through ProAdvisor Preferred Pricing</li>
+</ul>
+<p><strong>Best free practice setup:</strong> create the QBOA login first, then open the test
+drive from inside it, which exposes the accountant tools on the sample company.</p>
+<hr />
+<h2 id="part-9-the-first-week-in-order">Part 9: The first week, in order</h2>
+<p>If you do nothing else, do these in this sequence. Each one is ten to twenty
+minutes in the sample company.</p>
+<ol>
+<li><strong>Get oriented.</strong> Open the test drive. Find Chart of Accounts, Bank
+   transactions, Reconcile, and Reports. Do not do anything yet. Just find them.</li>
+<li><strong>Read the Chart of Accounts.</strong> Look at Account Type on each one. Notice how
+   the types group into the balance sheet and the P&amp;L.</li>
+<li><strong>Run a Profit and Loss and a Balance Sheet.</strong> Flip the Accounting method
+   toggle and watch the numbers change. Understand why.</li>
+<li><strong>Click a number.</strong> Drill from a report into the transactions behind it. Then
+   drill into one transaction. This is the single most useful habit in the
+   software.</li>
+<li><strong>Categorize ten bank lines by hand.</strong> For each one, deliberately decide Post
+   or Match. Do not batch anything.</li>
+<li><strong>Split one transaction</strong> across two categories until the difference is zero.</li>
+<li><strong>Practice the date keys.</strong> Open any form and press <code>T</code>, <code>M</code>, <code>H</code>, <code>Y</code>. Use
+   the calculator in an amount field.</li>
+<li><strong>Reconcile one account</strong> against the statement balance. Get it to $0.00.</li>
+<li><strong>Open the Audit log.</strong> See what it records about everything you just did.</li>
+<li><strong>Set a closing date</strong> with a password. Then try to edit something before it
+    and watch what happens.</li>
+</ol>
+<p>At the end of that, you know more about QuickBooks than most people who have used
+it for a year, because you know <em>why</em> it does what it does.</p>
+<hr />
+<h2 id="what-is-not-settled-and-should-be-tested-rather-than-trusted">What is not settled, and should be tested rather than trusted</h2>
+<p>Written down deliberately, because a guide that pretends to be complete is worse
+than one that names its gaps.</p>
+<ul>
+<li>Whether the in-app shortcut panel survived the May 2026 redesign.</li>
+<li>Whether the correct combination is <code>Ctrl+Alt+/</code> or <code>Ctrl+Alt+?</code>. Intuit's own
+  pages disagree.</li>
+<li><code>Ctrl+Alt+J</code> (journal entry) and a few others appear in one Intuit publication
+  and not in the primary help article. Try them; do not rely on them.</li>
+<li>Whether you can duplicate a transaction. Widely used, not currently documented.
+  Check the <strong>More</strong> menu at the bottom of a form.</li>
+<li>Whether multiple posted bank transactions can be undone in a batch.</li>
+<li>Report availability by subscription tier. Intuit has added lower tiers; check
+  the live matrix.</li>
+</ul>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li>Firm procedure this supports: <a href="../01-sops/SOP-011-error-prevention-protocol.md">SOP-011 Error Prevention Protocol</a></li>
+<li>The monthly close: <a href="../01-sops/SOP-001-monthly-close.md">SOP-001</a></li>
+<li>The weekly rhythm: <a href="../01-sops/client-lifecycle/SOP-015-weekly-hour.md">SOP-015</a></li>
+</ul>
+<p>Everything in this guide was checked against Intuit's official help articles in
+August 2026. Intuit changes this software constantly. When a path here is wrong,
+fix it here rather than working around it, and note the date.</p>
+</div></body></html>

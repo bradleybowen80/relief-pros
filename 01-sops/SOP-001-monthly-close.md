@@ -10,14 +10,14 @@ Close one client's books for one month so that every balance is provable to an o
 
 ## Trigger
 
-The client's document window has closed and their bank feeds are current. Target start is the 10th of the month for the prior month's books. All closes are delivered and locked by the 15th (SOP references the compliance calendar).
+The client's document window has closed and their bank feeds are current. The document window closes on the 10th; the close starts on the 11th (SOP-015). All closes are locked and delivered by the 15th (see the compliance calendar).
 
 ## Before you start: the five hard rules that govern this close
 
 1. **Verify beginning balances first.** Nothing else in this checklist is trusted until step 2 passes. A wrong opening balance makes every downstream number wrong.
 2. **Never force-balance.** A reconciliation difference is diagnosed or escalated. It is never plugged to an expense account or an "adjustment" account. See step 6 and the escalation path below.
 3. **Never auto-accept bank feed matches.** QuickBooks Online only looks back about 90 days and guesses. Every Add-versus-Match decision is verified by a person. (Intuit QBO bank feed behavior.)
-4. **Separation of duties.** Sarah makes every accounting judgment in this SOP. Brad prepares and archives only. Anything ambiguous goes to Sarah's review queue, never guessed.
+4. **Separation of duties.** Sarah makes every bookkeeping judgment call in this SOP. Brad prepares and archives only. Anything ambiguous goes to Sarah's review queue, never guessed.
 5. **Provable, not plausible.** Every balance sheet line must tie to an external document (statement, amortization schedule, payroll report, loan portal). "Looks right" is not closed.
 
 ## Steps
@@ -81,7 +81,7 @@ Work this order and stop at the step that explains the difference:
 
 ### 9. Handle missing documents
 
-1. For any amount you could not prove because a document never arrived, move it to a clearly labeled holding account (for example "Uncategorized Asset - awaiting statement").
+1. For any amount you could not prove because a document never arrived, move it to the client's **Ask My Client** account (SOP-011, Part 2). Never to Uncategorized Asset, which is a QBO system account that must stay at zero so it keeps its diagnostic value.
 2. List every parked item in the summary note by name and amount. The close proceeds on time. This is firm policy stated in the engagement letter, not a negotiation.
 3. Flag chronic offenders for the renewal scorecard (SOP-010).
 
@@ -90,6 +90,15 @@ Work this order and stop at the step that explains the difference:
 1. Generate the **Profit & Loss** and **Balance Sheet** for the close month (and month-over-month or budget-vs-actual per the client's tier).
 2. Write the **plain-English summary note**: what the numbers say in one screen, any parked items from step 9, and anything the client must act on. No accounting jargon. No em dashes.
 3. Complex tier: schedule or hold the monthly review call.
+
+### 10a. The gap: do not deliver the same day you finish
+
+1. Stop. The close is finished, not delivered.
+2. Re-open the P&L, balance sheet, and summary note **the next morning** and read
+   them once with fresh eyes before locking and delivering.
+3. With one bookkeeper this is a required review control, not a courtesy. It is
+   one of the few genuine second looks the firm has (SOP-011, Part 2).
+4. If the calendar keeps eating this step, the schedule is wrong, not the control.
 
 ### 11. Lock the period
 
@@ -112,6 +121,7 @@ Work this order and stop at the step that explains the difference:
 - The period is locked with a closing-date password.
 - P&L, balance sheet, and a plain-English summary are delivered through the portal.
 - The month's reports are exported to the encrypted archive.
+- The completed close was reviewed on a later day than it was finished.
 - The close was delivered on or before the 15th.
 
 ## If something goes wrong

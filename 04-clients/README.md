@@ -12,7 +12,7 @@ folder holds the blank forms, not the filled ones.
 - Onboarding checklist and welcome packet templates
 - Engagement letter template
 - ACH autodraft authorization template
-- Offboarding template
+- Offboarding is a procedure, not a template: see [SOP-016](../01-sops/client-lifecycle/SOP-016-offboarding.md)
 
 ## Rules that apply here
 
