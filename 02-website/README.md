@@ -17,7 +17,8 @@ and that pricing copy reflects ACH autodraft on the 1st, not invoicing.
 
 ## Index
 
-- (nothing built yet)
+- index.html: the live site (reliefprosbooks.com)
+- crm/index.html: private door to Relief Pros HQ at /crm. Noindex, linked from nowhere public. See [07-crm/DEPLOY.md](../07-crm/DEPLOY.md)
 
 ## Related
 

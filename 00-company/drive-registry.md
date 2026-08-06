@@ -12,6 +12,7 @@ Drive folder: https://drive.google.com/drive/folders/1yBgMZTeFOJD8RQ9XG7juFB3nWB
 |---|---|---|---|---|
 | PROJECT KICKOFF - The Relief Pros Bookkeeping (Master Handoff) | Doc | [open](https://docs.google.com/document/d/1IoZYGdMdTyo2i901Gg92wWKKp3E2emkLSiypdnH6m1o/edit) | [md](drive-backups/PROJECT-KICKOFF-master-handoff.md) | Read before any bookkeeping-domain work. Knowledge base, SOP list, guardrails, compliance calendar, failure log |
 | The Relief Pros - Bookkeeping Business Plan (14 tabs) | Sheet | [open](https://docs.google.com/spreadsheets/d/1PR8CLOEFSD0MlA17PMQII-jn_nKlz8Y490IQJFlbL30/edit) | [md](drive-backups/business-plan-14-tabs.md), [xlsx](drive-backups/The-Relief-Pros-Business-Plan.xlsx) | Full business plan workbook. Drive is the live copy. **Tab 4 pricing was reconciled to the live website on 2026-07-31. The local backups are now a snapshot behind and need re-exporting.** |
+| Relief Pros CRM - Database | Sheet | [open](https://docs.google.com/spreadsheets/d/1OqBIT1vAaVIYIY3X_LrvoVjP-781KXgqxyD9LVxP56k/edit) | code in [07-crm/](../07-crm/README.md) | Live database behind Relief Pros HQ (client workflow app). Tabs are built and seeded by Code.gs setup(). Operating metadata only, never client financial records. Added 2026-08-06 |
 
 ## relief-pros-repo-mirror
 

@@ -16,6 +16,7 @@ Claude: read [CLAUDE.md](CLAUDE.md) first. It carries the hard rules.
 | [03-marketing/](03-marketing/README.md) | Outreach copy, email sequences, positioning |
 | [04-clients/](04-clients/README.md) | Client-facing templates only: onboarding, engagement letters. Never real client data |
 | [05-prompts/](05-prompts/README.md) | Standing instructions and reusable prompts for Claude |
+| [07-crm/](07-crm/README.md) | Relief Pros HQ: client workflow app (pipeline, onboarding checklists, close board), database notes, deploy steps |
 
 ## Conventions
 

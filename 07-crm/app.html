@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relief Pros HQ</title>
+<style>
+:root{
+  --navy:#12293f; --navy2:#1c3b57; --teal:#1f8a70; --teal-dk:#166b56; --gold:#c8912a;
+  --bg:#f5f8fa; --card:#ffffff; --soft:#eef3f6; --ink:#1a2732; --muted:#5b6a78;
+  --line:#e4e9ee; --shadow:0 8px 30px rgba(18,41,63,.08);
+  --danger:#b3372f; --danger-soft:#fbeceb; --amber:#8a6215; --amber-soft:#faf1de;
+  --ok-soft:#e6f4ef; --chart1:#1f8a70; --chart2:#c8912a; --chart-grid:#dbe3ea;
+  --side-bg:#12293f; --side-ink:#d9e4ee; --side-act:#1c3b57; --btn-ink:#ffffff;
+  --chip:#eef3f6; --focus:#1f8a70; --track:#d7e6e1;
+}
+html[data-theme="dark"]{
+  --bg:#0d1c2c; --card:#16304a; --soft:#1c3b57; --ink:#e9eff5; --muted:#a6b7c6;
+  --line:#28455f; --shadow:0 8px 30px rgba(0,0,0,.35);
+  --danger:#e5837b; --danger-soft:#47232a; --amber:#e0b25e; --amber-soft:#3d3117;
+  --ok-soft:#1c4238; --chart1:#2aa585; --chart2:#bd8826; --chart-grid:#2b4a66;
+  --side-bg:#0a1725; --side-ink:#c3d2df; --side-act:#1c3b57; --gold:#d9a844;
+  --chip:#1c3b57; --focus:#2aa585; --track:#274a5f;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--ink); font-size:14.5px; line-height:1.45;
+}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 10px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--focus);outline-offset:1px;border-color:var(--focus)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+a{color:var(--teal)}
+h1,h2,h3{margin:0 0 8px;line-height:1.2}
+h1{font-size:21px} h2{font-size:17px} h3{font-size:14.5px}
+.muted{color:var(--muted)} .small{font-size:12.5px} .tiny{font-size:11.5px}
+.right{text-align:right} .nowrap{white-space:nowrap}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mb8{margin-bottom:8px}
+
+/* Shell */
+#demo-banner{background:var(--gold);color:#1a2732;text-align:center;padding:6px 12px;font-weight:600;font-size:13px}
+html[data-theme="dark"] #demo-banner{color:#101d2b}
+.shell{display:flex;min-height:100vh}
+.sidebar{
+  width:212px;flex:0 0 auto;background:var(--side-bg);color:var(--side-ink);
+  position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  padding:14px 10px;transition:width .15s ease;z-index:30;
+}
+.logo{display:flex;align-items:center;gap:10px;padding:6px 8px 16px;color:#fff;font-weight:700;font-size:15.5px;letter-spacing:.2px}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:var(--teal);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800;flex:0 0 auto}
+.logo .sub{display:block;font-weight:500;font-size:10.5px;color:var(--side-ink);opacity:.85}
+.nav{display:flex;flex-direction:column;gap:2px;flex:1}
+.nav button{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;color:var(--side-ink);
+  padding:9px 10px;border-radius:9px;font-size:14px;transition:background .15s ease,color .15s ease;
+}
+.nav button:hover{background:var(--side-act);color:#fff}
+.nav button.active{background:var(--teal);color:#fff;font-weight:600}
+.nav button .ic{width:20px;text-align:center;flex:0 0 auto;font-size:15px}
+.nav button .kbd-hint{margin-left:auto;font-size:10.5px;opacity:.55}
+.side-foot{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
+.side-foot button{display:flex;align-items:center;gap:10px;color:var(--side-ink);padding:8px 10px;border-radius:9px;font-size:13px}
+.side-foot button:hover{background:var(--side-act);color:#fff}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{
+  position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:12px;padding:10px 22px;
+}
+.search-wrap{position:relative;flex:1;max-width:460px}
+.search-wrap input{padding-left:32px;background:var(--card)}
+.search-wrap .mag{position:absolute;left:10px;top:8px;color:var(--muted);pointer-events:none}
+.search-pop{
+  position:absolute;top:42px;left:0;right:0;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;box-shadow:var(--shadow);max-height:380px;overflow:auto;z-index:40;padding:6px;
+}
+.search-pop .grp{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);padding:8px 10px 2px}
+.search-pop .hit{display:block;width:100%;text-align:left;padding:8px 10px;border-radius:8px}
+.search-pop .hit:hover,.search-pop .hit.sel{background:var(--soft)}
+.topbar .spacer{flex:1}
+.userchip{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+
+/* Buttons, chips, badges */
+.btn{
+  display:inline-flex;align-items:center;gap:7px;border-radius:10px;padding:8px 14px;font-weight:600;
+  font-size:13.5px;transition:background .15s ease,box-shadow .15s ease,transform .15s ease;border:1px solid transparent;
+}
+.btn:active{transform:translateY(1px)}
+.btn-pri{background:var(--teal);color:var(--btn-ink)}
+.btn-pri:hover{background:var(--teal-dk)}
+.btn-sec{background:var(--card);border-color:var(--line);color:var(--ink)}
+.btn-sec:hover{background:var(--soft)}
+.btn-danger{background:var(--danger);color:#fff}
+html[data-theme="dark"] .btn-danger{color:#14212e}
+.btn-ghost{color:var(--muted);padding:6px 9px;border-radius:8px}
+.btn-ghost:hover{background:var(--soft);color:var(--ink)}
+.btn-sm{padding:5px 10px;font-size:12.5px;border-radius:8px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.iconbtn{width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;color:var(--muted)}
+.iconbtn:hover{background:var(--soft);color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--chip);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:600;color:var(--ink);white-space:nowrap}
+.chip-teal{background:var(--ok-soft);color:var(--teal-dk)}
+html[data-theme="dark"] .chip-teal{color:#7ed4bb}
+.chip-gold{background:var(--amber-soft);color:var(--amber)}
+.chip-red{background:var(--danger-soft);color:var(--danger)}
+.chip-navy{background:var(--navy);color:#fff}
+html[data-theme="dark"] .chip-navy{background:var(--soft);color:var(--ink)}
+.sop-chip{
+  display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;letter-spacing:.3px;
+  color:var(--teal-dk);background:var(--ok-soft);border-radius:6px;padding:1px 7px;text-decoration:none;
+}
+html[data-theme="dark"] .sop-chip{color:#7ed4bb}
+.sop-chip:hover{background:var(--teal);color:#fff}
+.avatar{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff;flex:0 0 auto}
+.avatar.S{background:var(--teal-dk)} .avatar.B{background:var(--navy2)} .avatar.SB{background:var(--gold);color:#1a2732}
+.badge-wait{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--chip)}
+.badge-wait.w-amber{background:var(--amber-soft);color:var(--amber)}
+.badge-wait.w-red{background:var(--danger-soft);color:var(--danger)}
+
+/* Cards and layout */
+.view{padding:20px 22px 60px;max-width:1280px;width:100%;margin:0 auto}
+.vhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.vhead h1{margin:0}
+.vhead .spacer{flex:1}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+.card-tight{padding:10px 12px}
+.grid-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi .kchart{width:100%;max-width:168px;height:auto;display:block}
+.kpi .lbl{font-size:12px;color:var(--muted);font-weight:600}
+.kpi .val{font-size:24px;font-weight:700;line-height:1.1}
+.kpi .val .unit{font-size:13px;color:var(--muted);font-weight:600}
+.kpi .sub{font-size:11.5px;color:var(--muted)}
+.kpi.warn{border-color:var(--gold)}
+.kpi.warn .val{color:var(--amber)}
+.meter{height:8px;border-radius:5px;background:var(--track);overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;border-radius:5px;background:var(--chart1);transition:width .3s ease}
+.meter i.m-amber{background:var(--chart2)}
+.meter i.m-red{background:var(--danger)}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.bucket h3{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.6px}
+.bucket h3 .cnt{background:var(--chip);border-radius:999px;padding:0 8px;font-size:11.5px;color:var(--ink)}
+.bucket.overdue h3{color:var(--danger)}
+.jobcard{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+  padding:10px 12px;margin-bottom:10px;transition:border-color .15s ease,transform .15s ease;
+}
+.jobcard:hover{border-color:var(--teal);transform:translateY(-1px)}
+.jobcard .top{display:flex;align-items:center;gap:8px}
+.jobcard .name{font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jobcard .meta{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.jobcard.overdue{border-left:3px solid var(--danger)}
+.due-red{color:var(--danger);font-weight:700}
+.progress{height:6px;border-radius:4px;background:var(--track);overflow:hidden;flex:1}
+.progress i{display:block;height:100%;background:var(--chart1);transition:width .3s ease}
+.empty{
+  border:1.5px dashed var(--line);border-radius:14px;padding:26px 18px;text-align:center;color:var(--muted);
+  font-size:13.5px;background:transparent;
+}
+.seg{display:inline-flex;background:var(--soft);border-radius:10px;padding:3px;gap:2px}
+.seg button{padding:5px 12px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(18,41,63,.15)}
+
+/* Pipeline kanban */
+.kanban{display:flex;gap:12px;overflow-x:auto;padding-bottom:14px;align-items:flex-start}
+.kcol{flex:0 0 232px;background:var(--soft);border-radius:14px;padding:10px;min-height:120px}
+.kcol h3{display:flex;align-items:center;gap:7px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:2px 4px}
+.kcol h3 .cnt{margin-left:auto;background:var(--card);border-radius:999px;padding:0 7px;font-size:11px}
+.kcol.dragover{outline:2px dashed var(--teal);outline-offset:-4px}
+.leadcard{
+  background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 11px;margin-bottom:8px;
+  box-shadow:var(--shadow);cursor:grab;transition:border-color .15s ease;
+}
+.leadcard:hover{border-color:var(--teal)}
+.leadcard .nm{font-weight:700;font-size:13.5px}
+.leadcard .row{display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap}
+.leadcard .arrows{display:flex;gap:4px;margin-top:6px;justify-content:flex-end}
+.kcol-collapsed{flex:0 0 46px;writing-mode:vertical-rl;text-orientation:mixed;background:var(--soft);border-radius:14px;padding:12px 10px;color:var(--muted);font-weight:600;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.score-pill{font-weight:800;font-size:12px;border-radius:7px;padding:1px 7px;background:var(--chip)}
+.score-pill.hi{background:var(--ok-soft);color:var(--teal-dk)}
+.score-pill.mid{background:var(--amber-soft);color:var(--amber)}
+.score-pill.lo{background:var(--danger-soft);color:var(--danger)}
+html[data-theme="dark"] .score-pill.hi{color:#7ed4bb}
+
+/* Tables */
+table.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);position:sticky;top:53px;background:var(--card);z-index:5}
+.tbl td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl tr:hover td{background:var(--soft)}
+.tbl tr.rowlink{cursor:pointer}
+.num{font-variant-numeric:tabular-nums}
+
+/* Close board */
+.cboard{overflow-x:auto}
+.cboard table{border-collapse:separate;border-spacing:0;min-width:880px;width:100%}
+.cboard th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:8px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.cboard th .rng{display:block;font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);opacity:.8}
+.cboard th:first-child{text-align:left}
+.cboard td{padding:8px;border-bottom:1px solid var(--line);text-align:center}
+.cboard td:first-child{text-align:left;white-space:nowrap}
+.cboard .clientcell .nm{font-weight:700}
+.cboard .clientcell .sub{font-size:11.5px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-top:2px}
+.stage-dot{width:14px;height:14px;border-radius:50%;display:inline-block;background:var(--track);border:2px solid var(--track)}
+.stage-dot.done{background:var(--chart1);border-color:var(--chart1)}
+.stage-dot.cur{background:var(--card);border-color:var(--chart1)}
+.stage-dot.overdue-dot{background:var(--danger);border-color:var(--danger)}
+.stagebtn{padding:6px;border-radius:8px}
+.stagebtn:hover{background:var(--soft)}
+.qact{display:flex;gap:2px;justify-content:center}
+
+/* Calendar */
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calgrid .dow{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);text-align:center;padding:4px 0}
+.calday{background:var(--card);border:1px solid var(--line);border-radius:10px;min-height:86px;padding:6px;font-size:11.5px;cursor:pointer;transition:border-color .15s ease;text-align:left;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+.calday:hover{border-color:var(--teal)}
+.calday.out{opacity:.45}
+.calday.today{border-color:var(--teal);border-width:2px}
+.calday.selected{outline:2px solid var(--teal)}
+.calday .dnum{font-weight:700;font-size:12px}
+.calday .ev{border-radius:5px;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px;font-weight:600}
+.ev.ev-job{background:var(--ok-soft);color:var(--teal-dk)}
+html[data-theme="dark"] .ev.ev-job{color:#7ed4bb}
+.ev.ev-comp{background:var(--amber-soft);color:var(--amber)}
+.ev.ev-hour{background:var(--chip);color:var(--muted)}
+.ev.ev-rhythm{background:var(--navy);color:#fff}
+html[data-theme="dark"] .ev.ev-rhythm{background:var(--soft);color:var(--ink)}
+.agenda-item{display:flex;gap:10px;align-items:baseline;padding:8px 4px;border-bottom:1px solid var(--line)}
+.agenda-item .d{font-weight:700;white-space:nowrap;width:92px;flex:0 0 auto}
+
+/* Rules */
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.rulecard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:12px;box-shadow:var(--shadow);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.rulecard .n{font-size:11px;font-weight:800;color:var(--muted)}
+
+/* Modals */
+.modal-back{position:fixed;inset:0;background:rgba(10,23,37,.55);display:flex;align-items:flex-start;justify-content:center;padding:5vh 16px;z-index:100;overflow:auto}
+.modal{background:var(--card);border-radius:16px;box-shadow:var(--shadow);width:100%;max-width:640px;padding:18px 20px;animation:pop .18s ease}
+.modal.wide{max-width:780px}
+.modal.narrow{max-width:440px}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.modal header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.modal header h2{margin:0;flex:1}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.mrow.one{grid-template-columns:1fr}
+.mrow label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+.mfoot{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap}
+.steps{display:flex;gap:6px;margin-bottom:14px}
+.steps i{height:4px;border-radius:3px;flex:1;background:var(--track)}
+.steps i.on{background:var(--teal)}
+.blocked{background:var(--danger-soft);border:1px solid var(--danger);border-radius:12px;padding:12px 14px;color:var(--danger);font-weight:600}
+.warnbox{background:var(--amber-soft);border:1px solid var(--gold);border-radius:12px;padding:11px 13px;color:var(--amber);font-size:13px}
+.okbox{background:var(--ok-soft);border-radius:12px;padding:12px 14px}
+.stopbox{background:var(--danger-soft);border:1.5px solid var(--danger);border-radius:12px;padding:12px 14px}
+.stopbox b{color:var(--danger)}
+
+/* Checklist */
+.cl-section{margin-bottom:14px}
+.cl-section>h3{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:5px}
+.cl-item{display:flex;align-items:flex-start;gap:9px;padding:6px 2px;border-radius:8px}
+.cl-item:hover{background:var(--soft)}
+.cl-item input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--teal);flex:0 0 auto;cursor:pointer}
+.cl-item .txt{flex:1}
+.cl-item.done .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.cl-item .dd{font-size:10.5px;color:var(--muted)}
+.scorerow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.scorerow .f{flex:1;font-size:13px}
+.scorerow .opts{display:flex;gap:3px}
+.scorerow .opts button{width:26px;height:26px;border-radius:7px;background:var(--soft);font-size:12px;font-weight:700;color:var(--muted)}
+.scorerow .opts button.on{background:var(--teal);color:#fff}
+.gate-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}
+.gate-row .g{flex:1;font-size:13px}
+.gate-row .opts{display:flex;gap:3px}
+.gate-row .opts button{padding:3px 9px;border-radius:7px;background:var(--soft);font-size:11.5px;font-weight:700;color:var(--muted)}
+.gate-row .opts button.yes.on{background:var(--teal);color:#fff}
+.gate-row .opts button.na.on{background:var(--gold);color:#1a2732}
+.gate-row .opts button.no.on{background:var(--danger);color:#fff}
+
+/* Toasts */
+#toast-root{position:fixed;bottom:18px;right:18px;z-index:200;display:flex;flex-direction:column;gap:8px}
+.toast{
+  background:var(--navy);color:#fff;border-radius:11px;padding:10px 16px;box-shadow:var(--shadow);
+  font-size:13.5px;font-weight:600;animation:pop .18s ease;max-width:340px;
+}
+html[data-theme="dark"] .toast{background:var(--teal);color:#fff}
+.toast.err{background:var(--danger);color:#fff}
+
+/* Client detail */
+.cd-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.cd-grid{display:grid;grid-template-columns:340px 1fr;gap:14px;align-items:start}
+.vault .fr{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}
+.vault .fr:last-child{border-bottom:0}
+.vault .fr .k{width:150px;flex:0 0 auto;color:var(--muted);font-size:12px;font-weight:600}
+.vault .fr input,.vault .fr select{padding:4px 8px;font-size:13px;border-color:transparent;background:transparent}
+.vault .fr input:hover,.vault .fr select:hover{border-color:var(--line);background:var(--card)}
+.vault .fr input:focus,.vault .fr select:focus{border-color:var(--focus);background:var(--card)}
+.timeline .tl-item{display:flex;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);align-items:center}
+.timeline .tl-item:hover{background:var(--soft)}
+.hours-amber{color:var(--amber);font-weight:700}
+
+/* Settings */
+.set-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.logview{max-height:340px;overflow:auto;font-size:12px}
+.logview td{padding:5px 8px}
+
+kbd{background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:11px;font-family:inherit}
+
+@media (max-width:960px){
+  .cd-grid,.set-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .sidebar{width:58px;padding:12px 6px}
+  .sidebar .logo{justify-content:center;padding:4px 0 14px}
+  .sidebar .logo span.txtwrap{display:none}
+  .nav button{justify-content:center;padding:10px 0}
+  .nav button .txt,.nav button .kbd-hint{display:none}
+  .side-foot button{justify-content:center}
+  .side-foot button .txt{display:none}
+  .view{padding:14px 12px 60px}
+  .topbar{padding:8px 12px}
+  .mrow{grid-template-columns:1fr}
+  .tbl th{top:49px}
+}
+@media (max-width:420px){
+  .grid-kpi{grid-template-columns:1fr 1fr}
+  .calday{min-height:56px}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<noscript>Relief Pros HQ needs JavaScript turned on.</noscript>
+<script>
+/* Shared seed content per SPEC section 9. Rows: template, section, ord, item, owner, offset_days, sop, non_recurring */
+var SEED_TEMPLATES = [
+["DayOne","Gate check",1,"Scorecard passed and on file","Sarah",0,"SOP-010","N"],
+["DayOne","Gate check",2,"Pre-flight cleared, all 11 gates","Sarah",0,"SOP-009","N"],
+["DayOne","Gate check",3,"E&O and cyber active, retroactive date intact","Brad",0,"SOP-009","N"],
+["DayOne","Gate check",4,"Not inside the mid-Jan to mid-Feb freeze","Both",0,"SOP-012","N"],
+["DayOne","Gate check",5,"Letter scopes bookkeeping only, no excluded services","Sarah",0,"SOP-012","N"],
+["DayOne","Billing first",6,"ACH autodraft enrolled via QuickBooks Payments before any work","Brad",0,"SOP-012","N"],
+["DayOne","Billing first",7,"Receipt automation confirmed","Brad",0,"SOP-012","N"],
+["DayOne","Billing first",8,"First draft date in the welcome email","Brad",0,"WELCOME","N"],
+["DayOne","Access and control",9,"QBO accountant user access requested, never client credentials","Sarah",0,"SOP-012","N"],
+["DayOne","Access and control",10,"Client keeps primary admin, prior bookkeeper removed today","Sarah",0,"SOP-012","N"],
+["DayOne","Access and control",11,"MFA on everything, credentials in password manager only","Brad",0,"SOP-006","N"],
+["DayOne","Access and control",12,"Decline any signing authority in writing","Sarah",0,"SOP-012","N"],
+["DayOne","Baseline",13,"Written complete account list received and reconciled against QBO","Sarah",0,"SOP-012","N"],
+["DayOne","Baseline",14,"Baseline exports saved, dated: TB, BS, P&L, chart, recon history","Sarah",0,"SOP-012","N"],
+["DayOne","Baseline",15,"Closing date setting screenshot","Sarah",0,"SOP-012","N"],
+["DayOne","Damage check",16,"10-minute damage assessment run","Sarah",0,"SOP-012","N"],
+["DayOne","Damage check",17,"Real damage found: STOP, re-quote as cleanup","Sarah",0,"SOP-003","N"],
+["DayOne","Setup",18,"Ask My Client account created","Sarah",0,"SOP-012","N"],
+["DayOne","Setup",19,"Folder tree and private upload link created and tested","Brad",0,"SOP-012","N"],
+["DayOne","Setup",20,"Document auto-request armed for the 1st, 3rd, 5th","Brad",0,"SOP-004","N"],
+["DayOne","Setup",21,"Standing rules doc opened","Sarah",0,"SOP-012","N"],
+["DayOne","Communication",22,"Welcome email sent today with working upload link","Brad",0,"WELCOME","N"],
+["DayOne","Communication",23,"CPA intro sent: cap threshold, adjustments, year-end format","Sarah",0,"SOP-012","N"],
+["First30","Foundation",1,"Chart of accounts audited and standardized","Sarah",5,"SOP-013","N"],
+["First30","Foundation",2,"Opening balances tied to dated statements, OBE zero","Sarah",5,"SOP-013","N"],
+["First30","Foundation",3,"Standing rules set with owners recorded","Sarah",5,"SOP-013","N"],
+["First30","Foundation",4,"Bank rules built, auto-confirm off except rigid fixed items","Sarah",7,"SOP-013","N"],
+["First30","Foundation",5,"W-9s collected, 1099 flags set now not January","Brad",7,"SOP-013","N"],
+["First30","First documents",6,"First window categorized per standing rules, docs attached","Sarah",10,"SOP-013","N"],
+["First30","First documents",7,"First Ask My Client list sent by the 10th","Brad",10,"SOP-013","N"],
+["First30","First documents",8,"Everything reconciled to zero by the 13th, reports saved","Sarah",13,"SOP-013","N"],
+["First30","First documents",9,"Full 14-check sweep run","Sarah",13,"SOP-011","N"],
+["First30","First close",10,"The Gap: overnight fresh-eyes review on the 14th","Sarah",14,"SOP-001","N"],
+["First30","First close",11,"Delivered by the 15th: P&L, BS, plain-words summary, portal only","Sarah",15,"SOP-001","N"],
+["First30","First close",12,"Period locked with password, month archived","Sarah",15,"SOP-001","N"],
+["First30","First close",13,"Hours logged honestly to the KPI sheet","Sarah",15,"SOP-008","N"],
+["First30","First close",14,"Post-first-close check-in sent","Brad",16,"SOP-013","N"],
+["FirstQuarter","First quarter",1,"Three on-time closes delivered","Sarah",75,"SOP-014","N"],
+["FirstQuarter","First quarter",2,"File health audit run once after close 3","Sarah",80,"SOP-014","N"],
+["FirstQuarter","First quarter",3,"Pricing and tier review: hours x3, in-tier check","Sarah",85,"SOP-014","N"],
+["FirstQuarter","First quarter",4,"Relationship review: would we want ten more like this","Both",85,"SOP-014","N"],
+["FirstQuarter","First quarter",5,"Review request sent only if all three closes clean","Brad",85,"REVIEW","N"],
+["FirstQuarter","First quarter",6,"CPA touch email sent","Sarah",85,"SOP-014","N"],
+["FirstQuarter","First quarter",7,"Judgment log promoted to standing rules","Sarah",90,"SOP-014","N"],
+["MonthlyClose","Documents",1,"Auto-requests fired on the 1st, 3rd, 5th","Brad",1,"SOP-004","N"],
+["MonthlyClose","Documents",2,"Draft ran on the 1st, receipt confirmed","Brad",1,"SOP-005","N"],
+["MonthlyClose","Documents",3,"Docs complete or stragglers chased by the 10th","Brad",10,"SOP-004","N"],
+["MonthlyClose","Close",4,"Beginning balances verified before anything else","Sarah",11,"SOP-001","N"],
+["MonthlyClose","Close",5,"Every account reconciled to exactly zero, never plugged","Sarah",12,"SOP-011","N"],
+["MonthlyClose","Close",6,"Loans tied to lender balance","Sarah",12,"SOP-001","N"],
+["MonthlyClose","Close",7,"Ask My Client list sent, unknowns parked","Sarah",12,"SOP-015","N"],
+["MonthlyClose","Sweep",8,"OBE zero","Sarah",13,"SOP-011","N"],
+["MonthlyClose","Sweep",9,"Undeposited Funds swept","Sarah",13,"SOP-011","N"],
+["MonthlyClose","Sweep",10,"Balance sheet tied line by line to outside documents","Sarah",13,"SOP-011","N"],
+["MonthlyClose","Sweep",11,"TB variance scan vs prior period","Sarah",13,"SOP-011","N"],
+["MonthlyClose","Sweep",12,"Missing docs parked and named with dollar values","Sarah",13,"SOP-011","N"],
+["MonthlyClose","Deliver",13,"The Gap: overnight review on the 14th","Sarah",14,"SOP-001","N"],
+["MonthlyClose","Deliver",14,"Locked with password, then delivered by the 15th, portal only","Sarah",15,"SOP-001","N"],
+["MonthlyClose","Deliver",15,"Month archived, honest hours logged","Sarah",15,"SOP-008","N"],
+["Offboarding","Offboarding",1,"Acknowledge in writing same day, record reason verbatim","Brad",0,"SOP-016","N"],
+["Offboarding","Offboarding",2,"Cancel ACH after final draft, verify next 1st fires nothing","Brad",3,"SOP-016","N"],
+["Offboarding","Offboarding",3,"Final close to full standard","Sarah",15,"SOP-001","N"],
+["Offboarding","Offboarding",4,"Handover package via portal, receipt confirmed","Sarah",20,"SOP-016","N"],
+["Offboarding","Offboarding",5,"CPA note with client consent","Sarah",20,"SOP-016","N"],
+["Offboarding","Offboarding",6,"All access closed on the end date, confirmed in writing","Brad",30,"SOP-016","N"],
+["Offboarding","Offboarding",7,"7-year retention clock started","Brad",30,"SOP-007","N"],
+["Offboarding","Offboarding",8,"KPI line closed: months, revenue, hours, would we take them again","Sarah",30,"SOP-008","N"],
+["Offboarding","Offboarding",9,"Gracious door-open note, no pitch","Brad",30,"SOP-016","N"]
+];
+/* Rows: id, name, frequency, next_date, owner, sop, notes */
+var SEED_COMPLIANCE = [
+["cmp-01","ACH autodraft run, retry day 3, pause day 10","Monthly (1st)","2026-09-01","Brad","SOP-005",""],
+["cmp-02","All closes locked and delivered","Monthly (15th)","2026-08-15","Sarah","SOP-001",""],
+["cmp-03","1099-NEC recipient copies and IRS filing","Annual","2027-01-31","Brad","SOP-013",""],
+["cmp-04","Onboarding freeze begins","Annual","2027-01-15","Both","SOP-012",""],
+["cmp-05","Texas franchise tax and PIR, confirm CPA filed","Annual","2027-05-15","Sarah","SOP-014",""],
+["cmp-06","ProAdvisor recertification window","Annual","2027-06-01","Sarah","",""],
+["cmp-07","ProAdvisor recertification deadline","Annual","2027-06-30","Sarah","",""],
+["cmp-08","Fall W-9 refresh and 1099 flag audit","Annual","2026-10-01","Brad","SOP-013",""],
+["cmp-09","Insurance renewal, preserve retroactive date","Annual","2027-07-01","Brad","SOP-009",""],
+["cmp-10","Client renewal re-screen","Annual","2027-07-01","Sarah","SOP-010",""],
+["cmp-11","Intuit plan migration: confirm CORE not Accelerate","One-time","2026-12-01","Brad","",""],
+["cmp-12","TX data processing sales tax boundary review with CPA","Annual","2027-01-15","Sarah","",""]
+];
+var SEED_SOP_LINKS = {
+"SOP-001":{t:"Monthly Close",d:"https://docs.google.com/document/d/1zo3XxhK-WC_NWzXqMve8FBJ7Dr43bQxT30EJzGldqXA/edit",r:"01-sops/SOP-001-monthly-close.md"},
+"SOP-002":{t:"Client Onboarding",d:"https://docs.google.com/document/d/1HW67gr1sjN1cEs5qb0tnM0QJF5K8hoDZCWkxG7YUIds/edit",r:"01-sops/SOP-002-client-onboarding.md"},
+"SOP-003":{t:"Cleanup 12-Step",d:"https://docs.google.com/document/d/1E2I7DU7YboSgAgi_Of0qZMCfrhU-GP4TH2z-S1pDgZo/edit",r:"01-sops/SOP-003-cleanup-12-step.md"},
+"SOP-004":{t:"Document Chase",d:"https://docs.google.com/document/d/1cPQLmCh-fiNkj_fo5Qz9onuHc9RHCBCixOw_2Cicp_Y/edit",r:"01-sops/SOP-004-document-chase.md"},
+"SOP-005":{t:"Payment Failure and Service Pause",d:"https://docs.google.com/document/d/1C4-IvxNm41Bz7l2sxeRCTRub13IiYpeQE8I8FSSDoLI/edit",r:"01-sops/SOP-005-payment-failure-service-pause.md"},
+"SOP-006":{t:"Data Security and WISP",d:"https://docs.google.com/document/d/1eSKPJO11LlgE88uFJC6ukRnwYfN3iHbl25jvlUsXiuA/edit",r:"01-sops/SOP-006-security-wisp.md"},
+"SOP-007":{t:"Records Retention",d:"https://docs.google.com/document/d/1t8PyyKm15VyuKfakiglPclpa-LMPCi8d-D99GNSbX60/edit",r:"01-sops/SOP-007-records-retention.md"},
+"SOP-008":{t:"KPI Dashboard",d:"https://docs.google.com/document/d/1gg196-q6GNV4-QIYHGiyQDnDhQt-HmdvW7ztw_1QpcQ/edit",r:"01-sops/SOP-008-kpi-dashboard.md"},
+"SOP-009":{t:"Engagement Pre-Flight Checklist",d:"https://docs.google.com/document/d/1fl6IGtG2XmuRhUpZ6UhhgoKpHslkMjz0rwvq-POwXbA/edit",r:"01-sops/SOP-009-engagement-preflight-checklist.md"},
+"SOP-010":{t:"Client Screening Scorecard",d:"https://docs.google.com/document/d/1YLetmmrs7T0gE7bBG2oYRpWzvNdJnCHscLdpmOE5I1g/edit",r:"01-sops/SOP-010-client-screening-scorecard.md"},
+"SOP-011":{t:"Error Prevention Protocol",d:"https://docs.google.com/document/d/1d9Eh26dshyrgS75EiGQXdRlVmEbXzuiqhQ5O2AoLdbU/edit",r:"01-sops/SOP-011-error-prevention-protocol.md"},
+"SOP-012":{t:"Day One",d:"https://docs.google.com/document/d/1gdgXIHut7JSdD5cHoavoXgf0-CVEqMy7nwlPQvXlWwg/edit",r:"01-sops/client-lifecycle/SOP-012-day-one.md"},
+"SOP-013":{t:"The First 30 Days",d:"https://docs.google.com/document/d/1MYbR7OzOUk3yWeAFnLcgn8l33mAzXoPpd5hMIt_D15E/edit",r:"01-sops/client-lifecycle/SOP-013-first-30-days.md"},
+"SOP-014":{t:"The First Quarter",d:"https://docs.google.com/document/d/1OFfvKD2dgsnb7-rOqbkSFh5xzk8dvzIhPHkMO4BHvPE/edit",r:"01-sops/client-lifecycle/SOP-014-first-quarter.md"},
+"SOP-015":{t:"The Weekly Hour",d:"https://docs.google.com/document/d/1j-9Kv2IZQ_l752oDWW-SO-w3Or0UB1jA4F6_A-VddP0/edit",r:"01-sops/client-lifecycle/SOP-015-weekly-hour.md"},
+"SOP-016":{t:"Offboarding",d:"https://docs.google.com/document/d/1hDk_2h4Ihzw8xnbztoQMy_G3anesDHiPyFt8K8IXEQg/edit",r:"01-sops/client-lifecycle/SOP-016-offboarding.md"},
+"LIFECYCLE":{t:"Client Lifecycle READ ME",d:"https://docs.google.com/document/d/1I3qt-30vkVsLOLJYIQAiNW6kClNlzoiit8747joZUmg/edit",r:"01-sops/client-lifecycle/README.md"},
+"WELCOME":{t:"Client Welcome Email",d:"https://docs.google.com/document/d/1b1nsXu6FEoYM-2JBexqx2j2OUgibU6s3QDqlDkbbUWI/edit",r:"04-clients/welcome-email-template.md"},
+"REVIEW":{t:"Review Request",d:"https://docs.google.com/document/d/1HGJWNPN385FQCxkAVxpKFbf1rRqIY1RjD_4cYzPgux8/edit",r:"04-clients/review-request-template.md"}
+};
+var SEED_TIERS = {
+tiers:{
+"Essentials":{fee:250,desc:"Up to 2 bank or credit card accounts, about 100 transactions"},
+"Standard":{fee:450,desc:"Up to 4 accounts, about 250 transactions"},
+"Growing":{fee:999,desc:"6+ accounts, 500 transactions, bigger books quoted flat in writing. Includes W-9 and 1099 tracking and the Monthly Owner's Briefing"}
+},
+addons:{"Owner's Briefing":199,"1099 filing":25},
+cleanup:"Flat $1,000 to $1,750, quoted in writing"
+};
+var SEED_SETTINGS = [
+["allowed_emails","bradleybowen80@gmail.com,sarahrogowski85@gmail.com"],
+["firm_name","The Relief Pros, LLC"],
+["close_day","15"],
+["internal_close_day","13"],
+["gap_day","14"],
+["restaurant_cap_pct","25"],
+["solo_ceiling_clients","15"],
+["hours_flag","9"],
+["tiers",JSON.stringify(SEED_TIERS)],
+["sop_links",JSON.stringify(SEED_SOP_LINKS)],
+["theme","light"]
+];
+"use strict";
+/* ============ time helpers: all date logic flows through now() ============ */
+function now(){ return new Date(); }
+function pad2(n){ return (n<10?"0":"")+n; }
+function ymd(d){ return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); }
+function todayStr(){ return ymd(now()); }
+function curMonth(){ var d=now(); return d.getFullYear()+"-"+pad2(d.getMonth()+1); }
+function monthOf(dateStr){ return (dateStr||"").slice(0,7); }
+function monthAdd(ym,n){ var p=ym.split("-"),y=+p[0],m=+p[1]-1+n; y+=Math.floor(m/12); m=((m%12)+12)%12; return y+"-"+pad2(m+1); }
+function monthDay(ym,day){ var last=daysInMonth(ym); return ym+"-"+pad2(Math.min(day,last)); }
+function daysInMonth(ym){ var p=ym.split("-"); return new Date(+p[0],+p[1],0).getDate(); }
+function monthEnd(ym){ return ym+"-"+pad2(daysInMonth(ym)); }
+function parseDate(s){ var p=(s||"").split("-"); return new Date(+p[0],(+p[1]||1)-1,+p[2]||1); }
+function addDays(dateStr,n){ var d=parseDate(dateStr); d.setDate(d.getDate()+n); return ymd(d); }
+function daysBetween(a,b){ return Math.round((parseDate(b)-parseDate(a))/86400000); }
+function daysSince(dateStr){ return dateStr?daysBetween(dateStr,todayStr()):0; }
+function daysUntil(dateStr){ return dateStr?daysBetween(todayStr(),dateStr):0; }
+var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+function monthLabel(ym){ if(!ym)return ""; var p=ym.split("-"); return MONTHS[+p[1]-1]+" "+p[0]; }
+function monthLabelShort(ym){ if(!ym)return ""; var p=ym.split("-"); return MONTHS[+p[1]-1].slice(0,3)+" "+p[0].slice(2); }
+function dateLabel(s){ if(!s)return ""; var d=parseDate(s); return MONTHS[d.getMonth()].slice(0,3)+" "+d.getDate(); }
+function fmtMoney(n){ n=+n||0; return "$"+n.toLocaleString("en-US"); }
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function uid(prefix){ return prefix+"-"+now().getTime().toString(36)+Math.floor(Math.random()*1296).toString(36); }
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+
+/* ============ constants ============ */
+var VIEWS=["today","pipeline","clients","closeboard","calendar","rules","settings"];
+var VIEW_META={
+  today:{label:"Today",ic:"☀"},
+  pipeline:{label:"Pipeline",ic:"▸"},
+  clients:{label:"Clients",ic:"⌂"},
+  closeboard:{label:"Close Board",ic:"▦"},
+  calendar:{label:"Calendar",ic:"▢"},
+  rules:{label:"Rules",ic:"⚖"},
+  settings:{label:"Settings",ic:"⚙"}
+};
+var LEAD_STAGES=["New","Screening","Diagnostic","Proposal sent","Pre-flight","Letter sent","Signed"];
+var LEAD_STAGES_ALL=LEAD_STAGES.concat(["Declined","Lost"]);
+var MC_STAGES=["Docs arriving","Docs complete / chasing","Close in progress","The Gap","Locked and delivered","Weekly passes","Done"];
+var MC_RANGES={"Docs arriving":"1st-5th","Docs complete / chasing":"6th-10th","Close in progress":"11th-13th","The Gap":"14th","Locked and delivered":"15th","Weekly passes":"16th-EOM","Done":""};
+var SIMPLE_STAGES=["Open","In progress","Waiting on client","Done"];
+var JOB_TYPES=["DayOne","First30","FirstQuarter","MonthlyClose","Offboarding","Cleanup","Custom"];
+var JOB_TYPE_LABEL={DayOne:"Day One",First30:"First 30",FirstQuarter:"First Quarter",MonthlyClose:"Monthly close",Offboarding:"Offboarding",Cleanup:"Cleanup",Custom:"Custom"};
+var VERTICALS=["Contractor","Professional services","Restaurant","Other"];
+var WEEKDAYS=["Mon","Tue","Wed","Thu","Fri"];
+var SCORE_FACTORS=[
+  {k:"age",f:"Business age",hint:"2+ years preferred, brand-new scores 1"},
+  {k:"vertical",f:"Vertical fit",hint:"Contractors primary, professional services secondary"},
+  {k:"restaurant",f:"Restaurant exposure",hint:"Opportunistic only, capped at 25% of roster"},
+  {k:"books",f:"Books condition",hint:"Deep mess: quote cleanup separately"},
+  {k:"docs",f:"Document discipline",hint:"Will they feed the portal on time"},
+  {k:"payment",f:"Payment reliability",hint:"Renewals only, otherwise score 3"},
+  {k:"scope",f:"Scope behavior",hint:"Do they respect bookkeeping-only scope"}
+];
+var PREFLIGHT_GATES=[
+  "Scorecard complete and passing, on file",
+  "No hard-filter failures anywhere in the notes",
+  "Scope is bookkeeping only, every excluded service named and declined",
+  "ACH autodraft on the 1st accepted in writing",
+  "Document portal accepted for everything, no email documents",
+  "No payment authority of any kind, engagement letter excludes it",
+  "E&O and cyber insurance active, retroactive date intact",
+  "Not inside the mid-Jan to mid-Feb onboarding freeze",
+  "Books condition assessed, real damage re-quoted as cleanup",
+  "Capacity clear: under the client ceiling and the restaurant cap",
+  "Engagement letter matches the quoted tier, fee, and start date"
+];
+var HARD_RULES=[
+  ["Every client on ACH autodraft from day one. No invoicing, no receivable, ever.","SOP-005"],
+  ["Portal only for documents and deliverables. Never email.","SOP-006"],
+  ["No payment authority over any client account, ever. Not addable by amendment.","SOP-009"],
+  ["Never offered: tax prep, payroll, AP/AR, collections, payment authority. Tax and legal questions get referred to the CPA.","SOP-009"],
+  ["The firm never holds client banking credentials. Client keeps primary admin.","SOP-012"],
+  ["Close delivered by the 15th, always. Missing docs are parked and named, never a delay.","SOP-001"],
+  ["Never force a reconciliation to balance. Diagnose or escalate.","SOP-011"],
+  ["Lock every period with a password. Documented reopen only.","SOP-011"],
+  ["Sarah makes every judgment call. Brad handles documents and payment mechanics.","SOP-012"],
+  ["The Gap on the 14th is a required control. Schedule around it, never through it.","SOP-001"],
+  ["No insurance bound means no signing and no onboarding.","SOP-009"],
+  ["Mid-January to mid-February: no new client onboarding.","SOP-012"],
+  ["Real damage at intake stops the engagement and becomes a cleanup quote.","SOP-003"],
+  ["Offboarding: the books are always released in full.","SOP-016"],
+  ["Restaurants capped at 25 percent of the roster.","SOP-010"],
+  ["Log actual hours honestly every month.","SOP-008"],
+  ["We fix our own mistakes free, disclosed the same day found.","SOP-011"],
+  ["Every public word says bookkeeping, never the regulated terms.","Rules doc"]
+];
+
+/* ============ demo data (demo mode only, clearly fake) ============ */
+function templateRows(){
+  return SEED_TEMPLATES.map(function(r){
+    return {template:r[0],section:r[1],ord:r[2],item:r[3],owner:r[4],offset_days:r[5],sop:r[6],non_recurring:r[7]};
+  });
+}
+function complianceRows(){
+  return SEED_COMPLIANCE.map(function(r){
+    return {id:r[0],name:r[1],frequency:r[2],next_date:r[3],owner:r[4],sop:r[5],notes:r[6],done_log:[]};
+  });
+}
+function settingsRows(){ return SEED_SETTINGS.map(function(r){ return {key:r[0],value:r[1]}; }); }
+function buildChecklist(templateName){
+  return templateRows().filter(function(t){ return t.template===templateName; })
+    .sort(function(a,b){ return a.ord-b.ord; })
+    .map(function(t){ return {i:t.item,o:t.owner,d:false,dd:"",sop:t.sop,s:t.section}; });
+}
+function buildDemoData(){
+  var t=todayStr(), cm=curMonth(), pm=monthAdd(cm,-1), pm2=monthAdd(cm,-2);
+  function doneList(tpl,frac){
+    var list=buildChecklist(tpl), upto=Math.round(list.length*frac);
+    list.forEach(function(it,i){ if(i<upto){ it.d=true; it.dd=addDays(t,-(list.length-i)); } });
+    return list;
+  }
+  var leads=[
+    {id:"ld-demo1",business_name:"Lone Star Fence Co",contact_name:"Rusty Caldwell",email:"rusty@lonestarfence.example",phone:"817-555-0142",
+     vertical:"Contractor",business_age_years:6,source:"CPA referral",stage:"Screening",score:0,score_date:"",hard_filter_fail:"none",
+     quoted_tier:"",quoted_fee:"",cleanup_quote:"",next_action:"Run the scorecard call",next_action_date:addDays(t,1),
+     decline_reason:"",notes:"Two crews, QBO already in place. Wants monthly books only.",created:addDays(t,-6),updated:addDays(t,-1)},
+    {id:"ld-demo2",business_name:"Meadow Dental PLLC",contact_name:"Dana Meadow",email:"dana@meadowdental.example",phone:"214-555-0187",
+     vertical:"Professional services",business_age_years:8,source:"Website form",stage:"Proposal sent",score:29,score_date:addDays(t,-5),hard_filter_fail:"none",
+     quoted_tier:"Standard",quoted_fee:450,cleanup_quote:0,next_action:"Follow up on the proposal",next_action_date:addDays(t,2),
+     decline_reason:"",notes:"Clean books, tidy portal habits expected. CPA on file.",created:addDays(t,-12),updated:addDays(t,-5)}
+  ];
+  var clients=[
+    {id:"cl-demo1",business_name:"Blue Sky Roofing",contact_name:"Marta Vela",email:"marta@blueskyroof.example",phone:"972-555-0114",
+     vertical:"Contractor",entity_type:"LLC",status:"Active",tier:"Standard",monthly_fee:450,effective_date:monthDay(monthAdd(cm,-4),1),
+     letter_signed_date:addDays(monthDay(monthAdd(cm,-4),1),-6),first_close_month:monthAdd(cm,-3),weekly_hour_day:"Tue",
+     cpa_name:"Alan Reyes CPA",cpa_email:"alan@reyescpa.example",cap_threshold:"$2,500",yearend_format:"AJE package",
+     ach_status:"First draft ok",receipt_automation:"Y",qbo_access:"Granted",primary_admin_ok:"Y",mfa_confirmed:"Y",
+     portal_link:"https://portal.example/blue-sky",account_list_date:monthDay(monthAdd(cm,-4),2),account_list_reconfirmed:"",
+     opening_balances:"Verified",standing_rules_link:"https://docs.example/blue-sky-rules",restaurant_flag:"N",
+     renewal_date:monthDay(monthAdd(cm,8),1),renewal_score:"",addons:"",notes:"Steady docs, lender statement arrives late some months.",
+     created:monthDay(monthAdd(cm,-4),1),updated:t},
+    {id:"cl-demo2",business_name:"Prairie Home Services",contact_name:"Joe Okafor",email:"joe@prairiehome.example",phone:"469-555-0165",
+     vertical:"Contractor",entity_type:"Sole prop",status:"Active",tier:"Essentials",monthly_fee:250,effective_date:monthDay(monthAdd(cm,-2),1),
+     letter_signed_date:addDays(monthDay(monthAdd(cm,-2),1),-4),first_close_month:monthAdd(cm,-1),weekly_hour_day:"Thu",
+     cpa_name:"Kim Tran CPA",cpa_email:"kim@trancpa.example",cap_threshold:"$1,000",yearend_format:"Adjusted TB",
+     ach_status:"First draft ok",receipt_automation:"Y",qbo_access:"Granted",primary_admin_ok:"Y",mfa_confirmed:"Y",
+     portal_link:"https://portal.example/prairie-home",account_list_date:monthDay(monthAdd(cm,-2),3),account_list_reconfirmed:"",
+     opening_balances:"Verified",standing_rules_link:"https://docs.example/prairie-rules",restaurant_flag:"N",
+     renewal_date:monthDay(monthAdd(cm,10),1),renewal_score:"",addons:"",notes:"One truck, simple books, slow on bank statements.",
+     created:monthDay(monthAdd(cm,-2),1),updated:t},
+    {id:"cl-demo3",business_name:"Tin Star BBQ",contact_name:"Lena Fuentes",email:"lena@tinstarbbq.example",phone:"682-555-0121",
+     vertical:"Restaurant",entity_type:"LLC",status:"Onboarding",tier:"Growing",monthly_fee:999,effective_date:addDays(t,-10),
+     letter_signed_date:addDays(t,-12),first_close_month:cm,weekly_hour_day:"Wed",
+     cpa_name:"Reyna Solis CPA",cpa_email:"reyna@soliscpa.example",cap_threshold:"$5,000",yearend_format:"AJE package",
+     ach_status:"Enrolled",receipt_automation:"Y",qbo_access:"Requested",primary_admin_ok:"Y",mfa_confirmed:"N",
+     portal_link:"https://portal.example/tin-star",account_list_date:"",account_list_reconfirmed:"",
+     opening_balances:"Pending",standing_rules_link:"",restaurant_flag:"Y",
+     renewal_date:monthDay(monthAdd(cm,12),1),renewal_score:"",addons:"Owner's Briefing",notes:"High volume, POS exports needed weekly.",
+     created:addDays(t,-10),updated:t}
+  ];
+  var jobs=[
+    {id:"jb-demo1",client_id:"cl-demo1",type:"MonthlyClose",period:cm,title:monthLabel(cm)+" close",stage:"Close in progress",
+     due:monthDay(cm,15),internal_due:monthDay(cm,13),owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:doneList("MonthlyClose",0.45),hours:4.5,amc_count:2,parked_items:"",delivered_date:"",locked:"N",
+     notes:"Lender statement in, recons underway.",created:monthDay(cm,1),updated:t,completed:""},
+    {id:"jb-demo2",client_id:"cl-demo1",type:"MonthlyClose",period:pm,title:monthLabel(pm)+" close",stage:"Done",
+     due:monthDay(pm,15),internal_due:monthDay(pm,13),owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:doneList("MonthlyClose",1),hours:6.25,amc_count:1,parked_items:"",delivered_date:monthDay(pm,14),locked:"Y",
+     notes:"",created:monthDay(pm,1),updated:monthDay(pm,15),completed:monthDay(pm,15)},
+    {id:"jb-demo3",client_id:"cl-demo1",type:"Custom",period:"",title:"Standing rules review",stage:"In progress",
+     due:t,internal_due:"",owner:"Sarah",waiting_on_client:"N",waiting_since:"",
+     checklist:[],hours:0.5,amc_count:0,parked_items:"",delivered_date:"",locked:"N",
+     notes:"Promote the July judgment calls into standing rules.",created:addDays(t,-3),updated:t,completed:""},
+    {id:"jb-demo4",client_id:"cl-demo2",type:"MonthlyClose",period:cm,title:monthLabel(cm)+" close",stage:"Docs complete / chasing",
+     due:monthDay(cm,15),internal_due:monthDay(cm,13),owner:"Both",waiting_on_client:"Y",waiting_since:addDays(t,-9),
+     checklist:doneList("MonthlyClose",0.2),hours:1.5,amc_count:3,parked_items:"June fuel receipts, named at $412",delivered_date:"",locked:"N",
+     notes:"Waiting on two bank statements.",created:monthDay(cm,1),updated:t,completed:""},
+    {id:"jb-demo5",client_id:"cl-demo2",type:"MonthlyClose",period:pm,title:monthLabel(pm)+" close",stage:"Done",
+     due:monthDay(pm,15),internal_due:monthDay(pm,13),owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:doneList("MonthlyClose",1),hours:3.0,amc_count:2,parked_items:"",delivered_date:monthDay(pm,15),locked:"Y",
+     notes:"",created:monthDay(pm,1),updated:monthDay(pm,15),completed:monthDay(pm,15)},
+    {id:"jb-demo6",client_id:"cl-demo3",type:"DayOne",period:"",title:"Day One",stage:"In progress",
+     due:addDays(t,-9),internal_due:"",owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:doneList("DayOne",0.6),hours:2.75,amc_count:0,parked_items:"",delivered_date:"",locked:"N",
+     notes:"QBO access request pending with Lena.",created:addDays(t,-10),updated:t,completed:""},
+    {id:"jb-demo7",client_id:"cl-demo3",type:"First30",period:"",title:"First 30 days",stage:"Open",
+     due:monthDay(cm,15),internal_due:monthDay(cm,13),owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:buildChecklist("First30"),hours:0,amc_count:0,parked_items:"",delivered_date:"",locked:"N",
+     notes:"",created:addDays(t,-10),updated:addDays(t,-10),completed:""},
+    {id:"jb-demo8",client_id:"cl-demo3",type:"FirstQuarter",period:"",title:"First quarter",stage:"Open",
+     due:monthEnd(monthAdd(cm,2)),internal_due:"",owner:"Both",waiting_on_client:"N",waiting_since:"",
+     checklist:buildChecklist("FirstQuarter"),hours:0,amc_count:0,parked_items:"",delivered_date:"",locked:"N",
+     notes:"",created:addDays(t,-10),updated:addDays(t,-10),completed:""}
+  ];
+  var log=[
+    {ts:addDays(t,-1)+" 09:12",user:"demo",action:"update",entity:"Jobs",entity_id:"jb-demo1",details:"Stage to Close in progress"},
+    {ts:addDays(t,-2)+" 14:30",user:"demo",action:"update",entity:"Jobs",entity_id:"jb-demo4",details:"Waiting on client on"},
+    {ts:addDays(t,-10)+" 08:05",user:"demo",action:"create",entity:"Clients",entity_id:"cl-demo3",details:"Added Tin Star BBQ"}
+  ];
+  return {leads:leads,clients:clients,jobs:jobs,templates:templateRows(),compliance:complianceRows(),log:log,settings:settingsRows()};
+}
+var DEMO_DATA=buildDemoData();
+
+/* ============ store ============ */
+var S={
+  mode:(typeof google!=="undefined"&&google.script&&google.script.run)?"gas":"demo",
+  user:"demo",
+  data:null,
+  ui:{
+    view:"today", clientId:null, jobId:null, boardMonth:curMonth(), calMonth:curMonth(), calMode:"month", calSel:"",
+    myday:"All", todayFilter:"all", search:"", searchOpen:false, searchSel:0,
+    clientQuery:"", clientStatus:"", pipeShowClosed:false, theme:"light", modal:null
+  }
+};
+function setting(key,fallback){
+  var row=(S.data&&S.data.settings||[]).find(function(r){ return r.key===key; });
+  return row?row.value:fallback;
+}
+function settingNum(key,fallback){ var v=+setting(key,fallback); return isNaN(v)?fallback:v; }
+function sopLinks(){
+  try{ return JSON.parse(setting("sop_links","{}")); }catch(e){ return SEED_SOP_LINKS; }
+}
+function tiersCfg(){
+  try{ return JSON.parse(setting("tiers","")); }catch(e){ return SEED_TIERS; }
+}
+function userShort(){
+  var e=(S.user||"").toLowerCase();
+  if(e.indexOf("sarah")>-1)return "Sarah";
+  if(e.indexOf("brad")>-1)return "Brad";
+  return S.mode==="demo"?"demo":e;
+}
+function addLog(action,entity,id,details){
+  S.data.log.push({ts:todayStr()+" "+pad2(now().getHours())+":"+pad2(now().getMinutes()),user:userShort(),action:action,entity:entity,entity_id:id,details:details||""});
+}
+
+/* ============ backend adapter ============ */
+var Backend={
+  boot:function(){
+    if(S.mode==="gas"){
+      return gsCall("api_boot").then(function(res){
+        S.user=res.user||"unknown";
+        S.data=res.data;
+        ["leads","clients","jobs","templates","compliance","log","settings"].forEach(function(k){ if(!S.data[k])S.data[k]=[]; });
+      });
+    }
+    S.data=clone(DEMO_DATA);
+    return Promise.resolve();
+  },
+  save:function(table,obj){
+    if(S.mode==="gas"){
+      return gsCall("api_upsert",table,obj).then(function(saved){
+        applyLocal(table,saved); return saved;
+      });
+    }
+    if(!obj.id)obj.id=uid(table.slice(0,2).toLowerCase());
+    obj.updated=todayStr();
+    applyLocal(table,obj);
+    return Promise.resolve(obj);
+  },
+  remove:function(table,id){
+    if(S.mode==="gas")return gsCall("api_delete",table,id);
+    var arr=tableArr(table); var i=arr.findIndex(function(r){ return r.id===id; });
+    if(i>-1)arr.splice(i,1);
+    return Promise.resolve();
+  }
+};
+function tableArr(table){
+  return S.data[{Leads:"leads",Clients:"clients",Jobs:"jobs",Compliance:"compliance",Settings:"settings",Templates:"templates"}[table]||table];
+}
+function applyLocal(table,obj){
+  var arr=tableArr(table); if(!arr)return;
+  var key=table==="Settings"?"key":"id";
+  var i=arr.findIndex(function(r){ return r[key]===obj[key]; });
+  if(i>-1)arr[i]=obj; else arr.push(obj);
+}
+function gsCall(fn){
+  var args=Array.prototype.slice.call(arguments,1);
+  return new Promise(function(resolve,reject){
+    var t=setTimeout(function(){ reject(new Error("Request timed out. Check your connection.")); },15000);
+    var runner=google.script.run
+      .withSuccessHandler(function(v){ clearTimeout(t); resolve(v); })
+      .withFailureHandler(function(e){ clearTimeout(t); reject(e); });
+    runner[fn].apply(runner,args);
+  });
+}
+/* optimistic save: apply locally, persist, roll back on failure */
+function persist(table,obj,logAction,logDetails){
+  var arr=tableArr(table), key=table==="Settings"?"key":"id";
+  var prevIdx=arr?arr.findIndex(function(r){ return r[key]===obj[key]; }):-1;
+  var prev=prevIdx>-1?clone(arr[prevIdx]):null;
+  if(!obj.id&&key==="id")obj.id=uid(table.slice(0,2).toLowerCase());
+  obj.updated=todayStr(); if(!obj.created&&key==="id")obj.created=todayStr();
+  applyLocal(table,obj);
+  if(logAction)addLog(logAction,table,obj[key],logDetails);
+  render();
+  if(S.mode==="gas"){
+    gsCall("api_upsert",table,obj).catch(function(err){
+      if(prev)applyLocal(table,prev);
+      else{ var i=arr.findIndex(function(r){ return r[key]===obj[key]; }); if(i>-1)arr.splice(i,1); }
+      toast("Save failed: "+(err.message||err),"err");
+      render();
+    });
+  }
+  return obj;
+}
+
+/* ============ engine: recurrence (SPEC 4.1) ============ */
+function ensureMonthlyJobs(){
+  var made=0, cm=curMonth(), day=now().getDate();
+  var periods=[cm];
+  if(day>=25)periods.push(monthAdd(cm,1));
+  S.data.clients.forEach(function(c){
+    if(c.status!=="Active"&&c.status!=="Onboarding")return;
+    if(!c.first_close_month)return;
+    periods.forEach(function(p){
+      if(c.first_close_month>p)return;
+      var exists=S.data.jobs.some(function(j){ return j.client_id===c.id&&j.type==="MonthlyClose"&&j.period===p; });
+      if(exists)return;
+      var job={id:uid("jb"),client_id:c.id,type:"MonthlyClose",period:p,title:monthLabel(p)+" close",
+        stage:"Docs arriving",due:monthDay(p,settingNum("close_day",15)),internal_due:monthDay(p,settingNum("internal_close_day",13)),
+        owner:"Both",waiting_on_client:"N",waiting_since:"",checklist:buildChecklistFromData("MonthlyClose"),
+        hours:0,amc_count:0,parked_items:"",delivered_date:"",locked:"N",notes:"",created:todayStr(),updated:todayStr(),completed:""};
+      S.data.jobs.push(job);
+      addLog("spawn","Jobs",job.id,"Monthly close spawned for "+p+" ("+c.business_name+")");
+      made++;
+      if(S.mode==="gas")gsCall("api_upsert","Jobs",job).catch(function(){});
+    });
+  });
+  return made;
+}
+function buildChecklistFromData(templateName){
+  var rows=(S.data&&S.data.templates&&S.data.templates.length)?S.data.templates:templateRows();
+  return rows.filter(function(t){ return t.template===templateName; })
+    .sort(function(a,b){ return (+a.ord)-(+b.ord); })
+    .map(function(t){ return {i:t.item,o:t.owner,d:false,dd:"",sop:t.sop||"",s:t.section}; });
+}
+
+/* ============ derived data helpers ============ */
+function clientById(id){ return S.data.clients.find(function(c){ return c.id===id; }); }
+function jobById(id){ return S.data.jobs.find(function(j){ return j.id===id; }); }
+function leadById(id){ return S.data.leads.find(function(l){ return l.id===id; }); }
+function activeClients(){ return S.data.clients.filter(function(c){ return c.status==="Active"||c.status==="Onboarding"; }); }
+function openJobs(){ return S.data.jobs.filter(function(j){ return j.stage!=="Done"; }); }
+function jobDone(j){ return j.stage==="Done"; }
+function checklistProgress(j){
+  var list=j.checklist||[]; if(!list.length)return {done:0,total:0,pct:0};
+  var d=list.filter(function(x){ return x.d; }).length;
+  return {done:d,total:list.length,pct:Math.round(d*100/list.length)};
+}
+function jobStages(j){ return j.type==="MonthlyClose"?MC_STAGES:SIMPLE_STAGES; }
+function isOverdue(j){ return !jobDone(j)&&j.due&&j.due<todayStr(); }
+function waitDays(j){ return j.waiting_on_client==="Y"&&j.waiting_since?daysSince(j.waiting_since):0; }
+function waitClass(d){ return d>=21?"w-red":d>=7?"w-amber":""; }
+function restaurantPct(){
+  var act=activeClients(); if(!act.length)return 0;
+  var r=act.filter(function(c){ return c.restaurant_flag==="Y"||c.vertical==="Restaurant"; }).length;
+  return Math.round(r*100/act.length);
+}
+function clientHoursMonth(clientId,ym){
+  return S.data.jobs.filter(function(j){
+    if(j.client_id!==clientId)return false;
+    if(j.period)return j.period===ym;
+    return monthOf(j.due)===ym||monthOf(j.updated)===ym&&!jobDone(j);
+  }).reduce(function(s,j){ return s+(+j.hours||0); },0);
+}
+function hoursThisMonth(){
+  return activeClients().reduce(function(s,c){ return s+clientHoursMonth(c.id,curMonth()); },0);
+}
+function mrr(){ return activeClients().reduce(function(s,c){ return s+(+c.monthly_fee||0); },0); }
+function mrrHistory(n){
+  var out=[],cm=curMonth();
+  for(var i=n-1;i>=0;i--){
+    var m=monthAdd(cm,-i);
+    var v=S.data.clients.filter(function(c){
+      if(!c.effective_date)return false;
+      if(monthOf(c.effective_date)>m)return false;
+      if(c.status==="Former"&&monthOf(c.updated)<=m)return false;
+      return true;
+    }).reduce(function(s,c){ return s+(+c.monthly_fee||0); },0);
+    out.push({m:m,v:v});
+  }
+  return out;
+}
+function closesOnTime(ym){
+  var jobs=S.data.jobs.filter(function(j){ return j.type==="MonthlyClose"&&j.period===ym; });
+  var due=monthDay(ym,settingNum("close_day",15));
+  var on=jobs.filter(function(j){ return j.delivered_date&&j.delivered_date<=due; }).length;
+  return {on:on,total:jobs.length};
+}
+function sopChip(key){
+  if(!key)return "";
+  var map=sopLinks(), e=map[key];
+  if(!e)return '<span class="sop-chip">'+esc(key)+'</span>';
+  return '<a class="sop-chip" href="'+esc(e.d)+'" target="_blank" rel="noopener" title="'+esc(e.t)+' · repo: '+esc(e.r)+'">'+esc(key)+'</a>';
+}
+function ownerAvatar(o){
+  if(o==="Both")return '<span class="avatar SB" title="Sarah and Brad">S+B</span>';
+  var c=o==="Sarah"?"S":"B";
+  return '<span class="avatar '+c+'" title="'+esc(o)+'">'+c+'</span>';
+}
+/* ============ inline SVG charts (palette validated for both themes) ============ */
+function svgSparkline(points,w,h){
+  if(!points.length)return "";
+  var vals=points.map(function(p){ return p.v; });
+  var max=Math.max.apply(null,vals.concat([1])), min=Math.min.apply(null,vals.concat([0]));
+  var span=(max-min)||1, px=8, py=6;
+  var step=(w-px*2)/Math.max(points.length-1,1);
+  var xy=points.map(function(p,i){ return [(px+i*step).toFixed(1),(h-py-((p.v-min)/span)*(h-py*2)).toFixed(1)]; });
+  var path=xy.map(function(c,i){ return (i?"L":"M")+c[0]+" "+c[1]; }).join(" ");
+  var area=path+" L"+xy[xy.length-1][0]+" "+(h-2)+" L"+xy[0][0]+" "+(h-2)+" Z";
+  var last=xy[xy.length-1];
+  return '<svg viewBox="0 0 '+w+' '+h+'" class="kchart" style="aspect-ratio:'+w+'/'+h+'" role="img" aria-label="Trend, latest '+esc(String(points[points.length-1].v))+'">'+
+    '<path d="'+area+'" fill="var(--chart1)" opacity="0.1"></path>'+
+    '<path d="'+path+'" fill="none" stroke="var(--chart1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'+
+    '<circle cx="'+last[0]+'" cy="'+last[1]+'" r="4" fill="var(--chart1)" stroke="var(--card)" stroke-width="2"></circle>'+
+    '</svg>';
+}
+function svgBars(bars,w,h){
+  /* bars: [{label, v, max, warn}] with value labels on caps */
+  if(!bars.length)return "";
+  var max=Math.max.apply(null,bars.map(function(b){ return b.max!=null?b.max:b.v; }).concat([1]));
+  var gap=2, bw=Math.min(24,Math.floor((w-8)/bars.length)-gap), top=13, bot=13;
+  var out='<svg viewBox="0 0 '+w+' '+h+'" class="kchart" style="aspect-ratio:'+w+'/'+h+'" role="img" aria-label="Bar chart">';
+  out+='<line x1="4" y1="'+(h-bot)+'" x2="'+(w-4)+'" y2="'+(h-bot)+'" stroke="var(--chart-grid)" stroke-width="1"></line>';
+  bars.forEach(function(b,i){
+    var x=6+i*(bw+gap+4);
+    var bh=Math.max(2,Math.round((b.v/max)*(h-top-bot)));
+    var y=h-bot-bh;
+    var col=b.warn?"var(--chart2)":"var(--chart1)";
+    out+='<path d="M'+x+' '+(h-bot)+' V'+(y+4)+' Q'+x+' '+y+' '+(x+4)+' '+y+' H'+(x+bw-4)+' Q'+(x+bw)+' '+y+' '+(x+bw)+' '+(y+4)+' V'+(h-bot)+' Z" fill="'+col+'"></path>';
+    out+='<text x="'+(x+bw/2)+'" y="'+(y-3)+'" text-anchor="middle" font-size="9.5" fill="var(--ink)">'+esc(String(b.v))+'</text>';
+    out+='<text x="'+(x+bw/2)+'" y="'+(h-3)+'" text-anchor="middle" font-size="8.5" fill="var(--muted)">'+esc(b.label)+'</text>';
+  });
+  return out+"</svg>";
+}
+function meterHtml(pct,cls,label){
+  var p=Math.max(0,Math.min(100,pct));
+  return '<div class="meter" role="img" aria-label="'+esc(label||p+"%")+'"><i class="'+cls+'" style="width:'+p+'%"></i></div>';
+}
+
+/* ============ shell ============ */
+function renderShell(){
+  var el=document.getElementById("app");
+  var banner=S.mode==="demo"?'<div id="demo-banner" role="status">Demo mode. Data is not saved. The live app runs from the private link.</div>':"";
+  el.innerHTML=banner+
+  '<div class="shell">'+
+    '<aside class="sidebar" aria-label="Main navigation">'+
+      '<div class="logo"><span class="mark">RP</span><span class="txtwrap">Relief Pros HQ<span class="sub">bookkeeping workflow</span></span></div>'+
+      '<nav class="nav" id="nav"></nav>'+
+      '<div class="side-foot">'+
+        '<button type="button" data-act="toggle-theme" aria-label="Switch light or dark theme"><span class="ic">◐</span><span class="txt">Theme</span></button>'+
+      '</div>'+
+    '</aside>'+
+    '<div class="main">'+
+      '<header class="topbar">'+
+        '<div class="search-wrap"><span class="mag" aria-hidden="true">⌕</span>'+
+          '<input id="global-search" type="search" placeholder="Search clients, leads, jobs...  ( / )" aria-label="Global search" autocomplete="off">'+
+          '<div id="search-pop"></div>'+
+        '</div>'+
+        '<span class="spacer"></span>'+
+        '<button type="button" class="btn btn-sec btn-sm" data-act="new-lead" title="Shortcut: n">+ Lead</button>'+
+        '<button type="button" class="btn btn-pri btn-sm" data-act="add-client" title="Shortcut: c">+ Client</button>'+
+        '<span class="userchip" title="Signed in">'+esc(userShort())+'</span>'+
+      '</header>'+
+      '<main class="view" id="view" tabindex="-1"></main>'+
+    '</div>'+
+  '</div>';
+  renderNav();
+}
+function renderNav(){
+  var nav=document.getElementById("nav"); if(!nav)return;
+  nav.innerHTML=VIEWS.map(function(v,i){
+    var m=VIEW_META[v];
+    return '<button type="button" data-act="nav" data-view="'+v+'" class="'+(S.ui.view===v?"active":"")+'" aria-current="'+(S.ui.view===v?"page":"false")+'">'+
+      '<span class="ic" aria-hidden="true">'+m.ic+'</span><span class="txt">'+m.label+'</span><span class="kbd-hint">'+(i+1)+'</span></button>';
+  }).join("");
+}
+function render(){
+  renderNav();
+  var el=document.getElementById("view"); if(!el)return;
+  var v=S.ui.view;
+  el.innerHTML=
+    v==="today"?viewToday():
+    v==="pipeline"?viewPipeline():
+    v==="clients"?(S.ui.clientId?viewClientDetail():viewClients()):
+    v==="closeboard"?viewCloseBoard():
+    v==="calendar"?viewCalendar():
+    v==="rules"?viewRules():
+    viewSettings();
+  renderModal();
+}
+function nav(view,params){
+  S.ui.view=view;
+  S.ui.clientId=(params&&params.clientId)||null;
+  render();
+  var el=document.getElementById("view"); if(el)el.focus({preventScroll:true});
+  window.scrollTo(0,0);
+}
+
+/* ============ Today view ============ */
+function jobCardHtml(j,opts){
+  var c=clientById(j.client_id), p=checklistProgress(j);
+  var od=isOverdue(j), du=daysUntil(j.due);
+  var dueTxt=!j.due?"":od?("Overdue "+Math.abs(du)+"d"):du===0?"Due today":("Due "+dateLabel(j.due));
+  var wd=waitDays(j);
+  return '<div class="jobcard'+(od?" overdue":"")+'" data-act="open-job" data-id="'+j.id+'" role="button" tabindex="0" aria-label="Open '+esc(j.title)+' for '+esc(c?c.business_name:"")+'">'+
+    '<div class="top"><span class="name">'+esc(c?c.business_name:"(no client)")+'</span>'+ownerAvatar(j.owner)+'</div>'+
+    '<div class="meta">'+
+      '<span class="chip">'+esc(JOB_TYPE_LABEL[j.type]||j.type)+'</span>'+
+      '<span class="chip chip-teal">'+esc(j.stage)+'</span>'+
+      (dueTxt?'<span class="'+(od?"due-red":"")+'">'+dueTxt+'</span>':"")+
+      (wd?'<span class="badge-wait '+waitClass(wd)+'">Waiting '+wd+'d'+(wd>=21?" · park and name (SOP-015)":"")+'</span>':"")+
+    '</div>'+
+    (p.total?'<div class="meta"><div class="progress" role="img" aria-label="'+p.done+' of '+p.total+' items done"><i style="width:'+p.pct+'%"></i></div><span class="tiny muted num">'+p.done+'/'+p.total+'</span></div>':"")+
+  '</div>';
+}
+function viewToday(){
+  var ceil=settingNum("solo_ceiling_clients",15), capPct=settingNum("restaurant_cap_pct",25), hFlag=settingNum("hours_flag",9);
+  var act=activeClients(), nAct=act.length;
+  var cot=closesOnTime(curMonth());
+  var waiting=openJobs().filter(function(j){ return j.waiting_on_client==="Y"; });
+  var oldestWait=waiting.reduce(function(m,j){ return Math.max(m,waitDays(j)); },0);
+  var hrs=hoursThisMonth(), hBudget=nAct*hFlag;
+  var rPct=restaurantPct();
+  var hist=[];
+  for(var i=5;i>=1;i--){ var m=monthAdd(curMonth(),-i); var h=closesOnTime(m); hist.push({label:monthLabelShort(m).split(" ")[0],v:h.on,max:Math.max(h.total,1)}); }
+  hist.push({label:monthLabelShort(curMonth()).split(" ")[0],v:cot.on,max:Math.max(cot.total,1)});
+  var mrrPts=mrrHistory(6).map(function(p){ return {v:p.v}; });
+
+  var jobs=openJobs();
+  if(S.ui.myday!=="All")jobs=jobs.filter(function(j){ return j.owner===S.ui.myday||j.owner==="Both"; });
+  if(S.ui.todayFilter==="waiting")jobs=jobs.filter(function(j){ return j.waiting_on_client==="Y"; });
+  var t=todayStr(), in7=addDays(t,7), in14=addDays(t,14);
+  var buckets={overdue:[],today:[],week:[],next:[]};
+  jobs.forEach(function(j){
+    if(!j.due)return;
+    if(j.due<t)buckets.overdue.push(j);
+    else if(j.due===t)buckets.today.push(j);
+    else if(j.due<=in7)buckets.week.push(j);
+    else if(j.due<=in14)buckets.next.push(j);
+  });
+  Object.keys(buckets).forEach(function(k){ buckets[k].sort(function(a,b){ return a.due<b.due?-1:1; }); });
+  function bucket(key,title,list){
+    return '<div class="bucket '+key+'"><h3>'+title+' <span class="cnt num">'+list.length+'</span></h3>'+
+      (list.length?list.map(function(j){ return jobCardHtml(j); }).join(""):'<div class="empty small">Nothing here. Good.</div>')+'</div>';
+  }
+  return '<div class="vhead"><h1>Today</h1><span class="muted small">'+dateLabel(t)+", "+now().getFullYear()+'</span><span class="spacer"></span>'+
+    '<div class="seg" role="group" aria-label="My day filter">'+["All","Sarah","Brad"].map(function(o){
+      return '<button type="button" data-act="myday" data-v="'+o+'" class="'+(S.ui.myday===o?"on":"")+'">'+o+'</button>'; }).join("")+'</div>'+
+    '<div class="seg" role="group" aria-label="Saved filters">'+
+      '<button type="button" data-act="today-filter" data-v="all" class="'+(S.ui.todayFilter==="all"?"on":"")+'">All work</button>'+
+      '<button type="button" data-act="today-filter" data-v="waiting" class="'+(S.ui.todayFilter==="waiting"?"on":"")+'">Waiting on client ('+waiting.length+')</button>'+
+    '</div></div>'+
+  '<div class="grid-kpi">'+
+    '<div class="kpi'+(nAct>=ceil?" warn":"")+'"><span class="lbl">Active clients</span><span class="val num">'+nAct+' <span class="unit">of '+ceil+'</span></span>'+
+      meterHtml(nAct*100/ceil,nAct>=ceil?"m-red":nAct>=ceil-2?"m-amber":"","Roster at "+nAct+" of the "+ceil+" client ceiling")+
+      '<span class="sub">Solo ceiling '+ceil+'</span></div>'+
+    '<div class="kpi"><span class="lbl">Closes on time, '+esc(monthLabelShort(curMonth()))+'</span><span class="val num">'+cot.on+'<span class="unit">/'+cot.total+'</span></span>'+
+      svgBars(hist,168,58)+'</div>'+
+    '<div class="kpi'+(oldestWait>=7?" warn":"")+'"><span class="lbl">Waiting on client</span><span class="val num">'+waiting.length+'</span>'+
+      '<span class="sub">'+(waiting.length?("Oldest "+oldestWait+" days"+(oldestWait>=21?". Park and name it (SOP-015)":"")):"Nobody is holding you up")+'</span></div>'+
+    '<div class="kpi'+(hrs>hBudget&&hBudget?" warn":"")+'"><span class="lbl">Hours this month</span><span class="val num">'+hrs+'<span class="unit"> of '+hBudget+'h</span></span>'+
+      meterHtml(hBudget?hrs*100/hBudget:0,hrs>hBudget?"m-red":hrs>hBudget*0.8?"m-amber":"","Hours "+hrs+" of "+hBudget)+
+      '<span class="sub">Budget: '+hFlag+'h per client</span></div>'+
+    '<div class="kpi"><span class="lbl">MRR</span><span class="val num">'+fmtMoney(mrr())+'</span>'+svgSparkline(mrrPts,168,44)+'<span class="sub">Trailing 6 months</span></div>'+
+    '<div class="kpi'+(rPct>capPct?" warn":"")+'"><span class="lbl">Restaurant share</span><span class="val num">'+rPct+'<span class="unit">%</span></span>'+
+      meterHtml(rPct,rPct>capPct?"m-red":rPct>capPct-5?"m-amber":"","Restaurants at "+rPct+" percent of roster")+
+      '<span class="sub">'+(rPct>capPct?"Over the "+capPct+"% cap (SOP-010)":"Cap "+capPct+"% of roster")+'</span></div>'+
+  '</div>'+
+  '<div class="buckets">'+
+    bucket("overdue","Overdue",buckets.overdue)+
+    bucket("today","Due today",buckets.today)+
+    bucket("week","This week",buckets.week)+
+    bucket("next","Next week",buckets.next)+
+  '</div>';
+}
+
+/* ============ Pipeline view ============ */
+function leadCardHtml(l){
+  var dis=daysSince(l.updated||l.created), naOver=l.next_action_date&&l.next_action_date<todayStr();
+  var sc=+l.score||0, scls=sc>=25?"hi":sc>=18?"mid":"lo";
+  var idx=LEAD_STAGES.indexOf(l.stage);
+  return '<div class="leadcard" draggable="true" data-lead="'+l.id+'" data-act="open-lead" data-id="'+l.id+'" role="button" tabindex="0" aria-label="Open lead '+esc(l.business_name)+'">'+
+    '<div class="nm">'+esc(l.business_name)+'</div>'+
+    '<div class="row"><span class="chip">'+esc(l.vertical||"")+'</span>'+(sc?'<span class="score-pill '+scls+' num" title="Scorecard, out of 35">'+sc+'</span>':"")+
+      '<span class="tiny muted num">'+dis+'d in stage</span></div>'+
+    (l.next_action?'<div class="row tiny '+(naOver?"due-red":"muted")+'">→ '+esc(l.next_action)+(l.next_action_date?" · "+dateLabel(l.next_action_date):"")+'</div>':"")+
+    '<div class="arrows">'+
+      (idx>0?'<button type="button" class="iconbtn" data-act="lead-move" data-id="'+l.id+'" data-dir="-1" aria-label="Move '+esc(l.business_name)+' to earlier stage">←</button>':"")+
+      (idx>-1&&idx<LEAD_STAGES.length-1?'<button type="button" class="iconbtn" data-act="lead-move" data-id="'+l.id+'" data-dir="1" aria-label="Move '+esc(l.business_name)+' to next stage">→</button>':"")+
+      (idx===LEAD_STAGES.length-1?'<button type="button" class="btn btn-pri btn-sm" data-act="convert-lead" data-id="'+l.id+'">Convert</button>':"")+
+    '</div></div>';
+}
+function viewPipeline(){
+  var leads=S.data.leads;
+  var open=LEAD_STAGES.map(function(st){
+    var list=leads.filter(function(l){ return l.stage===st; });
+    return '<div class="kcol" data-drop-stage="'+esc(st)+'"><h3>'+esc(st)+' <span class="cnt num">'+list.length+'</span></h3>'+
+      list.map(leadCardHtml).join("")+
+      (st==="New"&&!list.length?'<div class="empty small">No leads yet. Press <kbd>n</kbd> to add the first one.</div>':"")+
+    '</div>';
+  }).join("");
+  var closed=leads.filter(function(l){ return l.stage==="Declined"||l.stage==="Lost"; });
+  var closedHtml=S.ui.pipeShowClosed?
+    '<div class="kcol" data-drop-stage="Declined"><h3>Declined / Lost <span class="cnt num">'+closed.length+'</span>'+
+    '<button type="button" class="iconbtn" data-act="toggle-closed" aria-label="Collapse declined and lost">×</button></h3>'+
+      closed.map(function(l){ return '<div class="leadcard" data-act="open-lead" data-id="'+l.id+'" role="button" tabindex="0"><div class="nm">'+esc(l.business_name)+'</div>'+
+      '<div class="row"><span class="chip chip-red">'+esc(l.stage)+'</span><span class="tiny muted">'+esc(l.decline_reason||"")+'</span></div></div>'; }).join("")+
+    '</div>':
+    '<button type="button" class="kcol-collapsed" data-act="toggle-closed" aria-label="Show declined and lost leads">Declined / Lost ('+closed.length+')</button>';
+  var anyLead=leads.length;
+  return '<div class="vhead"><h1>Pipeline</h1><span class="muted small">Screen hard, sign slow. '+sopChip("SOP-010")+'</span><span class="spacer"></span>'+
+    '<button type="button" class="btn btn-pri btn-sm" data-act="new-lead">+ New lead</button></div>'+
+    (anyLead?'<div class="kanban">'+open+closedHtml+'</div>':
+     '<div class="empty">No leads yet. Press <kbd>n</kbd> to add the first one.</div>');
+}
+
+/* ============ Clients list ============ */
+function viewClients(){
+  var q=S.ui.clientQuery.toLowerCase(), fs=S.ui.clientStatus;
+  var list=S.data.clients.filter(function(c){
+    if(fs&&c.status!==fs)return false;
+    if(q&&(c.business_name+" "+c.contact_name).toLowerCase().indexOf(q)<0)return false;
+    return true;
+  }).sort(function(a,b){ return a.business_name<b.business_name?-1:1; });
+  var rows=list.map(function(c){
+    var hrs=clientHoursMonth(c.id,curMonth()), hFlag=settingNum("hours_flag",9);
+    var openJ=S.data.jobs.filter(function(j){ return j.client_id===c.id&&!jobDone(j); }).length;
+    return '<tr class="rowlink" data-act="open-client" data-id="'+c.id+'" tabindex="0">'+
+      '<td><b>'+esc(c.business_name)+'</b><div class="tiny muted">'+esc(c.contact_name||"")+'</div></td>'+
+      '<td><span class="chip'+(c.status==="Active"?" chip-teal":c.status==="Onboarding"?" chip-gold":"")+'">'+esc(c.status)+'</span></td>'+
+      '<td>'+esc(c.tier)+'</td><td class="num">'+fmtMoney(c.monthly_fee)+'</td>'+
+      '<td>'+esc(c.vertical)+(c.restaurant_flag==="Y"?' <span class="chip chip-gold">restaurant</span>':"")+'</td>'+
+      '<td>'+esc(c.weekly_hour_day||"")+'</td>'+
+      '<td class="num'+(hrs>hFlag?" hours-amber":"")+'">'+hrs+'h</td>'+
+      '<td class="num">'+openJ+'</td></tr>';
+  }).join("");
+  return '<div class="vhead"><h1>Clients</h1><span class="chip num">'+activeClients().length+' active of '+settingNum("solo_ceiling_clients",15)+'</span><span class="spacer"></span>'+
+    '<input type="search" style="max-width:200px" placeholder="Filter clients" aria-label="Filter clients" data-act-input="client-query" value="'+esc(S.ui.clientQuery)+'">'+
+    '<select style="max-width:150px" aria-label="Filter by status" data-act-input="client-status">'+
+      '<option value="">All statuses</option>'+["Onboarding","Active","Paused","Offboarding","Former"].map(function(s){
+        return '<option'+(fs===s?" selected":"")+'>'+s+'</option>'; }).join("")+'</select>'+
+    '<button type="button" class="btn btn-pri btn-sm" data-act="add-client">+ Client</button></div>'+
+    (list.length?'<div class="card card-tight" style="overflow:auto"><table class="tbl"><thead><tr>'+
+      '<th>Client</th><th>Status</th><th>Tier</th><th>Fee</th><th>Vertical</th><th>Hour day</th><th>Hours (mo)</th><th>Open jobs</th></tr></thead>'+
+      '<tbody>'+rows+'</tbody></table></div>':
+     '<div class="empty">No clients match. Press <kbd>c</kbd> to add one.</div>');
+}
+
+/* ============ Client detail ============ */
+function vaultField(c,key,label,type,options){
+  var v=c[key]==null?"":c[key];
+  var ctl;
+  if(type==="select")ctl='<select data-vault="'+key+'" data-id="'+c.id+'" aria-label="'+esc(label)+'">'+
+    options.map(function(o){ return '<option'+(String(v)===o?" selected":"")+'>'+esc(o)+'</option>'; }).join("")+'</select>';
+  else ctl='<input type="'+(type||"text")+'" data-vault="'+key+'" data-id="'+c.id+'" value="'+esc(v)+'" aria-label="'+esc(label)+'">';
+  return '<div class="fr"><span class="k">'+esc(label)+'</span>'+ctl+'</div>';
+}
+function viewClientDetail(){
+  var c=clientById(S.ui.clientId);
+  if(!c)return '<div class="empty">Client not found.</div>';
+  var jobs=S.data.jobs.filter(function(j){ return j.client_id===c.id; })
+    .sort(function(a,b){ return (a.stage==="Done")-(b.stage==="Done")||(a.due<b.due?-1:1); });
+  var hrs=clientHoursMonth(c.id,curMonth()), hFlag=settingNum("hours_flag",9);
+  var tl=jobs.map(function(j){
+    var p=checklistProgress(j), wd=waitDays(j);
+    return '<div class="tl-item" data-act="open-job" data-id="'+j.id+'" role="button" tabindex="0">'+
+      '<span class="chip">'+esc(JOB_TYPE_LABEL[j.type]||j.type)+'</span>'+
+      '<b style="flex:1">'+esc(j.title)+'</b>'+
+      (wd?'<span class="badge-wait '+waitClass(wd)+'">Waiting '+wd+'d</span>':"")+
+      '<span class="chip '+(jobDone(j)?"chip-teal":isOverdue(j)?"chip-red":"")+'">'+esc(j.stage)+'</span>'+
+      (p.total?'<span class="tiny muted num">'+p.done+'/'+p.total+'</span>':"")+
+      '<span class="tiny muted nowrap">'+(j.due?dateLabel(j.due):"")+'</span></div>';
+  }).join("");
+  return '<div class="vhead"><button type="button" class="btn-ghost" data-act="nav" data-view="clients" aria-label="Back to clients">← Clients</button></div>'+
+  '<div class="cd-head"><h1>'+esc(c.business_name)+'</h1>'+
+    '<span class="chip chip-navy">'+esc(c.tier)+'</span><span class="chip num">'+fmtMoney(c.monthly_fee)+'/mo</span>'+
+    '<span class="chip'+(c.status==="Active"?" chip-teal":c.status==="Offboarding"?" chip-red":" chip-gold")+'">'+esc(c.status)+'</span>'+
+    '<span class="chip">Weekly hour: '+esc(c.weekly_hour_day||"unset")+'</span>'+
+    (c.restaurant_flag==="Y"?'<span class="chip chip-gold">restaurant</span>':"")+
+    '<span class="spacer"></span>'+
+    (c.portal_link?'<a class="btn btn-sec btn-sm" href="'+esc(c.portal_link)+'" target="_blank" rel="noopener">Portal</a>':"")+
+    (c.standing_rules_link?'<a class="btn btn-sec btn-sm" href="'+esc(c.standing_rules_link)+'" target="_blank" rel="noopener">Standing rules</a>':"")+
+    (c.cpa_email?'<a class="btn btn-sec btn-sm" href="mailto:'+esc(c.cpa_email)+'">Email CPA</a>':"")+
+    (c.status!=="Offboarding"&&c.status!=="Former"?'<button type="button" class="btn btn-danger btn-sm" data-act="offboard" data-id="'+c.id+'">Offboard</button>':"")+
+  '</div>'+
+  '<div class="cd-grid">'+
+    '<div class="card vault"><h2>Vault</h2>'+
+      vaultField(c,"contact_name","Contact")+vaultField(c,"email","Email","email")+vaultField(c,"phone","Phone")+
+      vaultField(c,"vertical","Vertical","select",VERTICALS)+vaultField(c,"entity_type","Entity type")+
+      vaultField(c,"status","Status","select",["Onboarding","Active","Paused","Offboarding","Former"])+
+      vaultField(c,"tier","Tier","select",["Essentials","Standard","Growing"])+vaultField(c,"monthly_fee","Monthly fee","number")+
+      vaultField(c,"effective_date","Effective date","date")+vaultField(c,"first_close_month","First close month")+
+      vaultField(c,"weekly_hour_day","Weekly hour day","select",WEEKDAYS)+
+      vaultField(c,"cpa_name","CPA")+vaultField(c,"cpa_email","CPA email","email")+
+      vaultField(c,"cap_threshold","Cap threshold")+vaultField(c,"yearend_format","Year-end format")+
+      vaultField(c,"ach_status","ACH status","select",["Not enrolled","Enrolled","First draft ok","Paused"])+
+      vaultField(c,"receipt_automation","Receipt automation","select",["Y","N"])+
+      vaultField(c,"qbo_access","QBO access","select",["None","Requested","Granted"])+
+      vaultField(c,"primary_admin_ok","Client keeps admin","select",["Y","N"])+
+      vaultField(c,"mfa_confirmed","MFA confirmed","select",["Y","N"])+
+      vaultField(c,"portal_link","Portal link","url")+vaultField(c,"standing_rules_link","Standing rules link","url")+
+      vaultField(c,"account_list_date","Account list date","date")+
+      vaultField(c,"opening_balances","Opening balances","select",["Verified","UNVERIFIED to CPA","Pending"])+
+      vaultField(c,"restaurant_flag","Restaurant flag","select",["N","Y"])+
+      vaultField(c,"renewal_date","Renewal date","date")+vaultField(c,"addons","Add-ons")+
+    '</div>'+
+    '<div>'+
+      '<div class="card"><div style="display:flex;align-items:center;gap:10px"><h2 style="flex:1;margin:0">Work</h2>'+
+        '<span class="'+(hrs>hFlag?"hours-amber":"muted")+' small num">'+hrs+'h this month'+(hrs>hFlag?" · "+hFlag+" hours at month 12 is a pricing finding (SOP-015)":"")+'</span>'+
+        '<button type="button" class="btn btn-sec btn-sm" data-act="new-custom-job" data-id="'+c.id+'">+ Job</button></div>'+
+        '<div class="timeline mt8">'+(tl||'<div class="empty small">No jobs yet.</div>')+'</div></div>'+
+      '<div class="card mt12"><h2>Notes</h2>'+
+        '<textarea rows="4" data-vault="notes" data-id="'+c.id+'" aria-label="Client notes" placeholder="Notes live here, never client documents.">'+esc(c.notes||"")+'</textarea></div>'+
+    '</div>'+
+  '</div>';
+}
+
+/* ============ Close Board ============ */
+function viewCloseBoard(){
+  var m=S.ui.boardMonth;
+  var cols=MC_STAGES.slice(0,6);
+  var rows=activeClients().sort(function(a,b){ return a.business_name<b.business_name?-1:1; }).map(function(c){
+    var j=S.data.jobs.find(function(x){ return x.client_id===c.id&&x.type==="MonthlyClose"&&x.period===m; });
+    var wd=j?waitDays(j):0;
+    var cells=cols.map(function(st,i){
+      if(!j)return '<td><span class="stage-dot" title="No close for this month"></span></td>';
+      var cur=MC_STAGES.indexOf(j.stage);
+      var cls=j.stage==="Done"||i<cur?"done":i===cur?(isOverdue(j)?"overdue-dot":"cur"):"";
+      return '<td><button type="button" class="stagebtn" data-act="open-job" data-id="'+j.id+'" aria-label="'+esc(c.business_name)+", "+esc(st)+(i===cur?", current stage":"")+'">'+
+        '<span class="stage-dot '+cls+'"></span></button></td>';
+    }).join("");
+    var p=j?checklistProgress(j):{done:0,total:0,pct:0};
+    return '<tr><td class="clientcell"><div class="nm">'+esc(c.business_name)+'</div>'+
+      '<div class="sub">'+(j?'<span class="num">'+p.done+"/"+p.total+"</span>":"no close")+
+      (j&&isOverdue(j)?'<span class="chip chip-red">overdue</span>':"")+
+      (wd?'<span class="badge-wait '+waitClass(wd)+'">Waiting '+wd+'d</span>':"")+
+      (j&&j.stage==="Done"?'<span class="chip chip-teal">delivered'+(j.delivered_date?" "+dateLabel(j.delivered_date):"")+'</span>':"")+
+      '</div></td>'+cells+
+      '<td><div class="qact">'+(j?
+        '<button type="button" class="iconbtn" data-act="hours-quick" data-id="'+j.id+'" aria-label="Log 15 minutes on '+esc(c.business_name)+'" title="Log +0.25h (now '+(+j.hours||0)+'h)">◔</button>'+
+        '<button type="button" class="iconbtn" data-act="toggle-wait" data-id="'+j.id+'" aria-label="Toggle waiting on client for '+esc(c.business_name)+'" title="Toggle waiting on client">⏳</button>'+
+        '<button type="button" class="iconbtn" data-act="open-job" data-id="'+j.id+'" aria-label="Open checklist for '+esc(c.business_name)+'" title="Open checklist">☰</button>':"")+
+      '</div></td></tr>';
+  }).join("");
+  return '<div class="vhead"><h1>Close Board</h1><span class="muted small">The weekly review screen. '+sopChip("SOP-001")+'</span><span class="spacer"></span>'+
+    '<div class="seg" role="group" aria-label="Month picker">'+
+      '<button type="button" data-act="board-month" data-v="'+monthAdd(m,-1)+'" aria-label="Previous month">←</button>'+
+      '<button type="button" class="on num">'+esc(monthLabel(m))+'</button>'+
+      '<button type="button" data-act="board-month" data-v="'+monthAdd(m,1)+'" aria-label="Next month">→</button>'+
+    '</div></div>'+
+    (activeClients().length?'<div class="card card-tight cboard"><table><thead><tr><th>Client</th>'+
+      cols.map(function(st){ return '<th>'+esc(st)+'<span class="rng">'+esc(MC_RANGES[st])+'</span></th>'; }).join("")+
+      '<th>Quick</th></tr></thead><tbody>'+rows+'</tbody></table></div>':
+     '<div class="empty">No active clients yet. Press <kbd>c</kbd> to add the first one.</div>');
+}
+
+/* ============ Calendar ============ */
+function calendarEvents(ym){
+  var evs={}; /* date -> [{t,cls,title,act,id}] */
+  function push(d,e){ if(monthOf(d)!==ym)return; (evs[d]=evs[d]||[]).push(e); }
+  push(monthDay(ym,1),{cls:"ev-rhythm",title:"ACH draft day"});
+  push(monthDay(ym,settingNum("gap_day",14)),{cls:"ev-rhythm",title:"The Gap"});
+  push(monthDay(ym,settingNum("close_day",15)),{cls:"ev-rhythm",title:"Close delivery day"});
+  S.data.jobs.forEach(function(j){
+    if(jobDone(j)||!j.due)return;
+    var c=clientById(j.client_id);
+    push(j.due,{cls:"ev-job",title:(c?c.business_name:"")+": "+j.title,act:"open-job",id:j.id});
+  });
+  S.data.compliance.forEach(function(cp){
+    if(cp.next_date)push(cp.next_date,{cls:"ev-comp",title:cp.name,act:"open-compliance",id:cp.id});
+  });
+  var dowMap={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5};
+  activeClients().forEach(function(c){
+    var dow=dowMap[c.weekly_hour_day]; if(!dow)return;
+    for(var d=1;d<=daysInMonth(ym);d++){
+      var ds=ym+"-"+pad2(d);
+      if(parseDate(ds).getDay()===dow)push(ds,{cls:"ev-hour",title:"Weekly hour: "+c.business_name,act:"open-client",id:c.id});
+    }
+  });
+  return evs;
+}
+function viewCalendar(){
+  var ym=S.ui.calMonth, evs=calendarEvents(ym);
+  var head='<div class="vhead"><h1>Calendar</h1><span class="spacer"></span>'+
+    '<div class="seg" role="group" aria-label="Calendar mode">'+
+      '<button type="button" data-act="cal-mode" data-v="month" class="'+(S.ui.calMode==="month"?"on":"")+'">Month</button>'+
+      '<button type="button" data-act="cal-mode" data-v="agenda" class="'+(S.ui.calMode==="agenda"?"on":"")+'">Agenda</button>'+
+    '</div>'+
+    '<div class="seg" role="group" aria-label="Month picker">'+
+      '<button type="button" data-act="cal-month" data-v="'+monthAdd(ym,-1)+'" aria-label="Previous month">←</button>'+
+      '<button type="button" class="on num">'+esc(monthLabel(ym))+'</button>'+
+      '<button type="button" data-act="cal-month" data-v="'+monthAdd(ym,1)+'" aria-label="Next month">→</button>'+
+    '</div></div>';
+  if(S.ui.calMode==="agenda"){
+    var items=[];
+    Object.keys(evs).sort().forEach(function(d){ evs[d].forEach(function(e){ if(e.cls!=="ev-hour")items.push({d:d,e:e}); }); });
+    return head+'<div class="card">'+(items.length?items.map(function(x){
+      return '<div class="agenda-item"><span class="d num'+(x.d<todayStr()?" due-red":"")+'">'+dateLabel(x.d)+'</span>'+
+        '<span class="ev '+x.e.cls+'">'+esc(x.e.title)+'</span>'+
+        (x.e.act?'<button type="button" class="btn-ghost btn-sm" data-act="'+x.e.act+'" data-id="'+x.e.id+'">open</button>':"")+'</div>';
+    }).join(""):'<div class="empty">Nothing scheduled this month.</div>')+'</div>';
+  }
+  var first=parseDate(monthDay(ym,1)), startDow=first.getDay(), dim=daysInMonth(ym);
+  var cells=[],i;
+  for(i=0;i<startDow;i++)cells.push('<div class="calday out" aria-hidden="true"></div>');
+  for(var d=1;d<=dim;d++){
+    var ds=ym+"-"+pad2(d), list=evs[ds]||[];
+    var shown=list.slice(0,3);
+    cells.push('<button type="button" class="calday'+(ds===todayStr()?" today":"")+(S.ui.calSel===ds?" selected":"")+'" data-act="cal-day" data-v="'+ds+'" aria-label="'+dateLabel(ds)+', '+list.length+' items">'+
+      '<span class="dnum num">'+d+'</span>'+
+      shown.map(function(e){ return '<span class="ev '+e.cls+'">'+esc(e.title)+'</span>'; }).join("")+
+      (list.length>3?'<span class="tiny muted">+'+(list.length-3)+' more</span>':"")+
+    '</button>');
+  }
+  var sel=S.ui.calSel&&monthOf(S.ui.calSel)===ym?(evs[S.ui.calSel]||[]):null;
+  var selHtml=sel?'<div class="card mt12"><h3>'+dateLabel(S.ui.calSel)+'</h3>'+
+    (sel.length?sel.map(function(e){
+      return '<div class="agenda-item"><span class="ev '+e.cls+'">'+esc(e.title)+'</span>'+
+        (e.act?'<button type="button" class="btn-ghost btn-sm" data-act="'+e.act+'" data-id="'+e.id+'">open</button>':"")+'</div>';
+    }).join(""):'<div class="muted small">Nothing on this day.</div>')+'</div>':"";
+  return head+'<div class="calgrid">'+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(function(d){ return '<div class="dow">'+d+'</div>'; }).join("")+cells.join("")+'</div>'+selHtml;
+}
+
+/* ============ Rules ============ */
+function viewRules(){
+  return '<div class="vhead"><h1>Rules</h1><span class="muted small">The hard rules. Not editable, not re-litigated.</span></div>'+
+  '<div class="rules-grid">'+HARD_RULES.map(function(r,i){
+    return '<div class="rulecard"><span class="n num">RULE '+(i+1)+'</span><div>'+esc(r[0])+'</div>'+
+      '<div>'+(r[1].indexOf("SOP")===0||sopLinks()[r[1]]?sopChip(r[1]):'<span class="sop-chip">'+esc(r[1])+'</span>')+'</div></div>';
+  }).join("")+'</div>';
+}
+
+/* ============ Settings ============ */
+function viewSettings(){
+  var editable=["allowed_emails","close_day","internal_close_day","gap_day","restaurant_cap_pct","solo_ceiling_clients","hours_flag"];
+  var setRows=editable.map(function(k){
+    return '<div class="fr"><span class="k">'+esc(k)+'</span><input data-setting="'+esc(k)+'" value="'+esc(setting(k,""))+'" aria-label="Setting '+esc(k)+'"></div>';
+  }).join("");
+  var logRows=S.data.log.slice(-80).reverse().map(function(r){
+    return '<tr><td class="nowrap num">'+esc(r.ts)+'</td><td>'+esc(r.user)+'</td><td>'+esc(r.action)+'</td><td>'+esc(r.entity)+'</td><td>'+esc(r.details)+'</td></tr>';
+  }).join("");
+  var comp=S.data.compliance.slice().sort(function(a,b){ return a.next_date<b.next_date?-1:1; }).map(function(cp){
+    var od=cp.next_date<todayStr();
+    return '<div class="agenda-item"><span class="d num'+(od?" due-red":"")+'">'+esc(cp.next_date)+'</span>'+
+      '<span style="flex:1">'+esc(cp.name)+'</span><span class="chip">'+esc(cp.owner)+'</span>'+
+      '<span class="tiny muted">'+esc(cp.frequency)+'</span>'+(cp.sop?sopChip(cp.sop):"")+
+      '<button type="button" class="btn btn-sec btn-sm" data-act="comp-done" data-id="'+cp.id+'">Done</button></div>';
+  }).join("");
+  var links=Object.keys(sopLinks()).map(function(k){
+    var e=sopLinks()[k];
+    return '<div class="agenda-item"><span class="d">'+esc(k)+'</span><span style="flex:1">'+esc(e.t)+'</span>'+sopChip(k)+'</div>';
+  }).join("");
+  return '<div class="vhead"><h1>Settings</h1><span class="spacer"></span>'+
+    '<button type="button" class="btn btn-sec btn-sm" data-act="toggle-theme">Theme: '+(S.ui.theme==="dark"?"dark":"light")+'</button>'+
+    (S.mode==="demo"?'<button type="button" class="btn btn-sec btn-sm" data-act="export-json">Export JSON</button>'+
+    '<button type="button" class="btn btn-sec btn-sm" data-act="import-json">Import JSON</button>'+
+    '<input type="file" id="import-file" accept="application/json" style="display:none" aria-label="Import JSON file">':"")+
+  '</div>'+
+  '<div class="set-grid">'+
+    '<div class="card vault"><h2>Firm settings</h2>'+setRows+
+      '<p class="tiny muted mt8">Mode: '+(S.mode==="gas"?"Live (Google Sheet database)":"Demo (in memory only)")+' · Signed in as '+esc(S.user)+'</p></div>'+
+    '<div class="card"><h2>Compliance deadlines</h2>'+comp+'</div>'+
+    '<div class="card"><h2>SOP links</h2><div class="logview">'+links+'</div></div>'+
+    '<div class="card"><h2>Activity log</h2><div class="logview"><table class="tbl"><tbody>'+
+      (logRows||'<tr><td class="muted">No activity yet.</td></tr>')+'</tbody></table></div></div>'+
+  '</div>';
+}
+/* ============ toasts ============ */
+function toast(msg,cls){
+  var root=document.getElementById("toast-root");
+  var el=document.createElement("div");
+  el.className="toast"+(cls==="err"?" err":"");
+  el.setAttribute("role","status");
+  el.textContent=msg;
+  root.appendChild(el);
+  setTimeout(function(){ el.style.opacity="0"; el.style.transition="opacity .3s"; },2600);
+  setTimeout(function(){ if(el.parentNode)el.parentNode.removeChild(el); },3000);
+}
+
+/* ============ modal rendering ============ */
+function openModal(m){ S.ui.modal=m; renderModal(); }
+function closeModal(){ S.ui.modal=null; renderModal(); }
+function renderModal(){
+  var root=document.getElementById("modal-root");
+  var m=S.ui.modal;
+  if(!m){ root.innerHTML=""; return; }
+  var inner=
+    m.kind==="job"?modalJob(m):
+    m.kind==="lead"?modalLead(m):
+    m.kind==="preflight"?modalPreflight(m):
+    m.kind==="wizard"?modalWizard(m):
+    m.kind==="offboard"?modalOffboard(m):
+    m.kind==="newjob"?modalNewJob(m):
+    m.kind==="confirm"?modalConfirm(m):"";
+  root.innerHTML='<div class="modal-back" data-act="modal-back">'+inner+'</div>';
+  var box=root.querySelector(".modal");
+  if(box){ var f=box.querySelector("input,select,textarea,button.btn-pri"); if(f)f.focus(); }
+}
+function modalConfirm(m){
+  return '<div class="modal narrow" role="dialog" aria-modal="true" aria-label="Confirm">'+
+    '<header><h2>'+esc(m.title||"Confirm")+'</h2></header>'+
+    '<p>'+esc(m.msg)+'</p>'+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button>'+
+    '<button type="button" class="btn btn-pri" data-act="confirm-ok">'+esc(m.okLabel||"Confirm")+'</button></div></div>';
+}
+
+/* ============ job modal ============ */
+function modalJob(m){
+  var j=jobById(m.id); if(!j)return "";
+  var c=clientById(j.client_id), p=checklistProgress(j), wd=waitDays(j);
+  var stages=jobStages(j);
+  var sections=[];
+  (j.checklist||[]).forEach(function(it,idx){
+    var last=sections[sections.length-1];
+    if(!last||last.name!==(it.s||"Checklist"))sections.push({name:it.s||"Checklist",items:[]});
+    sections[sections.length-1].items.push({it:it,idx:idx});
+  });
+  var clHtml=sections.map(function(sec){
+    var label=sec.name==="Sweep"?"Month-end sweep":sec.name;
+    return '<div class="cl-section"><h3>'+esc(label)+'</h3>'+sec.items.map(function(x){
+      var it=x.it;
+      return '<label class="cl-item'+(it.d?" done":"")+'">'+
+        '<input type="checkbox" data-cl="'+x.idx+'" data-job="'+j.id+'"'+(it.d?" checked":"")+' aria-label="'+esc(it.i)+'">'+
+        '<span class="txt">'+esc(it.i)+(it.d&&it.dd?' <span class="dd">done '+dateLabel(it.dd)+'</span>':"")+'</span>'+
+        ownerAvatar(it.o)+(it.sop?sopChip(it.sop):"")+
+      '</label>';
+    }).join("")+'</div>';
+  }).join("");
+  return '<div class="modal wide" role="dialog" aria-modal="true" aria-label="'+esc(j.title)+'">'+
+    '<header><span class="chip">'+esc(JOB_TYPE_LABEL[j.type]||j.type)+'</span><h2>'+esc(c?c.business_name:"")+' · '+esc(j.title)+'</h2>'+
+      '<button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+    '<div class="mrow">'+
+      '<label>Stage<select data-job-stage="'+j.id+'" aria-label="Job stage">'+stages.map(function(st){
+        return '<option'+(j.stage===st?" selected":"")+'>'+esc(st)+(MC_RANGES[st]?" ("+MC_RANGES[st]+")":"")+'</option>'; }).join("")+'</select></label>'+
+      '<label>Owner<select data-job-field="owner" data-job="'+j.id+'">'+["Sarah","Brad","Both"].map(function(o){
+        return '<option'+(j.owner===o?" selected":"")+'>'+o+'</option>'; }).join("")+'</select></label>'+
+    '</div>'+
+    '<div class="mrow">'+
+      '<label>Due<input type="date" data-job-field="due" data-job="'+j.id+'" value="'+esc(j.due)+'"></label>'+
+      '<label>Hours logged<span style="display:flex;gap:6px;align-items:center">'+
+        '<button type="button" class="btn btn-sec btn-sm" data-act="hours-step" data-id="'+j.id+'" data-v="-0.25" aria-label="Remove a quarter hour">-</button>'+
+        '<b class="num" style="min-width:44px;text-align:center">'+(+j.hours||0)+'h</b>'+
+        '<button type="button" class="btn btn-sec btn-sm" data-act="hours-step" data-id="'+j.id+'" data-v="0.25" aria-label="Add a quarter hour">+</button>'+
+      '</span></label>'+
+    '</div>'+
+    '<div class="mrow"><label>Waiting on client'+
+      '<span><button type="button" class="btn '+(j.waiting_on_client==="Y"?"btn-pri":"btn-sec")+' btn-sm" data-act="toggle-wait" data-id="'+j.id+'">'+
+      (j.waiting_on_client==="Y"?"Waiting "+wd+" days · clear":"Mark waiting")+'</button>'+
+      (wd>=21?' <span class="badge-wait w-red">3 weeks: escalate, park and name it (SOP-015)</span>':wd>=7?' <span class="badge-wait w-amber">A week out. Chase again (SOP-004)</span>':"")+
+      '</span></label>'+
+      '<label>Parked items<input data-job-field="parked_items" data-job="'+j.id+'" value="'+esc(j.parked_items||"")+'" placeholder="Named, with dollar values"></label></div>'+
+    (p.total?'<div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div class="progress"><i style="width:'+p.pct+'%"></i></div><span class="small muted num">'+p.done+'/'+p.total+'</span></div>':"")+
+    clHtml+
+    '<div class="mrow one"><label>Notes<textarea rows="2" data-job-field="notes" data-job="'+j.id+'">'+esc(j.notes||"")+'</textarea></label></div>'+
+    '<div class="mfoot">'+
+      (jobDone(j)?'<span class="chip chip-teal">Done'+(j.completed?" "+dateLabel(j.completed):"")+'</span>':
+      '<button type="button" class="btn btn-pri" data-act="job-done-ask" data-id="'+j.id+'">Mark job done</button>')+
+      '<button type="button" class="btn btn-sec" data-act="modal-close">Close</button>'+
+    '</div></div>';
+}
+
+/* ============ lead modal (new + edit, SPEC 4.7 pipeline) ============ */
+function modalLead(m){
+  var f=m.form;
+  if(m.step==="hard"){
+    return '<div class="modal" role="dialog" aria-modal="true" aria-label="New lead screen">'+
+      '<header><h2>New lead: the hard filter first</h2><button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+      '<p><b>Do they accept autodraft, the portal, and bookkeeping-only scope?</b></p>'+
+      '<p class="small muted">A no on any of the three is an instant decline. No scorecard, no exceptions. '+sopChip("SOP-010")+'</p>'+
+      '<div class="mrow one"><label>Business name<input data-mf="business_name" value="'+esc(f.business_name||"")+'" placeholder="Who called"></label></div>'+
+      '<div class="mfoot">'+
+        '<button type="button" class="btn btn-sec" data-act="lead-hard-no">No, they refuse something</button>'+
+        '<button type="button" class="btn btn-pri" data-act="lead-hard-yes">Yes to all three</button>'+
+      '</div></div>';
+  }
+  if(m.step==="declined"){
+    return '<div class="modal narrow" role="dialog" aria-modal="true" aria-label="Decline lead">'+
+      '<header><h2>Instant decline</h2><button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+      '<p class="small">Which hard filter failed for <b>'+esc(f.business_name||"this lead")+'</b>?</p>'+
+      ["refuses autodraft","refuses portal","wants excluded service"].map(function(r){
+        return '<button type="button" class="btn btn-sec btn-sm" style="margin:3px" data-act="lead-declined-save" data-v="'+esc(r)+'">'+esc(r)+'</button>';
+      }).join("")+
+      '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button></div></div>';
+  }
+  var total=SCORE_FACTORS.reduce(function(s,fa){ return s+(+(f.scores&&f.scores[fa.k])||0); },0);
+  var scoreRows=SCORE_FACTORS.map(function(fa){
+    var v=f.scores&&f.scores[fa.k];
+    return '<div class="scorerow"><span class="f">'+esc(fa.f)+'<div class="tiny muted">'+esc(fa.hint)+'</div></span>'+
+      '<span class="opts" role="group" aria-label="'+esc(fa.f)+' score">'+[1,2,3,4,5].map(function(n){
+        return '<button type="button" data-act="score-set" data-k="'+fa.k+'" data-v="'+n+'" class="'+(v===n?"on":"")+'" aria-label="'+esc(fa.f)+" score "+n+'">'+n+'</button>';
+      }).join("")+'</span></div>';
+  }).join("");
+  var tcfg=tiersCfg().tiers;
+  return '<div class="modal wide" role="dialog" aria-modal="true" aria-label="Lead details">'+
+    '<header><h2>'+(m.id?"Lead: "+esc(f.business_name||""):"New lead")+'</h2>'+
+      (m.id?'<span class="chip">'+esc(f.stage)+'</span>':"")+
+      '<button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+    '<div class="mrow">'+
+      '<label>Business name<input data-mf="business_name" value="'+esc(f.business_name||"")+'"></label>'+
+      '<label>Contact<input data-mf="contact_name" value="'+esc(f.contact_name||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Email<input type="email" data-mf="email" value="'+esc(f.email||"")+'"></label>'+
+      '<label>Phone<input data-mf="phone" value="'+esc(f.phone||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Vertical<select data-mf="vertical">'+VERTICALS.map(function(v){ return '<option'+(f.vertical===v?" selected":"")+'>'+v+'</option>'; }).join("")+'</select></label>'+
+      '<label>Business age (years)<input type="number" min="0" data-mf="business_age_years" value="'+esc(f.business_age_years||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Source<input data-mf="source" value="'+esc(f.source||"")+'"></label>'+
+      (m.id?'<label>Stage<select data-mf-stage="1">'+LEAD_STAGES_ALL.map(function(s){ return '<option'+(f.stage===s?" selected":"")+'>'+s+'</option>'; }).join("")+'</select></label>':"")+
+    '</div>'+
+    '<h3 class="mt8">Scorecard '+sopChip("SOP-010")+' <span class="score-pill num '+(total>=25?"hi":total>=18?"mid":"lo")+'" style="margin-left:6px">'+total+' / 35</span></h3>'+
+    scoreRows+
+    '<div class="mrow mt12">'+
+      '<label>Quoted tier<select data-mf="quoted_tier"><option value=""></option>'+Object.keys(tcfg).map(function(t){
+        return '<option'+(f.quoted_tier===t?" selected":"")+'>'+t+'</option>'; }).join("")+'</select></label>'+
+      '<label>Quoted fee<input type="number" data-mf="quoted_fee" value="'+esc(f.quoted_fee||"")+'" placeholder="'+(f.quoted_tier&&tcfg[f.quoted_tier]?tcfg[f.quoted_tier].fee:"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Cleanup quote<input type="number" data-mf="cleanup_quote" value="'+esc(f.cleanup_quote||"")+'" placeholder="Flat, in writing"></label>'+
+      '<label>Next action date<input type="date" data-mf="next_action_date" value="'+esc(f.next_action_date||"")+'"></label></div>'+
+    '<div class="mrow one"><label>Next action<input data-mf="next_action" value="'+esc(f.next_action||"")+'"></label></div>'+
+    '<div class="mrow one"><label>Notes<textarea rows="2" data-mf="notes">'+esc(f.notes||"")+'</textarea></label></div>'+
+    '<div class="mfoot">'+
+      (m.id&&f.stage==="Signed"?'<button type="button" class="btn btn-pri" data-act="convert-lead" data-id="'+m.id+'">Convert to client</button>':"")+
+      (m.id?'<button type="button" class="btn btn-danger btn-sm" data-act="lead-delete" data-id="'+m.id+'">Delete</button>':"")+
+      '<span class="spacer" style="flex:1"></span>'+
+      '<button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button>'+
+      '<button type="button" class="btn btn-pri" data-act="lead-save">Save lead</button>'+
+    '</div></div>';
+}
+
+/* ============ pre-flight gate (SPEC 4.7) ============ */
+function modalPreflight(m){
+  var lead=leadById(m.leadId);
+  var anyNo=m.answers.indexOf("no")>-1;
+  var allSet=m.answers.every(function(a){ return a==="yes"||a==="na"||a==="no"; });
+  var pass=allSet&&!anyNo;
+  var rows=PREFLIGHT_GATES.map(function(g,i){
+    var a=m.answers[i];
+    return '<div class="gate-row"><span class="g"><b class="num">'+(i+1)+'.</b> '+esc(g)+'</span>'+
+      '<span class="opts" role="group" aria-label="Gate '+(i+1)+'">'+
+        '<button type="button" class="yes'+(a==="yes"?" on":"")+'" data-act="gate-set" data-i="'+i+'" data-v="yes">Yes</button>'+
+        '<button type="button" class="na'+(a==="na"?" on":"")+'" data-act="gate-set" data-i="'+i+'" data-v="na">N/A</button>'+
+        '<button type="button" class="no'+(a==="no"?" on":"")+'" data-act="gate-set" data-i="'+i+'" data-v="no">No</button>'+
+      '</span></div>'+
+      (a==="na"?'<div class="mrow one" style="margin:4px 0"><label>Why N/A<input data-gate-note="'+i+'" value="'+esc(m.notes[i]||"")+'" placeholder="Document the reason"></label></div>':"");
+  }).join("");
+  return '<div class="modal wide" role="dialog" aria-modal="true" aria-label="Pre-flight gates">'+
+    '<header><h2>Pre-flight: 11 gates before the letter</h2>'+sopChip("SOP-009")+
+      '<button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+    '<p class="small muted">'+esc(lead?lead.business_name:"")+'. Every gate must be Yes or a documented N/A before the engagement letter goes out.</p>'+
+    rows+
+    (anyNo?'<div class="stopbox mt12"><b>STOP.</b> A gate answered No means no letter and no signing. Fix the gate or decline the lead. Nothing advances until every gate clears.</div>':"")+
+    '<div class="mfoot">'+
+      '<button type="button" class="btn btn-sec" data-act="preflight-save">Save for later</button>'+
+      '<button type="button" class="btn btn-pri" data-act="preflight-advance"'+(pass?"":" disabled")+'>Advance to Letter sent</button>'+
+    '</div></div>';
+}
+
+/* ============ Add Client wizard (SPEC 4.4) ============ */
+function suggestFirstClose(effDate){
+  if(!effDate)return curMonth();
+  var d=parseDate(effDate);
+  return d.getDate()>20?monthAdd(monthOf(effDate),1):monthOf(effDate);
+}
+function inFreezeWindow(){
+  var d=now(), m=d.getMonth(), day=d.getDate();
+  return (m===0&&day>=15)||(m===1&&day<=15);
+}
+function modalWizard(m){
+  var f=m.form, tcfg=tiersCfg().tiers;
+  var steps='<div class="steps" aria-hidden="true">'+[1,2,3,4].map(function(s){ return '<i class="'+(m.step>=s?"on":"")+'"></i>'; }).join("")+'</div>';
+  var head='<header><h2>Add client'+(m.fromLead?" (from lead)":"")+'</h2>'+
+    '<button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+steps;
+  if(m.step===1){
+    return '<div class="modal wide" role="dialog" aria-modal="true" aria-label="Add client, basics">'+head+
+    '<h3>1. Vault basics</h3>'+
+    '<div class="mrow">'+
+      '<label>Business name<input data-mf="business_name" value="'+esc(f.business_name||"")+'"></label>'+
+      '<label>Contact<input data-mf="contact_name" value="'+esc(f.contact_name||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Email<input type="email" data-mf="email" value="'+esc(f.email||"")+'"></label>'+
+      '<label>Phone<input data-mf="phone" value="'+esc(f.phone||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Vertical<select data-mf="vertical" data-rerender="1">'+VERTICALS.map(function(v){ return '<option'+(f.vertical===v?" selected":"")+'>'+v+'</option>'; }).join("")+'</select></label>'+
+      '<label>Entity type<input data-mf="entity_type" value="'+esc(f.entity_type||"")+'" placeholder="LLC, sole prop..."></label></div>'+
+    '<div class="mrow one"><label>Tier (live-site pricing)</label></div>'+
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px">'+
+      Object.keys(tcfg).map(function(t){
+        var on=f.tier===t;
+        return '<button type="button" class="card card-tight" style="text-align:left;cursor:pointer;'+(on?"border-color:var(--teal);outline:2px solid var(--teal)":"")+'" data-act="wiz-tier" data-v="'+t+'" aria-pressed="'+on+'">'+
+          '<b>'+t+'</b> <span class="num">$'+tcfg[t].fee+(t==="Growing"?"+":"")+'/mo</span><div class="tiny muted">'+esc(tcfg[t].desc)+'</div></button>';
+      }).join("")+'</div>'+
+    '<div class="mrow">'+
+      '<label>Monthly fee<input type="number" data-mf="monthly_fee" value="'+esc(f.monthly_fee||"")+'"></label>'+
+      '<label>Effective date<input type="date" data-mf="effective_date" data-rerender="1" value="'+esc(f.effective_date||todayStr())+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>First close month <span class="tiny muted">(signed after the 20th rolls to next month)</span>'+
+        '<input data-mf="first_close_month" value="'+esc(f.first_close_month||suggestFirstClose(f.effective_date||todayStr()))+'" placeholder="YYYY-MM"></label>'+
+      '<label>Weekly hour day<select data-mf="weekly_hour_day">'+WEEKDAYS.map(function(d){ return '<option'+(f.weekly_hour_day===d?" selected":"")+'>'+d+'</option>'; }).join("")+'</select></label></div>'+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button>'+
+    '<button type="button" class="btn btn-pri" data-act="wiz-next"'+(f.business_name?"":" disabled")+'>Next: guardrails</button></div></div>';
+  }
+  if(m.step===2){
+    function guard(k,q,sop){
+      var v=m.guard[k];
+      return '<div class="gate-row"><span class="g">'+esc(q)+' '+sopChip(sop)+'</span>'+
+        '<span class="opts"><button type="button" class="yes'+(v==="yes"?" on":"")+'" data-act="guard-set" data-k="'+k+'" data-v="yes">Yes</button>'+
+        '<button type="button" class="no'+(v==="no"?" on":"")+'" data-act="guard-set" data-k="'+k+'" data-v="no">No</button></span></div>';
+    }
+    var anyNo=["ach","portal","scope"].some(function(k){ return m.guard[k]==="no"; });
+    var allYes=["ach","portal","scope"].every(function(k){ return m.guard[k]==="yes"; });
+    return '<div class="modal" role="dialog" aria-modal="true" aria-label="Add client, guardrails">'+head+
+    '<h3>2. Guardrail confirmations</h3>'+
+    guard("ach","ACH autodraft on the 1st enrolled via QuickBooks Payments?","SOP-009")+
+    guard("portal","Document portal accepted for everything, no email documents?","SOP-009")+
+    guard("scope","Bookkeeping-only scope confirmed, no excluded services asked for?","SOP-010")+
+    (anyNo?'<div class="blocked mt12">Blocked. A client who refuses autodraft, refuses the portal, or wants an excluded service does not get onboarded. This is a hard rule, not a judgment call. Decline or renegotiate first. '+sopChip("SOP-009")+" "+sopChip("SOP-010")+'</div>':"")+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="wiz-back">Back</button>'+
+    '<button type="button" class="btn btn-pri" data-act="wiz-next"'+(allYes?"":" disabled")+'>Next: final checks</button></div></div>';
+  }
+  if(m.step===3){
+    var act=activeClients();
+    var rNow=act.filter(function(c){ return c.restaurant_flag==="Y"||c.vertical==="Restaurant"; }).length;
+    var isR=f.vertical==="Restaurant";
+    var rAfter=Math.round((rNow+(isR?1:0))*100/(act.length+1));
+    var capPct=settingNum("restaurant_cap_pct",25);
+    var warns="";
+    if(isR&&rAfter>capPct)warns+='<div class="warnbox mb8">Restaurant cap warning: adding this client puts restaurants at '+rAfter+'% of the roster, over the '+capPct+'% cap. '+sopChip("SOP-010")+'</div>';
+    else if(isR)warns+='<div class="okbox mb8 small">Restaurant client. Roster would be at '+rAfter+'% of the '+capPct+'% cap. Fine for now.</div>';
+    if(inFreezeWindow())warns+='<div class="warnbox mb8">Onboarding freeze: today is inside the mid-Jan to mid-Feb window. No new client onboarding. Only Sarah can grant an exception, and it gets noted here. '+sopChip("SOP-012")+'</div>'+
+      '<div class="mrow one"><label>Sarah-only exception note<input data-mf="freeze_note" value="'+esc(f.freeze_note||"")+'" placeholder="Why this one is allowed, in Sarah\'s words"></label></div>';
+    if(act.length+1>settingNum("solo_ceiling_clients",15))warns+='<div class="warnbox mb8">This is client '+(act.length+1)+', over the solo ceiling of '+settingNum("solo_ceiling_clients",15)+'. Raise prices or say no.</div>';
+    if(!warns)warns='<div class="okbox mb8">No warnings. Clean add.</div>';
+    var canCreate=!inFreezeWindow()||(f.freeze_note&&f.freeze_note.trim());
+    return '<div class="modal" role="dialog" aria-modal="true" aria-label="Add client, final checks">'+head+
+    '<h3>3. Final checks</h3>'+warns+
+    '<p class="small muted">Creating <b>'+esc(f.business_name)+'</b> ('+esc(f.tier||"?")+', '+fmtMoney(f.monthly_fee)+'/mo) spawns three jobs from the Templates: Day One (due tomorrow), First 30 (due the 15th of '+esc(monthLabel(f.first_close_month||suggestFirstClose(f.effective_date||todayStr())))+'), and First Quarter (due end of the third close month).</p>'+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="wiz-back">Back</button>'+
+    '<button type="button" class="btn btn-pri" data-act="wiz-create"'+(canCreate?"":" disabled")+'>Create client</button></div></div>';
+  }
+  /* step 4: confirmation */
+  var cl=clientById(m.createdId);
+  return '<div class="modal narrow" role="dialog" aria-modal="true" aria-label="Client added">'+head+
+    '<div class="okbox"><h2>Added.</h2><p>Day One checklist is open. First close: <b>'+esc(monthLabel(cl?cl.first_close_month:""))+'</b>.</p></div>'+
+    '<div class="mfoot">'+
+      '<button type="button" class="btn btn-sec" data-act="open-client" data-id="'+(cl?cl.id:"")+'">Open client</button>'+
+      '<button type="button" class="btn btn-pri" data-act="open-job" data-id="'+esc(m.dayOneId||"")+'">Open Day One</button>'+
+    '</div></div>';
+}
+
+/* ============ offboarding wizard ============ */
+function modalOffboard(m){
+  var c=clientById(m.clientId), f=m.form;
+  return '<div class="modal" role="dialog" aria-modal="true" aria-label="Offboard client">'+
+    '<header><h2>Offboard '+esc(c.business_name)+'</h2>'+sopChip("SOP-016")+
+      '<button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+    '<div class="okbox mb8"><b>The books belong to the client. They are never withheld.</b></div>'+
+    '<div class="mrow">'+
+      '<label>Notice date<input type="date" data-mf="notice_date" value="'+esc(f.notice_date||todayStr())+'"></label>'+
+      '<label>End date<input type="date" data-mf="end_date" value="'+esc(f.end_date||addDays(todayStr(),30))+'"></label></div>'+
+    '<div class="mrow one"><label>Reason, verbatim<textarea rows="2" data-mf="reason" placeholder="Record it in their words">'+esc(f.reason||"")+'</textarea></label></div>'+
+    '<p class="small muted">This sets status to Offboarding and opens the Offboarding checklist from the Templates.</p>'+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button>'+
+    '<button type="button" class="btn btn-danger" data-act="offboard-create">Start offboarding</button></div></div>';
+}
+
+/* ============ new custom job ============ */
+function modalNewJob(m){
+  var f=m.form;
+  return '<div class="modal narrow" role="dialog" aria-modal="true" aria-label="New job">'+
+    '<header><h2>New job</h2><button type="button" class="iconbtn" data-act="modal-close" aria-label="Close dialog">×</button></header>'+
+    '<div class="mrow one"><label>Title<input data-mf="title" value="'+esc(f.title||"")+'"></label></div>'+
+    '<div class="mrow">'+
+      '<label>Type<select data-mf="type">'+["Custom","Cleanup"].map(function(t){ return '<option'+(f.type===t?" selected":"")+'>'+t+'</option>'; }).join("")+'</select></label>'+
+      '<label>Owner<select data-mf="owner">'+["Sarah","Brad","Both"].map(function(o){ return '<option'+(f.owner===o?" selected":"")+'>'+o+'</option>'; }).join("")+'</select></label></div>'+
+    '<div class="mrow one"><label>Due<input type="date" data-mf="due" value="'+esc(f.due||addDays(todayStr(),7))+'"></label></div>'+
+    '<div class="mfoot"><button type="button" class="btn btn-sec" data-act="modal-close">Cancel</button>'+
+    '<button type="button" class="btn btn-pri" data-act="newjob-create">Create job</button></div></div>';
+}
+
+/* ============ global search ============ */
+function searchHits(q){
+  q=q.toLowerCase();
+  function match(s){ return s&&String(s).toLowerCase().indexOf(q)>-1; }
+  var hits={Leads:[],Clients:[],Jobs:[],Notes:[]};
+  S.data.leads.forEach(function(l){
+    if(match(l.business_name)||match(l.contact_name)||match(l.email))hits.Leads.push({t:l.business_name,sub:l.stage,act:"open-lead",id:l.id});
+    else if(match(l.notes))hits.Notes.push({t:l.business_name+" (lead note)",sub:l.notes.slice(0,60),act:"open-lead",id:l.id});
+  });
+  S.data.clients.forEach(function(c){
+    if(match(c.business_name)||match(c.contact_name)||match(c.email))hits.Clients.push({t:c.business_name,sub:c.status+" · "+c.tier,act:"open-client",id:c.id});
+    else if(match(c.notes))hits.Notes.push({t:c.business_name+" (client note)",sub:c.notes.slice(0,60),act:"open-client",id:c.id});
+  });
+  S.data.jobs.forEach(function(j){
+    var c=clientById(j.client_id);
+    if(match(j.title)||(c&&match(c.business_name)&&match(j.title)))hits.Jobs.push({t:(c?c.business_name+": ":"")+j.title,sub:j.stage,act:"open-job",id:j.id});
+    else if(match(j.notes)||match(j.parked_items))hits.Notes.push({t:(c?c.business_name+": ":"")+j.title,sub:(j.notes||j.parked_items).slice(0,60),act:"open-job",id:j.id});
+  });
+  return hits;
+}
+function renderSearchPop(){
+  var pop=document.getElementById("search-pop"); if(!pop)return;
+  if(!S.ui.searchOpen||!S.ui.search){ pop.innerHTML=""; return; }
+  var hits=searchHits(S.ui.search), flat=[],html="";
+  Object.keys(hits).forEach(function(g){
+    if(!hits[g].length)return;
+    html+='<div class="grp">'+g+'</div>';
+    hits[g].forEach(function(h){
+      var i=flat.length; flat.push(h);
+      html+='<button type="button" class="hit'+(i===S.ui.searchSel?" sel":"")+'" data-act="'+h.act+'" data-id="'+h.id+'" data-from-search="1">'+
+        '<b>'+esc(h.t)+'</b> <span class="tiny muted">'+esc(h.sub||"")+'</span></button>';
+    });
+  });
+  S.ui.searchFlat=flat;
+  pop.innerHTML='<div class="search-pop" role="listbox" aria-label="Search results">'+(html||'<div class="grp">No matches</div>')+'</div>';
+}
+
+/* ============ actions ============ */
+function saveJobField(id,field,val){
+  var j=jobById(id); if(!j)return;
+  j[field]=val;
+  persist("Jobs",j,"update","Set "+field+" on "+j.title);
+}
+function setJobStage(id,stage,gapConfirmed){
+  var j=jobById(id); if(!j)return;
+  var from=j.stage;
+  if(j.type==="MonthlyClose"&&from==="Close in progress"&&stage==="Locked and delivered"&&!gapConfirmed){
+    openModal({kind:"confirm",title:"The Gap comes first",
+      msg:"SOP-001 requires the overnight Gap review before delivery. Confirm the Gap happened.",
+      okLabel:"The Gap happened",act:"gap-confirmed",payload:{id:id,stage:stage}});
+    return;
+  }
+  j.stage=stage;
+  if(gapConfirmed)addLog("gap_confirmed","Jobs",j.id,"Gap review confirmed before delivery");
+  if(stage==="Locked and delivered"&&j.type==="MonthlyClose"){ if(!j.delivered_date)j.delivered_date=todayStr(); j.locked="Y"; }
+  if(stage==="Done"){
+    j.completed=todayStr();
+    if(j.type==="MonthlyClose"){ if(!j.delivered_date)j.delivered_date=todayStr(); j.locked="Y"; }
+    if(j.waiting_on_client==="Y"){ j.waiting_on_client="N"; j.waiting_since=""; }
+    if(j.type==="Offboarding"){
+      var c=clientById(j.client_id);
+      if(c&&c.status==="Offboarding"){ c.status="Former"; persist("Clients",c,"update","Offboarding complete, status Former"); }
+    }
+  }
+  persist("Jobs",j,"update","Stage "+from+" to "+stage);
+  toast("Stage: "+stage);
+}
+function toggleWaiting(id){
+  var j=jobById(id); if(!j)return;
+  if(j.waiting_on_client==="Y"){ j.waiting_on_client="N"; j.waiting_since=""; toast("Waiting cleared"); }
+  else{ j.waiting_on_client="Y"; j.waiting_since=todayStr(); toast("Waiting on client, aging starts today"); }
+  persist("Jobs",j,"update","Waiting on client "+(j.waiting_on_client==="Y"?"on":"off"));
+}
+function stepHours(id,delta){
+  var j=jobById(id); if(!j)return;
+  j.hours=Math.max(0,Math.round(((+j.hours||0)+delta)*4)/4);
+  if(S.mode==="gas"){
+    applyLocal("Jobs",j); addLog("hours","Jobs",j.id,"Hours now "+j.hours); render();
+    gsCall("api_log_hours",j.id,j.hours).catch(function(err){ toast("Hours save failed: "+(err.message||err),"err"); });
+  }else persist("Jobs",j,"hours","Hours now "+j.hours);
+  var c=clientById(j.client_id);
+  var mh=c?clientHoursMonth(c.id,curMonth()):0, flag=settingNum("hours_flag",9);
+  if(mh>flag)toast("Past "+flag+"h this month on "+(c?c.business_name:"this client")+". 9 hours at month 12 is a pricing finding (SOP-015).");
+}
+function toggleChecklist(jobId,idx,checked){
+  var j=jobById(jobId); if(!j||!j.checklist||!j.checklist[idx])return;
+  j.checklist[idx].d=!!checked;
+  j.checklist[idx].dd=checked?todayStr():"";
+  persist("Jobs",j,"check","'"+j.checklist[idx].i.slice(0,50)+"' "+(checked?"done":"undone"));
+  var p=checklistProgress(j);
+  if(checked&&p.done===p.total&&!jobDone(j)){
+    openModal({kind:"confirm",title:"All items done",msg:"Every checklist item is checked. Mark job done?",okLabel:"Mark done",act:"job-done",payload:{id:jobId}});
+  }
+}
+function moveLeadTo(id,stage){
+  var l=leadById(id); if(!l)return;
+  if(stage===l.stage)return;
+  if(stage==="Pre-flight"){
+    l.stage="Pre-flight";
+    persist("Leads",l,"update","Stage to Pre-flight");
+    openModal({kind:"preflight",leadId:id,answers:PREFLIGHT_GATES.map(function(){ return null; }),notes:{}});
+    return;
+  }
+  if(stage==="Letter sent"){
+    openModal({kind:"preflight",leadId:id,answers:PREFLIGHT_GATES.map(function(){ return null; }),notes:{}});
+    toast("Letter sent needs all 11 gates first");
+    return;
+  }
+  if(stage==="Declined"||stage==="Lost"){
+    var reason=stage==="Declined"?"Declined at "+l.stage:"";
+    l.stage=stage; l.decline_reason=l.decline_reason||reason;
+    persist("Leads",l,"update","Stage to "+stage);
+    return;
+  }
+  l.stage=stage;
+  persist("Leads",l,"update","Stage to "+stage);
+  if(stage==="Signed")toast("Signed. Use Convert to create the client.");
+}
+function leadFormBlank(){
+  return {business_name:"",contact_name:"",email:"",phone:"",vertical:"Contractor",business_age_years:"",source:"",
+    stage:"New",scores:{},quoted_tier:"",quoted_fee:"",cleanup_quote:"",next_action:"",next_action_date:"",notes:"",hard_filter_fail:"none"};
+}
+function saveLeadFromModal(){
+  var m=S.ui.modal, f=m.form;
+  if(!f.business_name){ toast("A business name is required","err"); return; }
+  var total=SCORE_FACTORS.reduce(function(s,fa){ return s+(+(f.scores&&f.scores[fa.k])||0); },0);
+  var l=m.id?leadById(m.id):{id:"",created:todayStr(),stage:"New"};
+  ["business_name","contact_name","email","phone","vertical","business_age_years","source","quoted_tier","quoted_fee","cleanup_quote","next_action","next_action_date","notes"].forEach(function(k){ l[k]=f[k]; });
+  l.hard_filter_fail=f.hard_filter_fail||"none";
+  var anyScored=SCORE_FACTORS.some(function(fa){ return f.scores&&f.scores[fa.k]; });
+  if(anyScored){ if(total!==(+l.score||0))l.score_date=todayStr(); l.score=total; }
+  var newStage=f.stage||l.stage;
+  var needGate=(newStage==="Pre-flight"&&l.stage!=="Pre-flight")||(newStage==="Letter sent"&&l.stage!=="Letter sent");
+  if(newStage==="Letter sent"&&l.stage!=="Letter sent")newStage=l.stage; /* gate decides */
+  l.stage=newStage;
+  persist("Leads",l,m.id?"update":"create",(m.id?"Updated ":"Created ")+l.business_name);
+  closeModal();
+  toast("Lead saved");
+  if(needGate)openModal({kind:"preflight",leadId:l.id,answers:PREFLIGHT_GATES.map(function(){ return null; }),notes:{}});
+}
+function createClientFromWizard(){
+  var m=S.ui.modal, f=m.form;
+  var fcm=f.first_close_month||suggestFirstClose(f.effective_date||todayStr());
+  var c={id:"",business_name:f.business_name,contact_name:f.contact_name||"",email:f.email||"",phone:f.phone||"",
+    vertical:f.vertical||"Other",entity_type:f.entity_type||"",status:"Onboarding",tier:f.tier||"Essentials",
+    monthly_fee:+f.monthly_fee||tiersCfg().tiers[f.tier||"Essentials"].fee,effective_date:f.effective_date||todayStr(),
+    letter_signed_date:f.letter_signed_date||todayStr(),first_close_month:fcm,weekly_hour_day:f.weekly_hour_day||"Mon",
+    cpa_name:"",cpa_email:"",cap_threshold:"",yearend_format:"",ach_status:"Enrolled",receipt_automation:"N",
+    qbo_access:"Requested",primary_admin_ok:"Y",mfa_confirmed:"N",portal_link:"",account_list_date:"",account_list_reconfirmed:"",
+    opening_balances:"Pending",standing_rules_link:"",restaurant_flag:f.vertical==="Restaurant"?"Y":"N",
+    renewal_date:monthDay(monthAdd(curMonth(),12),1),renewal_score:"",addons:"",
+    notes:(f.freeze_note?"Freeze exception (Sarah): "+f.freeze_note:""),created:todayStr(),updated:todayStr()};
+  persist("Clients",c,"create","Added "+c.business_name);
+  function mkJob(type,title,due,checklist){
+    var j={id:"",client_id:c.id,type:type,period:"",title:title,stage:"Open",due:due,internal_due:"",owner:"Both",
+      waiting_on_client:"N",waiting_since:"",checklist:checklist,hours:0,amc_count:0,parked_items:"",
+      delivered_date:"",locked:"N",notes:"",created:todayStr(),updated:todayStr(),completed:""};
+    persist("Jobs",j,"create",title+" for "+c.business_name);
+    return j;
+  }
+  var d1=mkJob("DayOne","Day One",addDays(c.effective_date,1),buildChecklistFromData("DayOne"));
+  mkJob("First30","First 30 days",monthDay(fcm,15),buildChecklistFromData("First30"));
+  mkJob("FirstQuarter","First quarter",monthEnd(monthAdd(fcm,2)),buildChecklistFromData("FirstQuarter"));
+  ensureMonthlyJobs();
+  if(m.fromLead){
+    var l=leadById(m.fromLead);
+    if(l&&l.stage!=="Signed"){ l.stage="Signed"; persist("Leads",l,"update","Signed and converted"); }
+  }
+  m.step=4; m.createdId=c.id; m.dayOneId=d1.id;
+  renderModal(); render();
+}
+function offboardCreate(){
+  var m=S.ui.modal, f=m.form, c=clientById(m.clientId);
+  c.status="Offboarding";
+  c.notes=((c.notes||"")+"\nOffboard notice "+(f.notice_date||todayStr())+". Reason: "+(f.reason||"not recorded")).trim();
+  persist("Clients",c,"update","Offboarding started");
+  var j={id:"",client_id:c.id,type:"Offboarding",period:"",title:"Offboarding",stage:"Open",
+    due:f.end_date||addDays(todayStr(),30),internal_due:"",owner:"Both",waiting_on_client:"N",waiting_since:"",
+    checklist:buildChecklistFromData("Offboarding"),hours:0,amc_count:0,parked_items:"",delivered_date:"",locked:"N",
+    notes:"Reason, verbatim: "+(f.reason||""),created:todayStr(),updated:todayStr(),completed:""};
+  persist("Jobs",j,"create","Offboarding job for "+c.business_name);
+  closeModal();
+  toast("Offboarding open. The books are always released in full.");
+  openModal({kind:"job",id:j.id});
+}
+function complianceDone(id){
+  var cp=S.data.compliance.find(function(x){ return x.id===id; }); if(!cp)return;
+  (cp.done_log=cp.done_log||[]).push(todayStr());
+  var fr=(cp.frequency||"").toLowerCase();
+  if(fr.indexOf("monthly")>-1)cp.next_date=monthDay(monthAdd(monthOf(cp.next_date||todayStr()),1),+((cp.next_date||"").slice(8,10))||1);
+  else if(fr.indexOf("annual")>-1)cp.next_date=monthDay(monthAdd(monthOf(cp.next_date||todayStr()),12),+((cp.next_date||"").slice(8,10))||1);
+  else if(fr.indexOf("3 years")>-1)cp.next_date=monthDay(monthAdd(monthOf(cp.next_date||todayStr()),36),+((cp.next_date||"").slice(8,10))||1);
+  else cp.next_date="";
+  persist("Compliance",cp,"done",cp.name+" done, next "+(cp.next_date||"never"));
+  toast("Logged. Next: "+(cp.next_date||"complete"));
+}
+function exportJson(){
+  var blob=new Blob([JSON.stringify(S.data,null,1)],{type:"application/json"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="relief-pros-hq-"+todayStr()+".json";
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },400);
+  toast("Exported");
+}
+function applyTheme(t){
+  S.ui.theme=t;
+  document.documentElement.setAttribute("data-theme",t);
+}
+
+/* ============ event delegation ============ */
+function onAction(act,el,ev){
+  var id=el.getAttribute("data-id"), v=el.getAttribute("data-v"), m=S.ui.modal;
+  switch(act){
+    case "nav": nav(el.getAttribute("data-view")); break;
+    case "toggle-theme":
+      var t=S.ui.theme==="dark"?"light":"dark";
+      applyTheme(t);
+      var row=S.data.settings.find(function(r){ return r.key==="theme"; })||{key:"theme",value:t};
+      row.value=t; persist("Settings",row);
+      break;
+    case "myday": S.ui.myday=v; render(); break;
+    case "today-filter": S.ui.todayFilter=v; render(); break;
+    case "board-month": S.ui.boardMonth=v; render(); break;
+    case "cal-month": S.ui.calMonth=v; S.ui.calSel=""; render(); break;
+    case "cal-mode": S.ui.calMode=v; render(); break;
+    case "cal-day": S.ui.calSel=S.ui.calSel===v?"":v; render(); break;
+    case "toggle-closed": S.ui.pipeShowClosed=!S.ui.pipeShowClosed; render(); break;
+    case "open-client": closeModal(); S.ui.view="clients"; S.ui.clientId=id; render(); window.scrollTo(0,0); break;
+    case "open-job": closeModal(); openModal({kind:"job",id:id}); break;
+    case "open-compliance": nav("settings"); break;
+    case "open-lead":
+      var l=leadById(id); if(!l)break;
+      openModal({kind:"lead",id:id,form:Object.assign({scores:{}},clone(l),{scores:scoresFromTotal(l)})});
+      break;
+    case "new-lead": openModal({kind:"lead",id:null,step:"hard",form:leadFormBlank()}); break;
+    case "lead-hard-yes": m.step=null; renderModal(); break;
+    case "lead-hard-no": m.step="declined"; renderModal(); break;
+    case "lead-declined-save":
+      var dl=Object.assign(leadFormBlank(),{business_name:m.form.business_name||"(unnamed)",stage:"Declined",hard_filter_fail:v,decline_reason:v,id:"",created:todayStr(),score:0});
+      delete dl.scores;
+      persist("Leads",dl,"create","Instant decline: "+v);
+      closeModal(); toast("Declined: "+v);
+      break;
+    case "lead-save": saveLeadFromModal(); break;
+    case "lead-delete":
+      openModal({kind:"confirm",title:"Delete lead",msg:"Delete this lead for good? Leads are the only thing that hard-deletes.",okLabel:"Delete",act:"lead-delete-yes",payload:{id:id}});
+      break;
+    case "lead-move":
+      var ld=leadById(id), di=+el.getAttribute("data-dir");
+      var ni=LEAD_STAGES.indexOf(ld.stage)+di;
+      if(ni>=0&&ni<LEAD_STAGES.length)moveLeadTo(id,LEAD_STAGES[ni]);
+      break;
+    case "convert-lead":
+      var cl=leadById(id);
+      closeModal();
+      openModal({kind:"wizard",step:1,fromLead:id,guard:{ach:null,portal:null,scope:null},
+        form:{business_name:cl.business_name,contact_name:cl.contact_name,email:cl.email,phone:cl.phone,vertical:cl.vertical,
+          tier:cl.quoted_tier||"Standard",monthly_fee:cl.quoted_fee||"",effective_date:todayStr(),
+          first_close_month:suggestFirstClose(todayStr()),weekly_hour_day:"Mon"}});
+      break;
+    case "add-client":
+      openModal({kind:"wizard",step:1,fromLead:null,guard:{ach:null,portal:null,scope:null},
+        form:{vertical:"Contractor",tier:"Essentials",monthly_fee:tiersCfg().tiers.Essentials.fee,effective_date:todayStr(),weekly_hour_day:"Mon"}});
+      break;
+    case "wiz-tier":
+      m.form.tier=v; m.form.monthly_fee=tiersCfg().tiers[v].fee; renderModal(); break;
+    case "wiz-next": m.step++; renderModal(); break;
+    case "wiz-back": m.step--; renderModal(); break;
+    case "wiz-create": createClientFromWizard(); break;
+    case "guard-set": m.guard[el.getAttribute("data-k")]=v; renderModal(); break;
+    case "score-set":
+      m.form.scores=m.form.scores||{};
+      m.form.scores[el.getAttribute("data-k")]=+v; renderModal(); break;
+    case "gate-set": m.answers[+el.getAttribute("data-i")]=v; renderModal(); break;
+    case "preflight-save":
+      addLog("preflight","Leads",m.leadId,"Gates saved: "+gateSummary(m));
+      closeModal(); toast("Gates saved. Nothing advanced.");
+      break;
+    case "preflight-advance":
+      var pl=leadById(m.leadId);
+      addLog("preflight_pass","Leads",m.leadId,"All 11 gates cleared: "+gateSummary(m));
+      pl.stage="Letter sent";
+      persist("Leads",pl,"update","Advanced to Letter sent, gates cleared");
+      closeModal(); toast("Cleared. Letter sent.");
+      break;
+    case "offboard": openModal({kind:"offboard",clientId:id,form:{}}); break;
+    case "offboard-create": offboardCreate(); break;
+    case "new-custom-job": openModal({kind:"newjob",clientId:id,form:{type:"Custom",owner:"Sarah"}}); break;
+    case "newjob-create":
+      if(!m.form.title){ toast("A title is required","err"); break; }
+      var nj={id:"",client_id:m.clientId,type:m.form.type||"Custom",period:"",title:m.form.title,stage:"Open",
+        due:m.form.due||addDays(todayStr(),7),internal_due:"",owner:m.form.owner||"Sarah",waiting_on_client:"N",waiting_since:"",
+        checklist:[],hours:0,amc_count:0,parked_items:"",delivered_date:"",locked:"N",notes:"",created:todayStr(),updated:todayStr(),completed:""};
+      persist("Jobs",nj,"create",nj.title);
+      closeModal(); toast("Job created");
+      break;
+    case "toggle-wait": toggleWaiting(id); if(S.ui.modal&&S.ui.modal.kind==="job")renderModal(); break;
+    case "hours-quick": stepHours(id,0.25); break;
+    case "hours-step": stepHours(id,+v); if(S.ui.modal&&S.ui.modal.kind==="job")renderModal(); break;
+    case "job-done-ask":
+      openModal({kind:"confirm",title:"Mark job done",msg:"Mark this job done? Unchecked items stay recorded as skipped.",okLabel:"Mark done",act:"job-done",payload:{id:id}});
+      break;
+    case "comp-done": complianceDone(id); break;
+    case "export-json": exportJson(); break;
+    case "import-json": document.getElementById("import-file").click(); break;
+    case "confirm-ok":
+      var cm2=S.ui.modal; S.ui.modal=null;
+      if(cm2.act==="job-done")setJobStage(cm2.payload.id,"Done");
+      else if(cm2.act==="gap-confirmed")setJobStage(cm2.payload.id,cm2.payload.stage,true);
+      else if(cm2.act==="lead-delete-yes"){
+        Backend.remove("Leads",cm2.payload.id);
+        addLog("delete","Leads",cm2.payload.id,"Lead deleted");
+        closeModal(); render(); toast("Lead deleted");
+      }
+      renderModal();
+      break;
+    case "modal-close": closeModal(); break;
+    case "modal-back": if(ev.target===el)closeModal(); break;
+  }
+}
+function gateSummary(m){
+  return m.answers.map(function(a,i){ return (i+1)+":"+(a||"unset")+(a==="na"&&m.notes[i]?"("+m.notes[i]+")":""); }).join(" ");
+}
+function scoresFromTotal(l){
+  /* editing an existing lead re-derives nothing; start factors blank unless a stash exists */
+  return {};
+}
+
+document.addEventListener("click",function(e){
+  var el=e.target.closest("[data-act]");
+  if(!el)return;
+  var fromSearch=el.getAttribute("data-from-search");
+  onAction(el.getAttribute("data-act"),el,e);
+  if(fromSearch){ S.ui.searchOpen=false; S.ui.search=""; var si=document.getElementById("global-search"); if(si)si.value=""; renderSearchPop(); }
+});
+document.addEventListener("keydown",function(e){
+  var el=e.target.closest("[data-act]");
+  if(el&&(e.key==="Enter"||e.key===" ")&&el.tagName!=="BUTTON"&&el.tagName!=="A"&&el.tagName!=="INPUT"&&el.tagName!=="SELECT"&&el.tagName!=="TEXTAREA"){
+    e.preventDefault(); onAction(el.getAttribute("data-act"),el,e);
+  }
+});
+document.addEventListener("change",function(e){
+  var t=e.target;
+  if(t.matches("[data-mf]")&&S.ui.modal){
+    S.ui.modal.form[t.getAttribute("data-mf")]=t.type==="number"?(t.value===""?"":+t.value):t.value;
+    if(t.getAttribute("data-rerender")){
+      if(t.getAttribute("data-mf")==="effective_date")S.ui.modal.form.first_close_month=suggestFirstClose(t.value);
+      renderModal();
+    }
+    return;
+  }
+  if(t.matches("[data-mf-stage]")&&S.ui.modal){ S.ui.modal.form.stage=t.value; return; }
+  if(t.matches("[data-gate-note]")&&S.ui.modal){ S.ui.modal.notes[+t.getAttribute("data-gate-note")]=t.value; return; }
+  if(t.matches("[data-vault]")){
+    var c=clientById(t.getAttribute("data-id")); if(!c)return;
+    var k=t.getAttribute("data-vault");
+    c[k]=t.type==="number"?(t.value===""?"":+t.value):t.value;
+    persist("Clients",c,"update","Set "+k);
+    if(k==="status"||k==="first_close_month")ensureMonthlyJobs();
+    toast("Saved");
+    return;
+  }
+  if(t.matches("[data-setting]")){
+    var row=S.data.settings.find(function(r){ return r.key===t.getAttribute("data-setting"); })||{key:t.getAttribute("data-setting"),value:""};
+    row.value=t.value;
+    persist("Settings",row,"update","Setting "+row.key);
+    toast("Saved");
+    return;
+  }
+  if(t.matches("[data-job-stage]")){ setJobStage(t.getAttribute("data-job-stage"),t.value.replace(/ \(.*\)$/,"")); if(S.ui.modal&&S.ui.modal.kind==="job")renderModal(); return; }
+  if(t.matches("[data-job-field]")){ saveJobField(t.getAttribute("data-job"),t.getAttribute("data-job-field"),t.value); return; }
+  if(t.matches("[data-cl]")){ toggleChecklist(t.getAttribute("data-job"),+t.getAttribute("data-cl"),t.checked); if(S.ui.modal&&S.ui.modal.kind==="job")renderModal(); return; }
+  if(t.id==="import-file"&&t.files&&t.files[0]){
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var d=JSON.parse(rd.result);
+        ["leads","clients","jobs","templates","compliance","log","settings"].forEach(function(k){ if(!d[k])throw new Error("missing "+k); });
+        S.data=d; ensureMonthlyJobs(); render(); toast("Imported");
+      }catch(err){ toast("Import failed: "+err.message,"err"); }
+    };
+    rd.readAsText(t.files[0]);
+    t.value="";
+  }
+});
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(t.id==="global-search"){
+    S.ui.search=t.value; S.ui.searchOpen=!!t.value; S.ui.searchSel=0; renderSearchPop(); return;
+  }
+  if(t.matches("[data-act-input]")){
+    var k=t.getAttribute("data-act-input");
+    if(k==="client-query"){ S.ui.clientQuery=t.value; refreshClientsBody(); }
+    if(k==="client-status"){ S.ui.clientStatus=t.value; render(); }
+  }
+});
+function refreshClientsBody(){
+  /* re-render without stealing focus from the filter box */
+  var input=document.getElementById("view").querySelector('[data-act-input="client-query"]');
+  var pos=input?input.selectionStart:0;
+  render();
+  var ni=document.getElementById("view").querySelector('[data-act-input="client-query"]');
+  if(ni){ ni.focus(); ni.setSelectionRange(pos,pos); }
+}
+document.addEventListener("keydown",function(e){
+  var tag=(e.target.tagName||"").toLowerCase();
+  var typing=tag==="input"||tag==="textarea"||tag==="select";
+  if(e.key==="Escape"){
+    if(S.ui.searchOpen){ S.ui.searchOpen=false; renderSearchPop(); return; }
+    if(S.ui.modal){ closeModal(); return; }
+  }
+  if(e.target.id==="global-search"&&S.ui.searchOpen){
+    var flat=S.ui.searchFlat||[];
+    if(e.key==="ArrowDown"){ e.preventDefault(); S.ui.searchSel=Math.min(S.ui.searchSel+1,flat.length-1); renderSearchPop(); return; }
+    if(e.key==="ArrowUp"){ e.preventDefault(); S.ui.searchSel=Math.max(S.ui.searchSel-1,0); renderSearchPop(); return; }
+    if(e.key==="Enter"&&flat[S.ui.searchSel]){
+      e.preventDefault();
+      var h=flat[S.ui.searchSel];
+      S.ui.searchOpen=false; S.ui.search=""; e.target.value=""; renderSearchPop();
+      if(h.act==="open-client"){ S.ui.view="clients"; S.ui.clientId=h.id; render(); }
+      else if(h.act==="open-job")openModal({kind:"job",id:h.id});
+      else if(h.act==="open-lead"){ var l2=leadById(h.id); openModal({kind:"lead",id:h.id,form:Object.assign({scores:{}},clone(l2))}); }
+      return;
+    }
+  }
+  if(typing||S.ui.modal)return;
+  if(e.key==="/"){ e.preventDefault(); var si=document.getElementById("global-search"); if(si)si.focus(); return; }
+  if(e.key==="n"){ e.preventDefault(); onAction("new-lead",document.body,e); return; }
+  if(e.key==="c"){ e.preventDefault(); onAction("add-client",document.body,e); return; }
+  var n=+e.key;
+  if(n>=1&&n<=7){ nav(VIEWS[n-1]); }
+});
+/* drag and drop for the pipeline */
+document.addEventListener("dragstart",function(e){
+  var card=e.target.closest&&e.target.closest("[data-lead]");
+  if(card)e.dataTransfer.setData("text/lead",card.getAttribute("data-lead"));
+});
+document.addEventListener("dragover",function(e){
+  var col=e.target.closest&&e.target.closest("[data-drop-stage]");
+  if(col){ e.preventDefault(); col.classList.add("dragover"); }
+});
+document.addEventListener("dragleave",function(e){
+  var col=e.target.closest&&e.target.closest("[data-drop-stage]");
+  if(col)col.classList.remove("dragover");
+});
+document.addEventListener("drop",function(e){
+  var col=e.target.closest&&e.target.closest("[data-drop-stage]");
+  if(!col)return;
+  e.preventDefault(); col.classList.remove("dragover");
+  var id=e.dataTransfer.getData("text/lead");
+  if(id)moveLeadTo(id,col.getAttribute("data-drop-stage"));
+});
+document.addEventListener("click",function(e){
+  if(!e.target.closest(".search-wrap")&&S.ui.searchOpen){ S.ui.searchOpen=false; renderSearchPop(); }
+});
+
+/* ============ init ============ */
+function init(){
+  Backend.boot().then(function(){
+    var t=setting("theme","light");
+    applyTheme(t==="dark"?"dark":"light");
+    ensureMonthlyJobs();
+    renderShell();
+    render();
+  }).catch(function(err){
+    document.getElementById("app").innerHTML='<div class="view"><div class="empty">Could not load. '+esc(err.message||String(err))+'</div></div>';
+  });
+}
+if(typeof document!=="undefined"&&document.readyState!=="loading")init();
+else if(typeof document!=="undefined")document.addEventListener("DOMContentLoaded",init);
+</script>
+</body>
+</html>
