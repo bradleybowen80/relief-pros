@@ -74,12 +74,21 @@ Imported from the verified Google Business Profile at bing.com/forbusiness (plat
 | Platform | Status | Account email | Created | Public URL |
 |---|---|---|---|---|
 | Google Business Profile | Live, verified | bradleybowen80@gmail.com | 2026-07-31 | https://g.page/r/CT_QCCqDAWfsEBM |
-| Bing Places | Pending publish (7–12d) | (Brad's Microsoft acct) | 2026-08-07 | — pending |
-| Nextdoor | not started | | | |
-| Yelp | not started | | | |
-| Facebook | not started | | | |
-| Apple Business | not started | | | |
+| Google Search Console | Sitemap 12 pages; 7 index requests 8/7, last 5 on 8/8 | bradleybowen80@gmail.com | pre-existing | — |
+| Bing Places | Done, GBP import + sync ON | (Brad's Microsoft acct) | 2026-08-07 | — pending publish |
+| Bing Webmaster Tools | Live via GSC import; sitemap Processing; AI Performance baseline 0 | Brad (Google sign-in) | 2026-08-07 | — |
+| Nextdoor | Live (name/address audited) | (Brad's acct) | 2026-08-07 | — grab page URL |
+| Yelp | Claimed + built, SMS-verified, ads declined | admin@reliefprosbooks.com | 2026-08-07 | — grab listing URL |
+| Facebook | Page created by Brad — NAP audit pending | (Brad's acct) | 2026-08-07 | https://www.facebook.com/TheReliefPros |
+| Hotfrog | LIVE + verified badge, address hidden | admin@reliefprosbooks.com | 2026-08-07 | Verified ID cff961e0c736691f8980b5a4411ddb5b — grab public URL |
+| EnrollBusiness | LIVE | admin@reliefprosbooks.com | 2026-08-07 | https://us.enrollbusiness.com/BusinessProfile/7912834 |
+| ProvenExpert | LIVE + published; free trial auto-drops — never pay | admin@reliefprosbooks.com | 2026-08-07 | https://www.provenexpert.com/the-relief-pros/ |
+| Zipleaf | Submitted, manual review | admin@reliefprosbooks.com | 2026-08-07 | — pending |
+| AGreaterTown | Published → free moderation queue | admin@reliefprosbooks.com (Console 949010) | 2026-08-07 | post/2303488522 — pending |
+| BizHwy | DROPPED (paid add-on funnel) | — | — | — |
+| Apple Business | Parked by Brad | | | |
 | BBB | HOLD until reinstatement | | | |
+| Foursquare | TO DO — free add (ChatGPT data source) | | | |
 | Find-a-ProAdvisor | HOLD until Sarah certified | | | |
 
 ---
@@ -114,3 +123,14 @@ Session batches of ~6, Claude driving, Brad doing email-confirmation clicks. Uni
 ## Milestone log
 
 - **2026-08-07/08 overnight session:** Google verified+overhauled, Bing imported, Yelp claimed+built, Nextdoor built (name fixed to "The Relief Pros", address corrected to 2321 Mackinac hidden). AI Overview for "relief pros bookkeeping" now correctly describes the firm as a woman-owned Texas bookkeeping service citing the site — ~24h after the entity work + feedback report. Baseline problem (competitor recommendations) resolving faster than the 2-4 week estimate.
+- **2026-08-07 late session (Batch 1 executed):** Zipleaf submitted · Hotfrog LIVE+verified (hide-address ON, category "Business Financial Services", description, hours, 6 keywords) · AGreaterTown published to moderation (logo via file_upload tool onto the plain file input — no screenshot workaround needed on standard inputs) · EnrollBusiness LIVE (#7912834) · ProvenExpert LIVE+published (logo, hours, Google wired as review source) · BizHwy dropped (pre-checked $25 paid add-ons at checkout — their "free" is a funnel). Facebook page created by Brad solo.
+- **2026-08-07 SEO sprint (same night):** 4-agent audit → fixes deployed; 3 new pages (mckinney-bookkeeping, texas-bookkeeping-cost, quickbooks-cleanup-cost — site now 12 pages); apex 308 fixed; FAQ/Breadcrumb/entity schema sitewide; GSC sitemap resubmitted (12 discovered same day) + 7 priority index requests (quota; last 5 on 8/8); **Bing Webmaster Tools created via GSC import** — the ChatGPT gateway. Full audit: claude/relief-pros-seo-audit-2026-08-07.md in the Project.
+
+## Review asks — the rules (settled 2026-08-08, keep forever)
+
+- Only people with a REAL service experience may review — friends qualify ONLY if the business genuinely did their books (even informal/unpaid). Friends "helping out" with no real engagement = fake reviews (Google policy + FTC 2024 rule, per-violation fines) and the #1 suspension trigger for a new zero-review profile.
+- Their own words, no coaching, no scripts. Reviews that describe the actual work ("cleaned up 8 months of my books") are worth more than bare 5 stars.
+- NOTHING in return. No favor trades, discounts, or gifts — ever.
+- Stagger asks: steady trickle beats bursts (recency is also the stronger ranking signal). Never two reviews from the same Wi-Fi.
+- Google only: https://g.page/r/CT_QCCqDAWfsEBM/review. NEVER solicit Yelp reviews (Yelp bans asking).
+- Once clients exist: ask at first-month close via SMS + email, respond to every review within 48h.

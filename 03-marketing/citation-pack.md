@@ -2,7 +2,7 @@
 
 **Status:** active reference
 **Owner:** Brad
-**Last reviewed:** 2026-08-07
+**Last reviewed:** 2026-08-08 (post Batch 1 + SEO sprint)
 
 Everything needed to create consistent business listings, in one place. Copy and paste from here rather than retyping, because the single most important rule of citations is that the name, phone, and city must be **byte-identical everywhere**. One "The Relief Pros LLC" among a set of "The Relief Pros" entries dilutes the whole effort.
 
@@ -66,10 +66,28 @@ Bookkeeping only. No tax prep, no payroll, no moving your money, so your books a
 https://g.page/r/CT_QCCqDAWfsEBM/review
 ```
 
-Captured 2026-08-07, the day verification cleared. It is the same link for
+Captured 2026-08-07 after video verification cleared. It is the same link for
 every client and it belongs in exactly one place, which is this block. The
 [review request template](../04-clients/review-request-template.md) reads from
 here, so a wrong or retyped link breaks every ask at once.
+
+## Entity links (for schema sameAs and cross-referencing)
+
+```
+Google profile:   https://g.page/r/CT_QCCqDAWfsEBM
+Google Maps CID:  https://maps.google.com/?cid=17034585778409754687
+Facebook:         https://www.facebook.com/TheReliefPros
+ProvenExpert:     https://www.provenexpert.com/the-relief-pros/
+EnrollBusiness:   https://us.enrollbusiness.com/BusinessProfile/7912834
+```
+
+All five are in the homepage schema `sameAs` as of 2026-08-07. Add Hotfrog,
+Zipleaf, and AGreaterTown public URLs when those listings go live.
+
+## Founding / opening date, never varies
+
+**September 16, 2020** (LLC formation; matches EIN letter CP 575 G). Use this
+everywhere a platform asks for a founding, opening, or established date.
 
 ## Services list, reuse everywhere
 
@@ -85,14 +103,16 @@ Year-End 1099 Filing
 
 | # | Platform | Cost | Why it matters | Notes |
 |---|---|---|---|---|
-| 1 | Google Business Profile | Free | The whole map pack. Nothing else comes close. | **Verified and live as of 2026-08-07.** Opening date 2020-09-16, women-owned attribute, service descriptions, SMS chat all set. Logo/cover assets: `../02-website/logo.png`, `gbp-cover.png` in this folder. |
-| 2 | Apple Business Connect | Free | Feeds Apple Maps and Siri. Ignored by most competitors, which is exactly why it is worth doing. | Service-area supported. |
-| 3 | Bing Places | Free | Feeds Bing and, increasingly, AI assistants that use Bing data. Can import directly from Google to save time. | Do after GBP is verified so the import is clean. |
-| 4 | Yelp | Free | Major citation source that Google reads, and it ranks for its own searches. | Expect heavy upsell calls and emails for ads. Decline them; the free listing is the point. |
-| 5 | Facebook Page | Free | Citation value plus the place word-of-mouth referrals actually land. | Set as a business page, not a personal profile. |
-| 6 | Nextdoor Business Page | Free | Neighborhood-level reach in exactly our corridor. Strong for home-services referrals. | Underused by competitors here. |
+| 1 | Google Business Profile | Free | The whole map pack. Nothing else comes close. | ✅ LIVE, verified + overhauled 2026-08-07. |
+| 2 | Apple Business Connect | Free | Feeds Apple Maps and Siri. | ⏸ Parked by Brad; runbook ready if revived. |
+| 3 | Bing Places | Free | Feeds Bing and AI assistants using Bing data. | ✅ Done 2026-08-07 (GBP import + sync). Bing Webmaster Tools also live (GSC import) — the ChatGPT gateway. |
+| 4 | Yelp | Free | #1 most-cited platform in AI local search. | ✅ Claimed + built 2026-08-07. Decline all ads forever. NEVER solicit Yelp reviews (Yelp rule). |
+| 5 | Facebook Page | Free | Citation + word-of-mouth landing spot. | ✅ Created by Brad 2026-08-07: facebook.com/TheReliefPros. NAP audit pending. |
+| 6 | Nextdoor Business Page | Free | Neighborhood reach in our corridor. | ✅ Done 2026-08-07 (name + hidden address audited). |
 | 7 | Find-a-ProAdvisor | Free | Both a citation and a credibility marker. | **Blocked** until Sarah completes QuickBooks certification. |
-| 8 | BBB basic listing | Free | Trust signal for an older demographic; the profile itself costs nothing. | Accreditation costs annual dues and is optional. Skip it for now. |
+| 8 | BBB basic listing | Free | #2 most-cited source in AI local search. | ⏸ HOLD until LLC reinstatement clears. Then do promptly. |
+
+**Batch 1 long-tail, executed 2026-08-07:** Hotfrog ✅ (live+verified) · EnrollBusiness ✅ (live) · ProvenExpert ✅ (live) · Zipleaf ⏳ (manual review) · AGreaterTown ⏳ (moderation) · BizHwy ❌ dropped (paid-add-on funnel). Full statuses + Phase 2 plan in `citation-runbook.md`.
 
 **Deliberately skipped:** BrightLocal, Yext, Moz Local and similar aggregators. They are monthly subscriptions that syndicate your data, and listings can decay if you stop paying. At this scale, direct listings are free, permanent, and fully under our control. Also skipped: Thumbtack and Bark, which the business plan rejected on pay-per-lead economics.
 
@@ -101,19 +121,8 @@ Year-End 1099 Filing
 - **Brad creates the accounts and completes any verification.** Claude does not create accounts or handle passwords. Once an account exists and is signed in, Claude can drive the browser to fill in the details consistently.
 - **Do these after Google verification clears**, so the Google listing is the established source of truth and Bing's import works cleanly.
 - **Never publish the home address** on any of them.
-- When a platform asks for a founding or opening date, use **September 16, 2020** (the LLC formation date, matching the Google Business Profile) and keep it identical across platforms.
+- When a platform asks for a founding or opening year, use the year the LLC was formed and keep it identical across platforms.
 - After each listing goes live, add it to the drive registry or note it here so we know what exists.
-
-## Entity links (for sameAs / profile fields)
-
-```
-Google profile:  https://g.page/r/CT_QCCqDAWfsEBM
-Google Maps CID: https://maps.google.com/?cid=17034585778409754687
-```
-
-These two are already in the homepage schema's sameAs. As each citation below
-goes live, add its public URL here AND to the sameAs array in
-`../02-website/index.html`, then run sync.bat to deploy.
 
 ## References
 
